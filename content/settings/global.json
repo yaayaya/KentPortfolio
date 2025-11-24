@@ -1,0 +1,34 @@
+{
+    "site": {
+        "title": "Manolo Beviá",
+        "description": "我協助團隊將模糊的想法轉化為專注、可用的介面。工作範圍涵蓋醫療保健、物聯網、SaaS 等各個領域。",
+        "email": "manolo.bevia@gmail.com"
+    },
+    "colors": {
+        "background": "#ffffff",
+        "foreground": "#1a1a1a",
+        "accent": "#4f46e5"
+    },
+    "typography": {
+        "fontFamily": "Inter",
+        "displayFont": "Space Grotesk"
+    },
+    "navigation": [
+        {
+            "label": "首頁",
+            "href": "/"
+        },
+        {
+            "label": "作品",
+            "href": "/work"
+        },
+        {
+            "label": "關於",
+            "href": "/about"
+        },
+        {
+            "label": "部落格",
+            "href": "/blog"
+        }
+    ]
+}

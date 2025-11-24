@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* 顏色變數 */
+    --color-background: #ffffff;
+    --color-foreground: #1a1a1a;
+    --color-muted: #7f7f7f;
+    --color-border: #e8e8e8;
+    --color-accent: #4f46e5;
+
+    /* 字體變數 */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+
+    /* 間距變數 */
+    --spacing-section: 8rem;
+    --spacing-section-mobile: 4rem;
+
+    /* 動畫變數 */
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    line-height: 1.6;
+}
+
+/* 選取文字顏色 */
+::selection {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+/* 平滑滾動 */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* 隱藏滾動條但保持功能 */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* 自訂工具類別 */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+
+    .animation-delay-400 {
+        animation-delay: 400ms;
+    }
+
+    .animation-delay-600 {
+        animation-delay: 600ms;
+    }
+
+    .animation-delay-800 {
+        animation-delay: 800ms;
+    }
+}
+
+/* 自訂元件樣式 */
+@layer components {
+    .container-custom {
+        @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+    }
+
+    .section-spacing {
+        @apply py-20 md:py-32;
+    }
+
+    .heading-display {
+        @apply font-display font-bold tracking-tight;
+    }
+
+    .link-hover {
+        @apply transition-colors duration-300 hover:text-accent;
+    }
+
+    .card-hover {
+        @apply transition-transform duration-300 hover:scale-105;
+    }
+}
