@@ -81,10 +81,24 @@ export default function Header() {
                                 </Link>
                             ))}
                             <a
-                                href="mailto:manolo.bevia@gmail.com"
-                                className="text-[15px] font-normal hover:opacity-70 transition-opacity"
+                                href="mailto:kent.liang@example.com"
+                                className="flex items-center gap-2 hover:opacity-70 transition-opacity"
+                                aria-label="Email"
+                                title="kent.liang@example.com"
                             >
-                                manolo.bevia@gmail.com
+                                <svg
+                                    className="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                                    />
+                                </svg>
                             </a>
                         </nav>
 
