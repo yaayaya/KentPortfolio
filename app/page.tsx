@@ -1,3 +1,5 @@
+'use client'
+
 import AnimatedSection from '@/components/AnimatedSection'
 import ProjectCard from '@/components/ProjectCard'
 import { getPlaceholderImage } from '@/lib/utils'
