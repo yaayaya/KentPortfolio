@@ -28,7 +28,7 @@ export default function AboutPage() {
                     <h1 className="text-5xl lg:text-6xl font-medium mb-12 tracking-tight">Kent</h1>
                     <div className="prose prose-lg max-w-none">
                         <p className="text-xl lg:text-2xl leading-relaxed text-gray-700 mb-6">
-                            梁家誠，1993 出生於台灣新北，現為數位工作者。
+                            梁家誠，1993 出生於台灣新北，現為藝術創作者。
                         </p>
                         <p className="text-lg leading-relaxed text-gray-600">
                             近年創作聚焦於科技物件與人類活動交互關係，本次個展意在模糊工具與物件的界線，

@@ -31,11 +31,20 @@ export default function HomePage() {
     return (
         <>
             {/* Hero 區塊 */}
-            <section className="min-h-screen flex items-center justify-center px-6 lg:px-12">
-                <div className="max-w-[1400px] w-full">
+            <section className="min-h-screen flex items-center justify-center px-6 lg:px-12 relative">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=2072&auto=format&fit=crop"
+                        alt="藝術創作背景"
+                        fill
+                        className="object-cover opacity-20"
+                        priority
+                    />
+                </div>
+                <div className="max-w-[1400px] w-full relative z-10">
                     <AnimatedSection variant="fadeInDown">
                         <h1 className="text-[clamp(3rem,8vw,7rem)] font-medium leading-[1.1] tracking-tight mb-8">
-                            數位
+                            藝術
                         </h1>
                     </AnimatedSection>
                     <AnimatedSection delay={0.1} variant="fadeInDown">
@@ -45,7 +54,7 @@ export default function HomePage() {
                     </AnimatedSection>
                     <AnimatedSection delay={0.2} variant="fadeInUp">
                         <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-gray-600">
-                            探索科技與人的交互關係
+                            探索科技與藝術的交互關係
                         </h2>
                     </AnimatedSection>
                 </div>
@@ -79,74 +88,13 @@ export default function HomePage() {
                             <Link href="/about" className="underline hover:opacity-70 transition-opacity">
                                 Kent 梁家誠
                             </Link>
-                            ，一位數位工作者。近年創作聚焦於科技物件與人類活動的交互關係，嘗試模糊工具與物件的界線。
+                            ，一位藝術創作者。近年創作聚焦於科技物件與人類活動的交互關係，嘗試模糊工具與物件的界線。
                         </p>
                     </AnimatedSection>
                     <AnimatedSection delay={0.4}>
                         <p className="text-xl lg:text-2xl text-gray-600 mt-12">
                             借由技術之眼，實驗人與物之間互為介面的可能。
                         </p>
-                    </AnimatedSection>
-                </div>
-            </section>
-
-            {/* 圖片廚廊區塊 */}
-            <section className="py-20 lg:py-32 px-6 lg:px-12 bg-black text-white">
-                <div className="max-w-[1400px] mx-auto">
-                    <AnimatedSection>
-                        <h2 className="text-[clamp(2rem,5vw,4rem)] font-medium mb-16">影像紀錄</h2>
-                    </AnimatedSection>
-                    <AnimatedSection delay={0.2}>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <div className="relative aspect-square rounded-lg overflow-hidden">
-                                <Image
-                                    src="/content/images/S__25813011_0_0.jpg"
-                                    alt="作品 1"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                            <div className="relative aspect-square rounded-lg overflow-hidden">
-                                <Image
-                                    src="/content/images/S__25813014_0_0.jpg"
-                                    alt="作品 2"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                            <div className="relative aspect-square rounded-lg overflow-hidden">
-                                <Image
-                                    src="/content/images/S__25813015_0_0.jpg"
-                                    alt="作品 3"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                            <div className="relative aspect-square rounded-lg overflow-hidden">
-                                <Image
-                                    src="/content/images/S__25813016_0_0.jpg"
-                                    alt="作品 4"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                            <div className="relative aspect-square rounded-lg overflow-hidden">
-                                <Image
-                                    src="/content/images/horizontal-1030.jpg"
-                                    alt="作品 5"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                            <div className="relative aspect-square rounded-lg overflow-hidden">
-                                <Image
-                                    src="/content/images/render-room-poster.jpg"
-                                    alt="作品 6"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                        </div>
                     </AnimatedSection>
                 </div>
             </section>

@@ -104,18 +104,18 @@ export default function Header() {
 
                         {/* 手機版漢堡按鈕 - 只在小螢幕顯示 */}
                         <button
-                            className="lg:hidden relative z-50 w-8 h-8 flex items-center justify-center group"
+                            className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center group"
                             onClick={() => setIsMobileMenuOpen(true)}
                             aria-label="開啟選單"
                         >
-                            {/* 紫色圓形背景 */}
-                            <div className="absolute inset-0 bg-[#7F66DA] rounded-full transition-transform group-hover:scale-110" />
+                            {/* 高級黑圓形背景 */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-full transition-all group-hover:scale-110 group-hover:shadow-lg" />
 
                             {/* 白色橫線 */}
-                            <div className="relative flex flex-col items-center justify-center gap-[3px]">
-                                <span className="w-[14px] h-[2px] bg-white rounded-full" />
-                                <span className="w-[14px] h-[2px] bg-white rounded-full" />
-                                <span className="w-[14px] h-[2px] bg-white rounded-full" />
+                            <div className="relative flex flex-col items-center justify-center gap-[4px]">
+                                <span className="w-[16px] h-[2px] bg-white rounded-full transition-all group-hover:w-[18px]" />
+                                <span className="w-[16px] h-[2px] bg-white rounded-full transition-all group-hover:w-[18px]" />
+                                <span className="w-[16px] h-[2px] bg-white rounded-full transition-all group-hover:w-[18px]" />
                             </div>
                         </button>
                     </div>
