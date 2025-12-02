@@ -12,8 +12,8 @@ export default function AboutPage() {
         <div className="pt-32 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
 
-                {/* Left Column: Image & Contact */}
-                <div className="lg:col-span-5 sticky top-32">
+                {/* Left Column: Image & Contact - Removed sticky to fix mobile issue */}
+                <div className="lg:col-span-5 lg:sticky lg:top-32">
                     <AnimatedSection>
                         <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-100 mb-8">
                             <ZoomableImage
@@ -29,7 +29,7 @@ export default function AboutPage() {
                             <h3 className="text-sm font-bold uppercase tracking-widest">Contact</h3>
                             <a
                                 href={`mailto:${personalInfo.email}`}
-                                className="block text-2xl font-medium hover:text-gray-600 transition-colors"
+                                className="block text-2xl font-medium hover:text-gray-600 transition-colors break-all"
                             >
                                 {personalInfo.email}
                             </a>

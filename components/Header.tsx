@@ -42,6 +42,19 @@ export default function Header() {
                     <nav className="hidden lg:flex items-center gap-12">
                         {globalData.navigation.map((item) => {
                             const isActive = pathname === item.href
+                            const isContact = item.label === 'Contact'
+
+                            if (isContact) {
+                                return (
+                                    <a
+                                        key={item.href}
+                                        href={item.href}
+                                        className="text-xs font-medium uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
+                                    >
+                                        {item.label}
+                                    </a>
+                                )
+                            }
 
                             return (
                                 <Link
@@ -64,14 +77,15 @@ export default function Header() {
                         })}
                     </nav>
 
-                    {/* Mobile Menu Button - Minimalist Style */}
+                    {/* Mobile Menu Button - Refined Design */}
                     <button
                         onClick={() => setIsMobileMenuOpen(true)}
-                        className="lg:hidden relative z-50 p-2 group"
+                        className="lg:hidden relative z-50 p-2 group w-12 h-12 flex items-center justify-center"
+                        aria-label="Open Menu"
                     >
-                        <div className="flex flex-col gap-[6px] items-end">
-                            <span className="w-8 h-[1.5px] bg-black transition-all duration-300 group-hover:w-6"></span>
-                            <span className="w-6 h-[1.5px] bg-black transition-all duration-300 group-hover:w-8"></span>
+                        <div className="flex flex-col gap-[6px] items-end w-6">
+                            <span className="w-full h-[1.5px] bg-black transition-all duration-300 group-hover:w-4"></span>
+                            <span className="w-4 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full"></span>
                         </div>
                     </button>
                 </div>

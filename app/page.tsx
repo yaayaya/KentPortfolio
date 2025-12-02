@@ -11,9 +11,19 @@ export default function HomePage() {
 
     return (
         <>
-            {/* Hero 區塊 */}
-            <section className="min-h-screen flex items-center justify-center px-6 lg:px-12">
-                <div className="max-w-[1400px] w-full">
+            {/* Hero 區塊 - Added Background Image */}
+            <section className="min-h-screen flex items-center justify-center px-6 lg:px-12 relative overflow-hidden">
+                {/* Background Image Layer */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/content/images/render-room-poster.jpg"
+                        alt="Hero Background"
+                        className="w-full h-full object-cover opacity-20 blur-sm scale-105"
+                    />
+                    <div className="absolute inset-0 bg-white/60"></div>
+                </div>
+
+                <div className="max-w-[1400px] w-full relative z-10">
                     <AnimatedSection variant="fadeInDown">
                         <h1 className="text-[clamp(3rem,8vw,7rem)] font-medium leading-[1.1] tracking-tight mb-8">
                             Introductions
@@ -32,7 +42,7 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* News Section (Replacing old Projects Grid) */}
+            {/* News Section */}
             <section className="py-20 lg:py-32 px-6 lg:px-12 bg-gray-50">
                 <div className="max-w-[1400px] mx-auto">
                     <div className="flex items-end justify-between mb-16">
