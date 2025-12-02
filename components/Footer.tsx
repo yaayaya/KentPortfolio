@@ -1,82 +1,68 @@
-import Link from 'next/link'
+'use client'
 
-/**
- * 頁尾元件
- */
+import Link from 'next/link'
+import globalData from '@/content/settings/global.json'
+
 export default function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="bg-gray-50 border-t border-gray-200">
-            <div className="container-custom py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* 品牌資訊 */}
-                    <div>
-                        <h3 className="text-lg font-display font-bold mb-4">Kent 梁家誠</h3>
-                        <p className="text-sm text-gray-600">
-                            數位工作者，探索科技與人的交互關係
-                        </p>
-                    </div>
+        <footer className="bg-white border-t border-gray-100 py-20 px-6 lg:px-12">
+            <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12">
 
-                    {/* 快速連結 */}
-                    <div>
-                        <h4 className="text-sm font-semibold mb-4">快速連結</h4>
-                        <ul className="space-y-2">
-                            <li>
-                                <Link href="/work" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                                    作品
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                                    關於
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                                    部落格
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* 聯絡資訊 */}
-                    <div>
-                        <h4 className="text-sm font-semibold mb-4">聯絡方式</h4>
-                        <a
-                            href="mailto:kent.liang@example.com"
-                            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                            title="kent.liang@example.com"
-                        >
-                            <svg
-                                className="w-5 h-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                                />
-                            </svg>
-                            <span>Email</span>
-                        </a>
-                    </div>
+                {/* Brand */}
+                <div className="lg:col-span-2">
+                    <Link href="/" className="inline-block mb-6">
+                        <span className="text-xl font-bold tracking-tighter uppercase">
+                            Kent 梁家誠
+                        </span>
+                    </Link>
+                    <p className="text-gray-500 max-w-sm leading-relaxed">
+                        Digital Artist / Designer based in Taipei.
+                        Exploring the boundaries between tools and objects.
+                    </p>
                 </div>
 
-                {/* 版權資訊 */}
-                <div className="mt-12 pt-8 border-t border-gray-200">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-sm text-gray-600">
-                            © {currentYear} Kent 梁家誠. 保留所有權利。
-                        </p>
-                        <p className="text-sm text-gray-600">
-                            數位藝術 / 互動創作
-                        </p>
-                    </div>
+                {/* Links */}
+                <div>
+                    <h4 className="text-xs font-bold uppercase tracking-widest mb-6 text-gray-400">Sitemap</h4>
+                    <ul className="space-y-3">
+                        {globalData.navigation.map(item => (
+                            <li key={item.href}>
+                                <Link href={item.href} className="text-sm hover:text-gray-500 transition-colors uppercase tracking-wider">
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
+
+                {/* Social / Contact */}
+                <div>
+                    <h4 className="text-xs font-bold uppercase tracking-widest mb-6 text-gray-400">Connect</h4>
+                    <ul className="space-y-3">
+                        <li>
+                            <a href="mailto:kent@example.com" className="text-sm hover:text-gray-500 transition-colors uppercase tracking-wider">
+                                Email
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="text-sm hover:text-gray-500 transition-colors uppercase tracking-wider">
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="text-sm hover:text-gray-500 transition-colors uppercase tracking-wider">
+                                LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="max-w-[1600px] mx-auto mt-20 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 uppercase tracking-widest">
+                <p>© {currentYear} Kent 梁家誠. All rights reserved.</p>
+                <p>Designed & Built by Kent</p>
             </div>
         </footer>
     )

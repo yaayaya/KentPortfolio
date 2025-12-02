@@ -1,148 +1,56 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-
-interface NavItem {
-    label: string
-    href: string
-}
+import { X } from 'lucide-react'
+import globalData from '@/content/settings/global.json'
 
 interface MobileMenuProps {
-    isOpen: boolean
     onClose: () => void
-    navItems: NavItem[]
 }
 
-/**
- * 手機版選單元件 - 完美復刻原網站
- */
-export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
+export default function MobileMenu({ onClose }: MobileMenuProps) {
     return (
-        <AnimatePresence>
-            {isOpen && (
-                <>
-                    {/* 背景遮罩 */}
-                    <motion.div
-                        className="fixed inset-0 bg-black/40 z-50 lg:hidden"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        onClick={onClose}
-                    />
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-white flex flex-col"
+        >
+            {/* Header inside menu */}
+            <div className="flex items-center justify-between px-6 py-8">
+                <span className="text-xl font-bold tracking-tighter uppercase">Menu</span>
+                <button onClick={onClose} className="p-2 hover:opacity-50 transition-opacity">
+                    <X size={32} strokeWidth={1} />
+                </button>
+            </div>
 
-                    {/* 選單內容 */}
+            {/* Links */}
+            <div className="flex-1 flex flex-col justify-center px-6 gap-8">
+                {globalData.navigation.map((item, index) => (
                     <motion.div
-                        className="fixed inset-y-0 right-0 w-full bg-white z-50 lg:hidden overflow-y-auto"
-                        initial={{ x: '100%' }}
-                        animate={{ x: 0 }}
-                        exit={{ x: '100%' }}
-                        transition={{
-                            type: 'spring',
-                            damping: 30,
-                            stiffness: 300,
-                        }}
+                        key={item.href}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
                     >
-                        <div className="min-h-full flex flex-col">
-                            {/* 頂部關閉按鈕 */}
-                            <div className="flex justify-end p-6">
-                                <button
-                                    onClick={onClose}
-                                    className="w-10 h-10 flex items-center justify-center hover:opacity-70 transition-opacity"
-                                    aria-label="關閉選單"
-                                >
-                                    <svg
-                                        className="w-6 h-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth={2}
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M6 18L18 6M6 6l12 12"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            {/* 選單項目 */}
-                            <nav className="flex-1 px-8 pb-12">
-                                <motion.ul
-                                    className="space-y-8"
-                                    initial="hidden"
-                                    animate="visible"
-                                    variants={{
-                                        visible: {
-                                            transition: {
-                                                staggerChildren: 0.08,
-                                                delayChildren: 0.15,
-                                            },
-                                        },
-                                    }}
-                                >
-                                    {navItems.map((item) => (
-                                        <motion.li
-                                            key={item.href}
-                                            variants={{
-                                                hidden: { opacity: 0, x: 20 },
-                                                visible: {
-                                                    opacity: 1,
-                                                    x: 0,
-                                                    transition: {
-                                                        duration: 0.4,
-                                                        ease: [0.22, 1, 0.36, 1],
-                                                    },
-                                                },
-                                            }}
-                                        >
-                                            <Link
-                                                href={item.href}
-                                                onClick={onClose}
-                                                className="block text-3xl font-medium tracking-tight hover:opacity-70 transition-opacity"
-                                            >
-                                                {item.label}
-                                            </Link>
-                                        </motion.li>
-                                    ))}
-                                </motion.ul>
-
-                                {/* Email 連結 */}
-                                <motion.div
-                                    className="mt-12"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5, duration: 0.4 }}
-                                >
-                                    <a
-                                        href="mailto:kent.liang@example.com"
-                                        className="inline-flex items-center gap-3 text-lg hover:opacity-70 transition-opacity"
-                                        onClick={onClose}
-                                        title="kent.liang@example.com"
-                                    >
-                                        <svg
-                                            className="w-6 h-6"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth={1.5}
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                                            />
-                                        </svg>
-                                        <span>Email</span>
-                                    </a>
-                                </motion.div>
-                            </nav>
-                        </div>
+                        <Link
+                            href={item.href}
+                            onClick={onClose}
+                            className="text-4xl font-light uppercase tracking-tight hover:text-gray-500 transition-colors"
+                        >
+                            {item.label}
+                        </Link>
                     </motion.div>
-                </>
-            )}
-        </AnimatePresence>
+                ))}
+            </div>
+
+            {/* Footer Info */}
+            <div className="px-6 py-8 border-t border-gray-100">
+                <p className="text-xs text-gray-400 uppercase tracking-widest">
+                    © 2025 Kent 梁家誠
+                </p>
+            </div>
+        </motion.div>
     )
 }
