@@ -1,0 +1,20 @@
+{
+  "heroImage": "https://placehold.co/1200x1200?text=Kent",
+  "name": "Kent 梁家誠",
+  "title": "Digital Artist / Designer",
+  "email": "kent@example.com",
+  "intro": "\\[object Object]\n",
+  "exhibitions": [
+    {
+      "year": "2022",
+      "title": "沒有部分的部分",
+      "location": "板橋435藝術特區, 新北, 台灣"
+    },
+    {
+      "year": "2023",
+      "title": "隱密聯繫",
+      "location": "新北市藝文中心, 新北, 台灣"
+    }
+  ],
+  "artistStatement": "\\[object Object]\n"
+}

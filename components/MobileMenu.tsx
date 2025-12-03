@@ -3,13 +3,16 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { X } from 'lucide-react'
-import globalData from '@/content/settings/global.json'
 
 interface MobileMenuProps {
     onClose: () => void
+    navigation: {
+        label: string
+        href: string
+    }[]
 }
 
-export default function MobileMenu({ onClose }: MobileMenuProps) {
+export default function MobileMenu({ onClose, navigation }: MobileMenuProps) {
     return (
         <motion.div
             initial={{ opacity: 0, y: '-100%' }}
@@ -31,7 +34,7 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
 
             {/* Links */}
             <div className="flex-1 flex flex-col justify-center px-6 gap-8">
-                {globalData.navigation.map((item, index) => {
+                {navigation.map((item, index) => {
                     const isContact = item.label === 'Contact'
 
                     if (isContact) {

@@ -1,0 +1,67 @@
+fragment HomeParts on Home {
+  __typename
+  heroTitle1
+  heroTitle2
+  heroSubtitle
+  heroBackground
+  introText1
+  introText2
+  introText3
+}
+
+fragment AboutParts on About {
+  __typename
+  heroImage
+  name
+  title
+  email
+  intro
+  exhibitions {
+    __typename
+    year
+    title
+    location
+  }
+  artistStatement
+}
+
+fragment NewsParts on News {
+  __typename
+  title
+  date
+  description
+  coverImage
+  body
+  gallery
+}
+
+fragment Art_worksParts on Art_works {
+  __typename
+  title
+  category
+  year
+  description
+  coverImage
+  body
+  gallery
+}
+
+fragment GlobalParts on Global {
+  __typename
+  site {
+    __typename
+    title
+    description
+    email
+  }
+  navigation {
+    __typename
+    label
+    href
+  }
+  social {
+    __typename
+    platform
+    url
+  }
+}

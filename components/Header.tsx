@@ -5,13 +5,22 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import clsx from 'clsx'
-import globalData from '@/content/settings/global.json'
 import MobileMenu from './MobileMenu'
 
-export default function Header() {
+interface HeaderProps {
+    data: {
+        navigation: {
+            label: string
+            href: string
+        }[]
+    }
+}
+
+export default function Header({ data }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const pathname = usePathname()
+    const navigation = data?.navigation || []
 
     // 監聽滾動事件
     useEffect(() => {
@@ -40,7 +49,7 @@ export default function Header() {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-12">
-                        {globalData.navigation.map((item) => {
+                        {navigation.map((item) => {
                             const isActive = pathname === item.href
                             const isContact = item.label === 'Contact'
 
@@ -94,7 +103,7 @@ export default function Header() {
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <MobileMenu onClose={() => setIsMobileMenuOpen(false)} />
+                    <MobileMenu onClose={() => setIsMobileMenuOpen(false)} navigation={navigation} />
                 )}
             </AnimatePresence>
         </>

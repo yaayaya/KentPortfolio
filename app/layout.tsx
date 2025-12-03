@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { client } from '@/tina/__generated__/client'
 
 const inter = Inter({
     subsets: ['latin'],
@@ -17,28 +18,24 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-    title: 'Manolo Beviá | 產品設計師 將想法轉化為體驗',
-    description: '我協助團隊將模糊的想法轉化為專注、可用的介面。工作範圍涵蓋醫療保健、物聯網、SaaS 等各個領域。',
-    keywords: ['產品設計', 'UX/UI 設計', 'Web 開發', '作品集'],
-    authors: [{ name: 'Manolo Beviá' }],
-    openGraph: {
-        title: 'Manolo Beviá | 產品設計師',
-        description: '我協助團隊將模糊的想法轉化為專注、可用的介面。',
-        type: 'website',
-    },
+    title: 'Kent 梁家誠 | Digital Artist',
+    description: 'Digital Artist / Designer based in Taipei.',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
+    const globalRes = await client.queries.global({ relativePath: 'global.json' })
+    const globalData = globalRes.data.global
+
     return (
         <html lang="zh-TW" className={`${inter.variable} ${spaceGrotesk.variable}`}>
             <body className="antialiased">
-                <Header />
+                <Header data={globalData} />
                 <main className="min-h-screen pt-20">{children}</main>
-                <Footer />
+                <Footer data={globalData} />
             </body>
         </html>
     )

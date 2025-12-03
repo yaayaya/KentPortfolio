@@ -4,15 +4,6 @@
         "description": "Digital Artist / Designer",
         "email": "kent@example.com"
     },
-    "colors": {
-        "background": "#ffffff",
-        "foreground": "#1a1a1a",
-        "accent": "#4f46e5"
-    },
-    "typography": {
-        "fontFamily": "Inter",
-        "displayFont": "Space Grotesk"
-    },
     "navigation": [
         {
             "label": "Home",
@@ -29,6 +20,16 @@
         {
             "label": "About",
             "href": "/about"
+        }
+    ],
+    "social": [
+        {
+            "platform": "Instagram",
+            "url": "#"
+        },
+        {
+            "platform": "LinkedIn",
+            "url": "#"
         }
     ]
 }

@@ -1,274 +1,252 @@
 import { defineConfig } from 'tinacms'
 
-// TinaCMS 配置
+// Your hosting provider likely exposes this as an environment variable
+const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
+
 export default defineConfig({
-    branch: process.env.NEXT_PUBLIC_TINA_BRANCH || 'main',
-    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-    token: process.env.TINA_TOKEN,
+    branch,
+    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID ?? null,
+    token: process.env.TINA_TOKEN ?? null,
 
     build: {
         outputFolder: 'admin',
         publicFolder: 'public',
     },
-
     media: {
         tina: {
-            mediaRoot: 'uploads',
+            mediaRoot: 'content/images',
             publicFolder: 'public',
         },
     },
-
     schema: {
         collections: [
-            // 專案集合
             {
-                name: 'project',
-                label: '專案作品',
-                path: 'content/projects',
+                name: 'home',
+                label: 'Home Page',
+                path: 'content/pages',
+                match: { include: 'home' },
                 format: 'json',
+                ui: {
+                    allowedActions: { create: false, delete: false },
+                },
+                fields: [
+                    {
+                        type: 'string',
+                        name: 'heroTitle1',
+                        label: 'Hero Title Line 1',
+                    },
+                    {
+                        type: 'string',
+                        name: 'heroTitle2',
+                        label: 'Hero Title Line 2',
+                    },
+                    {
+                        type: 'string',
+                        name: 'heroSubtitle',
+                        label: 'Hero Subtitle',
+                    },
+                    {
+                        type: 'image',
+                        name: 'heroBackground',
+                        label: 'Hero Background Image',
+                    },
+                    {
+                        type: 'string',
+                        name: 'introText1',
+                        label: 'Introduction Small Text',
+                    },
+                    {
+                        type: 'rich-text',
+                        name: 'introText2',
+                        label: 'Introduction Main Text',
+                    },
+                    {
+                        type: 'string',
+                        name: 'introText3',
+                        label: 'Introduction Footer Text',
+                    },
+                ],
+            },
+            {
+                name: 'about',
+                label: 'About Page',
+                path: 'content/pages',
+                match: { include: 'about' },
+                format: 'json',
+                ui: {
+                    allowedActions: { create: false, delete: false },
+                },
+                fields: [
+                    {
+                        type: 'image',
+                        name: 'heroImage',
+                        label: 'Profile Image',
+                    },
+                    {
+                        type: 'string',
+                        name: 'name',
+                        label: 'Name',
+                    },
+                    {
+                        type: 'string',
+                        name: 'title',
+                        label: 'Job Title',
+                    },
+                    {
+                        type: 'string',
+                        name: 'email',
+                        label: 'Email',
+                    },
+                    {
+                        type: 'rich-text',
+                        name: 'intro',
+                        label: 'Introduction',
+                    },
+                    {
+                        type: 'object',
+                        name: 'exhibitions',
+                        label: 'Exhibitions',
+                        list: true,
+                        fields: [
+                            { type: 'string', name: 'year', label: 'Year' },
+                            { type: 'string', name: 'title', label: 'Title' },
+                            { type: 'string', name: 'location', label: 'Location' },
+                        ],
+                    },
+                    {
+                        type: 'rich-text',
+                        name: 'artistStatement',
+                        label: 'Artist Statement',
+                    },
+                ],
+            },
+            {
+                name: 'news',
+                label: 'News',
+                path: 'content/news',
+                format: 'md',
                 fields: [
                     {
                         type: 'string',
                         name: 'title',
-                        label: '專案名稱',
+                        label: 'Title',
+                        isTitle: true,
                         required: true,
                     },
                     {
                         type: 'string',
-                        name: 'subtitle',
-                        label: '副標題',
+                        name: 'date',
+                        label: 'Date',
                         required: true,
                     },
                     {
                         type: 'string',
                         name: 'description',
-                        label: '描述',
-                        ui: {
-                            component: 'textarea',
-                        },
+                        label: 'Short Description / Location',
                     },
                     {
                         type: 'image',
-                        name: 'image',
-                        label: '專案圖片',
+                        name: 'coverImage',
+                        label: 'Cover Image',
                     },
                     {
+                        type: 'rich-text',
+                        name: 'body',
+                        label: 'Body',
+                        isBody: true,
+                    },
+                    {
+                        type: 'image',
+                        name: 'gallery',
+                        label: 'Image Gallery',
+                        list: true,
+                    },
+                ],
+            },
+            {
+                name: 'art_works',
+                label: 'Art Works',
+                path: 'content/art-works',
+                format: 'md',
+                fields: [
+                    {
                         type: 'string',
-                        name: 'slug',
-                        label: 'URL 路徑',
+                        name: 'title',
+                        label: 'Title',
+                        isTitle: true,
                         required: true,
                     },
                     {
                         type: 'string',
                         name: 'category',
-                        label: '分類',
-                        options: ['UX/UI Design', 'Web Development', 'Mobile App', 'Branding', 'Other'],
-                    },
-                    {
-                        type: 'datetime',
-                        name: 'date',
-                        label: '日期',
-                    },
-                    {
-                        type: 'boolean',
-                        name: 'featured',
-                        label: '精選專案',
-                    },
-                    {
-                        type: 'number',
-                        name: 'order',
-                        label: '排序',
-                    },
-                ],
-            },
-
-            // 部落格集合
-            {
-                name: 'blog',
-                label: '部落格文章',
-                path: 'content/blog',
-                format: 'json',
-                fields: [
-                    {
-                        type: 'string',
-                        name: 'title',
-                        label: '文章標題',
-                        required: true,
+                        label: 'Category',
                     },
                     {
                         type: 'string',
-                        name: 'excerpt',
-                        label: '摘要',
-                        ui: {
-                            component: 'textarea',
-                        },
+                        name: 'year',
+                        label: 'Year',
+                    },
+                    {
+                        type: 'string',
+                        name: 'description',
+                        label: 'Short Description',
+                    },
+                    {
+                        type: 'image',
+                        name: 'coverImage',
+                        label: 'Cover Image',
                     },
                     {
                         type: 'rich-text',
                         name: 'body',
-                        label: '內容',
+                        label: 'Body',
                         isBody: true,
                     },
                     {
                         type: 'image',
-                        name: 'image',
-                        label: '特色圖片',
-                    },
-                    {
-                        type: 'string',
-                        name: 'slug',
-                        label: 'URL 路徑',
-                        required: true,
-                    },
-                    {
-                        type: 'datetime',
-                        name: 'date',
-                        label: '發布日期',
-                    },
-                    {
-                        type: 'string',
-                        name: 'author',
-                        label: '作者',
-                    },
-                    {
-                        type: 'string',
-                        name: 'tags',
-                        label: '標籤',
+                        name: 'gallery',
+                        label: 'Image Gallery',
                         list: true,
                     },
                 ],
             },
-
-            // 頁面集合
             {
-                name: 'page',
-                label: '頁面',
-                path: 'content/pages',
-                format: 'json',
-                fields: [
-                    {
-                        type: 'string',
-                        name: 'title',
-                        label: '頁面標題',
-                        required: true,
-                    },
-                    {
-                        type: 'string',
-                        name: 'slug',
-                        label: 'URL 路徑',
-                        required: true,
-                    },
-                    {
-                        type: 'rich-text',
-                        name: 'body',
-                        label: '內容',
-                        isBody: true,
-                    },
-                ],
-            },
-
-            // 全域設定集合
-            {
-                name: 'settings',
-                label: '全域設定',
+                name: 'global',
+                label: 'Global Settings',
                 path: 'content/settings',
                 format: 'json',
                 ui: {
-                    allowedActions: {
-                        create: false,
-                        delete: false,
-                    },
+                    allowedActions: { create: false, delete: false },
                 },
                 fields: [
                     {
                         type: 'object',
                         name: 'site',
-                        label: '網站資訊',
+                        label: 'Site Info',
                         fields: [
-                            {
-                                type: 'string',
-                                name: 'title',
-                                label: '網站標題',
-                            },
-                            {
-                                type: 'string',
-                                name: 'description',
-                                label: '網站描述',
-                                ui: {
-                                    component: 'textarea',
-                                },
-                            },
-                            {
-                                type: 'string',
-                                name: 'email',
-                                label: 'Email',
-                            },
-                        ],
-                    },
-                    {
-                        type: 'object',
-                        name: 'colors',
-                        label: '顏色配置',
-                        fields: [
-                            {
-                                type: 'string',
-                                name: 'background',
-                                label: '背景色',
-                                ui: {
-                                    component: 'color',
-                                },
-                            },
-                            {
-                                type: 'string',
-                                name: 'foreground',
-                                label: '前景色',
-                                ui: {
-                                    component: 'color',
-                                },
-                            },
-                            {
-                                type: 'string',
-                                name: 'accent',
-                                label: '強調色',
-                                ui: {
-                                    component: 'color',
-                                },
-                            },
-                        ],
-                    },
-                    {
-                        type: 'object',
-                        name: 'typography',
-                        label: '字體設定',
-                        fields: [
-                            {
-                                type: 'string',
-                                name: 'fontFamily',
-                                label: '字體家族',
-                            },
-                            {
-                                type: 'string',
-                                name: 'displayFont',
-                                label: '標題字體',
-                            },
+                            { type: 'string', name: 'title', label: 'Site Title' },
+                            { type: 'string', name: 'description', label: 'Site Description' },
+                            { type: 'string', name: 'email', label: 'Contact Email' },
                         ],
                     },
                     {
                         type: 'object',
                         name: 'navigation',
-                        label: '導航選單',
+                        label: 'Navigation',
                         list: true,
                         fields: [
-                            {
-                                type: 'string',
-                                name: 'label',
-                                label: '選單文字',
-                            },
-                            {
-                                type: 'string',
-                                name: 'href',
-                                label: '連結',
-                            },
+                            { type: 'string', name: 'label', label: 'Label' },
+                            { type: 'string', name: 'href', label: 'Link' },
+                        ],
+                    },
+                    {
+                        type: 'object',
+                        name: 'social',
+                        label: 'Social Links',
+                        list: true,
+                        fields: [
+                            { type: 'string', name: 'platform', label: 'Platform Name' },
+                            { type: 'string', name: 'url', label: 'URL' },
                         ],
                     },
                 ],
