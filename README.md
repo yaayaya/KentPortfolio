@@ -36,3 +36,28 @@ npm run build
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **Animation**: Framer Motion
+
+## TinaCMS Cloud Setup (Production)
+
+To enable content editing in production (e.g., on Vercel), you need to connect to Tina Cloud.
+
+### 1. Setup Tina Cloud Project
+1. Go to [Tina Cloud Dashboard](https://app.tina.io/) and sign up/login.
+2. Create a new project and select your GitHub repository.
+3. Once created, you will get a **Client ID**.
+4. Go to the "Tokens" tab and create a **Content (Read/Write)** token.
+
+### 2. Configure Environment Variables
+In your hosting provider (e.g., Vercel), add the following environment variables:
+
+```bash
+NEXT_PUBLIC_TINA_CLIENT_ID=<Your Client ID>
+TINA_TOKEN=<Your Content Token>
+NEXT_PUBLIC_TINA_BRANCH=main
+```
+
+### 3. Enable Media Manager (Optional)
+If you want to upload images to a cloud provider (like Cloudinary) instead of Git, you'll need to configure a media store. By default, this project uses Git-backed media (images saved to the repo).
+
+### 4. Access Admin
+Once deployed, navigate to `/admin` on your production URL to log in and edit content.
