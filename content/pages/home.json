@@ -1,36 +1,9 @@
 {
-    "heroTitle1": "Introductions",
-    "heroTitle2": "Can Wait.",
-    "heroSubtitle": "Get to Know my Work",
-    "heroBackground": "/content/images/render-room-poster.jpg",
-    "introText1": "Okay, Here's the introduction.",
-    "introText2": {
-        "type": "root",
-        "children": [
-            {
-                "type": "p",
-                "children": [
-                    {
-                        "type": "text",
-                        "text": "I'm "
-                    },
-                    {
-                        "type": "a",
-                        "url": "/about",
-                        "children": [
-                            {
-                                "type": "text",
-                                "text": "Kent 梁家誠"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "text",
-                        "text": ", a digital artist/designer exploring the boundaries between tools and objects. I turn technical operations into visual art."
-                    }
-                ]
-            }
-        ]
-    },
-    "introText3": "That's it. No long stories."
+  "heroTitle1": "Introductions",
+  "heroTitle2": "Cant Wait.",
+  "heroSubtitle": "Get to Know my Worksss",
+  "heroBackground": "/content/images/render-room-poster.jpg",
+  "introText1": "Okay, Here's the introduction.",
+  "introText2": "*\\[object Object]*\n",
+  "introText3": "That's it. No long stories."
 }

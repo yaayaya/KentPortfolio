@@ -4,7 +4,7 @@ description: How to use TinaCMS for content editing
 
 # TinaCMS 使用指南
 
-本網站整合了 TinaCMS，讓您可以直接透過圖形化介面編輯網站內容，無需修改程式碼。
+本網站整合了 TinaCMS，讓您可以直接透過圖形化介面編輯網站內容。
 
 ## 1. 啟動開發環境
 
@@ -22,44 +22,30 @@ npm run tina:dev
 2.  在瀏覽器網址列輸入：`http://localhost:3000/admin`
 3.  您將看到 TinaCMS 的側邊欄編輯器。
 
-## 3. 可編輯的內容
+## 3. 安全性與登入 (Security & Login)
+
+目前開發環境處於 **Local Mode (本地模式)**：
+*   **無需登入**：因為是運行在您的個人電腦上，任何人訪問 `localhost:3000/admin` 都可以編輯。
+*   **檔案寫入**：所有的變更會直接寫入您電腦上的檔案系統 (`content/` 資料夾)。
+
+**若要部署到正式環境並需要帳號密碼登入**：
+*   必須整合 **Tina Cloud**。
+*   這需要註冊 Tina Cloud 帳號，並在 `tina/config.ts` 與環境變數中設定 `clientId` 與 `token`。
+*   Tina Cloud 提供安全的使用者認證與權限管理。
+
+## 4. 可編輯的內容
 
 目前支援編輯的區域包括：
 
-*   **首頁 (Home Page)**：
-    *   標題、副標題 (Hero Section)
-    *   Hero 背景圖片
-    *   介紹文字 (Introduction)
+*   **首頁 (Home Page)**：標題、Hero 圖片、介紹文字。
+*   **全域設定 (Global Settings)**：網站標題、導航、社群連結、Email。
+*   **新聞 (News)**：文章管理。
+*   **作品 (Art Works)**：作品集管理。
+*   **關於 (About Page)**：個人資料與經歷。
 
-*   **全域設定 (Global Settings)**：
-    *   網站標題、描述
-    *   導航選單 (Navigation)
-    *   社群連結 (Social Links)
-    *   聯絡 Email
+## 5. 常見問題
 
-*   **新聞 (News)**：
-    *   新增、編輯或刪除新聞文章
-    *   設定日期、封面圖、圖庫 (Gallery)
-
-*   **作品 (Art Works)**：
-    *   新增、編輯或刪除作品
-    *   設定分類、年份、封面圖、圖庫
-
-*   **關於 (About Page)**：
-    *   個人照片、名稱、職稱
-    *   自我介紹、展覽經歷、創作理念
-
-## 4. 編輯流程
-
-1.  在左側側邊欄選擇要編輯的 Collection。
-2.  點擊具體的項目進入編輯表單。
-3.  修改文字、更換圖片或調整顏色。
-4.  右側預覽視窗會即時顯示變更結果。
-5.  完成後點擊上方的 **Save** 按鈕。
-    *   這會直接修改專案中的 JSON/Markdown 檔案 (`content/` 目錄下)。
-
-## 5. 圖片管理
-
-*   點擊圖片欄位可開啟媒體管理器。
-*   您可以上傳新圖片或選擇現有圖片。
-*   圖片會儲存在 `public/content/images` 目錄中。
+*   **編輯後網頁沒變？**
+    *   請確保您是透過 `npm run tina:dev` 啟動。
+    *   編輯後請點擊 **Save**。
+    *   若即時預覽未更新，請嘗試重新整理頁面。

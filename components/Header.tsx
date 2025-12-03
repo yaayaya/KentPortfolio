@@ -13,6 +13,10 @@ interface HeaderProps {
             label: string
             href: string
         }[]
+        social: {
+            platform: string
+            url: string
+        }[]
     }
 }
 
@@ -21,6 +25,7 @@ export default function Header({ data }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const pathname = usePathname()
     const navigation = data?.navigation || []
+    const social = data?.social || []
 
     // 監聽滾動事件
     useEffect(() => {
@@ -51,19 +56,6 @@ export default function Header({ data }: HeaderProps) {
                     <nav className="hidden lg:flex items-center gap-12">
                         {navigation.map((item) => {
                             const isActive = pathname === item.href
-                            const isContact = item.label === 'Contact'
-
-                            if (isContact) {
-                                return (
-                                    <a
-                                        key={item.href}
-                                        href={item.href}
-                                        className="text-xs font-medium uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
-                                    >
-                                        {item.label}
-                                    </a>
-                                )
-                            }
 
                             return (
                                 <Link
@@ -86,15 +78,21 @@ export default function Header({ data }: HeaderProps) {
                         })}
                     </nav>
 
-                    {/* Mobile Menu Button - Refined Design */}
+                    {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(true)}
                         className="lg:hidden relative z-50 p-2 group w-12 h-12 flex items-center justify-center"
                         aria-label="Open Menu"
                     >
                         <div className="flex flex-col gap-[6px] items-end w-6">
-                            <span className="w-full h-[1.5px] bg-black transition-all duration-300 group-hover:w-4"></span>
-                            <span className="w-4 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                            <span className={clsx("w-full h-[1.5px] bg-black transition-all duration-300 group-hover:w-4", isMobileMenuOpen && "rotate-45 translate-y-[8px]")}></span>
+                            <span className={clsx("w-4 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full", isMobileMenuOpen && "opacity-0")}></span>
+                            {/* Add a 3rd line for hamburger if needed, but 2 lines is minimalist. 
+                    Actually, let's keep the 2 lines but make them cross when open? 
+                    Or just let the Menu overlay handle the close button. 
+                    The overlay covers the header, so this button might be covered. 
+                    Let's rely on the close button inside MobileMenu.
+                */}
                         </div>
                     </button>
                 </div>
@@ -103,7 +101,11 @@ export default function Header({ data }: HeaderProps) {
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <MobileMenu onClose={() => setIsMobileMenuOpen(false)} navigation={navigation} />
+                    <MobileMenu
+                        onClose={() => setIsMobileMenuOpen(false)}
+                        navigation={navigation}
+                        social={social}
+                    />
                 )}
             </AnimatePresence>
         </>

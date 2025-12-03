@@ -24,12 +24,24 @@
     ],
     "social": [
         {
-            "platform": "Instagram",
-            "url": "#"
+            "platform": "Email",
+            "url": "mailto:kent@example.com"
         },
         {
             "platform": "LinkedIn",
-            "url": "#"
+            "url": "https://linkedin.com"
+        },
+        {
+            "platform": "Instagram",
+            "url": "https://instagram.com"
+        },
+        {
+            "platform": "Github",
+            "url": "https://github.com"
+        },
+        {
+            "platform": "Dribbble",
+            "url": "https://dribbble.com"
         }
     ]
 }
