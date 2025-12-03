@@ -21,6 +21,14 @@
     /* 動畫變數 */
     --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Header Toggle & View Transition Configuration */
+    --toggle-light: hsla(230, 25%, 10%, 1);
+    --toggle-dark: hsla(230, 25%, 75%, 1);
+
+    /* View Transition coordinates - updated via JS */
+    --x: 50%;
+    --y: 50%;
 }
 
 .dark {
@@ -40,6 +48,11 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --toggle-color: var(--toggle-light);
+}
+
+html.dark {
+    --toggle-color: var(--toggle-dark);
 }
 
 body {
@@ -116,4 +129,113 @@ body {
     .card-hover {
         @apply transition-transform duration-300 hover:scale-105;
     }
+}
+
+/* View Transitions */
+@keyframes reveal-in {
+    from {
+        clip-path: circle(0% at var(--x) var(--y));
+    }
+
+    to {
+        clip-path: circle(150% at var(--x) var(--y));
+    }
+}
+
+@keyframes reveal-out {
+    from {
+        clip-path: circle(150% at var(--x) var(--y));
+    }
+
+    to {
+        clip-path: circle(0% at var(--x) var(--y));
+    }
+}
+
+::view-transition-new(root) {
+    animation: reveal-in 0.5s ease-in-out forwards;
+    z-index: 1;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    animation: reveal-out 0.5s ease-in-out forwards;
+    z-index: 0;
+    mix-blend-mode: normal;
+}
+
+::view-transition-image-pair(root) {
+    isolation: isolate;
+}
+
+/* Toggle Component Styles */
+.toggle-label {
+    cursor: pointer;
+    z-index: 10;
+    transform: scale(0.6);
+    display: block;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-div {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    box-shadow: inset 16px -16px 0 0 var(--toggle-color);
+    transform: scale(1) rotate(-2deg);
+    transition: box-shadow .5s ease 0s, transform .4s ease .1s;
+}
+
+.toggle-div:before {
+    content: '';
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+    transition: background .3s ease;
+}
+
+.toggle-div:after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: -4px 0 0 -4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 -23px 0 var(--toggle-color),
+        0 23px 0 var(--toggle-color),
+        23px 0 0 var(--toggle-color),
+        -23px 0 0 var(--toggle-color),
+        15px 15px 0 var(--toggle-color),
+        -15px 15px 0 var(--toggle-color),
+        15px -15px 0 var(--toggle-color),
+        -15px -15px 0 var(--toggle-color);
+    transform: scale(0);
+    transition: all .3s ease;
+}
+
+/* Checked State (Dark Mode) */
+.toggle-input:checked+.toggle-div {
+    box-shadow: inset 32px -32px 0 0 var(--color-background);
+    transform: scale(.5) rotate(0deg);
+    transition: transform .3s ease .1s, box-shadow .2s ease 0s;
+}
+
+.toggle-input:checked+.toggle-div:before {
+    background: var(--toggle-color);
+    transition: background .3s ease .1s;
+}
+
+.toggle-input:checked+.toggle-div:after {
+    transform: scale(1.5);
+    transition: transform .5s ease .15s;
 }

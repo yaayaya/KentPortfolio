@@ -74,16 +74,6 @@ export default function Header({ data }: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const handleThemeToggle = () => {
-        const newTheme = theme === 'dark' ? 'light' : 'dark'
-        setTheme(newTheme)
-
-        // Update URL
-        const params = new URLSearchParams(searchParams.toString())
-        params.set('theme', newTheme)
-        router.replace(`${pathname}?${params.toString()}`, { scroll: false })
-    }
-
     if (!mounted) return null
 
     return (
@@ -95,51 +85,53 @@ export default function Header({ data }: HeaderProps) {
                 )}
             >
                 <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-between">
-                    {/* Theme Toggle (Logo Replacement) */}
-                    <button
-                        onClick={handleThemeToggle}
-                        className="relative z-50 group flex items-center justify-center"
-                        aria-label="Toggle Theme"
-                    >
-                        <div className="relative flex items-center border-2 border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-black/50 backdrop-blur-sm rounded-full p-1 h-10 transition-colors duration-300 hover:border-black dark:hover:border-white">
+                    <div className="flex items-center gap-6">
+                        {/* Branding Text */}
+                        <Link href="/" className="flex items-center gap-3 group">
+                            <span className="text-sm font-bold tracking-wider text-black dark:text-white transition-colors">
+                                {toggle.leftText}
+                            </span>
+                            <span className="w-[1px] h-4 bg-gray-300 dark:bg-gray-700"></span>
+                            <span className="text-sm font-bold tracking-wider text-black dark:text-white transition-colors">
+                                {toggle.rightText}
+                            </span>
+                        </Link>
 
-                            {/* Left Option */}
-                            <div className="relative z-10 px-4 py-1">
-                                <span className={clsx(
-                                    "text-sm font-bold tracking-wider transition-colors duration-300",
-                                    theme === 'dark' ? "text-white" : "text-black/60 hover:text-black"
-                                )}>
-                                    {toggle.leftText}
-                                </span>
-                                {theme === 'dark' && (
-                                    <motion.div
-                                        layoutId="toggle-pill"
-                                        className="absolute inset-0 bg-black rounded-full -z-10"
-                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                        style={{ backgroundColor: toggle.leftColor }}
-                                    />
-                                )}
-                            </div>
+                        {/* Theme Toggle (Eclipse Style) */}
+                        <label className="toggle-label relative group" aria-label="Toggle Theme">
+                            <input
+                                type="checkbox"
+                                className="toggle-input"
+                                checked={theme === 'dark'}
+                                onChange={(e) => {
+                                    const newTheme = e.target.checked ? 'dark' : 'light'
 
-                            {/* Right Option */}
-                            <div className="relative z-10 px-4 py-1">
-                                <span className={clsx(
-                                    "text-sm font-bold tracking-wider transition-colors duration-300",
-                                    theme === 'light' ? "text-black" : "text-white/60 dark:text-white/60 hover:text-black dark:hover:text-white"
-                                )}>
-                                    {toggle.rightText}
-                                </span>
-                                {theme === 'light' && (
-                                    <motion.div
-                                        layoutId="toggle-pill"
-                                        className="absolute inset-0 bg-white rounded-full -z-10 shadow-sm"
-                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                        style={{ backgroundColor: toggle.rightColor }}
-                                    />
-                                )}
-                            </div>
-                        </div>
-                    </button>
+                                    // Update URL
+                                    const params = new URLSearchParams(searchParams.toString())
+                                    params.set('theme', newTheme)
+                                    router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+
+                                    // Get coordinates for the transition center
+                                    const rect = e.target.parentElement?.getBoundingClientRect()
+                                    const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2
+                                    const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2
+
+                                    document.documentElement.style.setProperty('--x', `${x}px`)
+                                    document.documentElement.style.setProperty('--y', `${y}px`)
+
+                                    if (!(document as any).startViewTransition) {
+                                        setTheme(newTheme)
+                                        return
+                                    }
+
+                                    (document as any).startViewTransition(() => {
+                                        setTheme(newTheme)
+                                    })
+                                }}
+                            />
+                            <div className="toggle-div"></div>
+                        </label>
+                    </div>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-12">
