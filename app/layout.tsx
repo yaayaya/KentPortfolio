@@ -37,12 +37,32 @@ export default async function RootLayout({
     const globalRes = await client.queries.global({ relativePath: 'global.json' })
     const globalData = globalRes.data.global
 
+    const sanitizedData = {
+        site: {
+            title: globalData.site?.title || 'Kent',
+            description: globalData.site?.description || '',
+            email: globalData.site?.email || '',
+        },
+        navigation: globalData.navigation
+            ?.filter((item): item is NonNullable<typeof item> => item !== null)
+            .map((item) => ({
+                label: item.label || '',
+                href: item.href || '',
+            })) || [],
+        social: globalData.social
+            ?.filter((item): item is NonNullable<typeof item> => item !== null)
+            .map((item) => ({
+                platform: item.platform || '',
+                url: item.url || '',
+            })) || [],
+    }
+
     return (
         <html lang="zh-TW" className={`${inter.variable} ${spaceGrotesk.variable}`}>
             <body className="antialiased">
-                <Header data={globalData} />
+                <Header data={sanitizedData} />
                 <main className="min-h-screen pt-20">{children}</main>
-                <Footer data={globalData} />
+                <Footer data={sanitizedData} />
             </body>
         </html>
     )

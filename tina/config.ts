@@ -5,8 +5,8 @@ const branch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.HEAD || proces
 
 export default defineConfig({
     branch,
-    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID ?? null,
-    token: process.env.TINA_TOKEN ?? null,
+    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+    token: process.env.TINA_TOKEN || null,
 
     build: {
         outputFolder: 'admin',
