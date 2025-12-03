@@ -281,10 +281,20 @@ type GlobalSocial {
   url: String
 }
 
+type GlobalHeaderToggle {
+  leftText: String
+  rightText: String
+  leftColor: String
+  rightColor: String
+  leftTextColor: String
+  rightTextColor: String
+}
+
 type Global implements Node & Document {
   site: GlobalSite
   navigation: [GlobalNavigation]
   social: [GlobalSocial]
+  headerToggle: GlobalHeaderToggle
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -306,10 +316,20 @@ input GlobalSocialFilter {
   url: StringFilter
 }
 
+input GlobalHeaderToggleFilter {
+  leftText: StringFilter
+  rightText: StringFilter
+  leftColor: StringFilter
+  rightColor: StringFilter
+  leftTextColor: StringFilter
+  rightTextColor: StringFilter
+}
+
 input GlobalFilter {
   site: GlobalSiteFilter
   navigation: GlobalNavigationFilter
   social: GlobalSocialFilter
+  headerToggle: GlobalHeaderToggleFilter
 }
 
 type GlobalConnectionEdges {
@@ -419,10 +439,20 @@ input GlobalSocialMutation {
   url: String
 }
 
+input GlobalHeaderToggleMutation {
+  leftText: String
+  rightText: String
+  leftColor: String
+  rightColor: String
+  leftTextColor: String
+  rightTextColor: String
+}
+
 input GlobalMutation {
   site: GlobalSiteMutation
   navigation: [GlobalNavigationMutation]
   social: [GlobalSocialMutation]
+  headerToggle: GlobalHeaderToggleMutation
 }
 
 schema {

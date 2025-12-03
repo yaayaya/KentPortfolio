@@ -44,7 +44,7 @@ export default function BlogPage() {
                         </h1>
                     </AnimatedSection>
                     <AnimatedSection delay={0.2} variant="fadeInUp">
-                        <p className="text-xl md:text-2xl text-primary-600 max-w-3xl">
+                        <p className="text-xl md:text-2xl text-primary-600 dark:text-gray-400 max-w-3xl">
                             關於設計、開發和產品思考的文章
                         </p>
                     </AnimatedSection>
@@ -52,7 +52,7 @@ export default function BlogPage() {
             </section>
 
             {/* 文章列表 */}
-            <section className="section-spacing bg-primary-50">
+            <section className="section-spacing bg-primary-50 dark:bg-zinc-900">
                 <div className="container-custom">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                         {blogPosts.map((post, index) => (

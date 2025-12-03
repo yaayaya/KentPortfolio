@@ -38,7 +38,7 @@ export default function BlogCard({
                     variants={hoverScaleVariants}
                     initial="initial"
                     whileHover="hover"
-                    className="relative overflow-hidden rounded-2xl bg-primary-100 aspect-[16/9]"
+                    className="relative overflow-hidden rounded-2xl bg-primary-100 dark:bg-white/10 aspect-[16/9]"
                 >
                     <Image
                         src={image}
@@ -49,11 +49,11 @@ export default function BlogCard({
                 </motion.div>
 
                 <div className="mt-6">
-                    <time className="text-sm text-primary-500">{formatDate(date)}</time>
+                    <time className="text-sm text-primary-500 dark:text-gray-400">{formatDate(date)}</time>
                     <h3 className="text-xl font-display font-bold mt-2 mb-3 group-hover:text-accent transition-colors">
                         {title}
                     </h3>
-                    <p className="text-primary-600 leading-relaxed line-clamp-2">
+                    <p className="text-primary-600 dark:text-gray-400 leading-relaxed line-clamp-2">
                         {excerpt}
                     </p>
                 </div>

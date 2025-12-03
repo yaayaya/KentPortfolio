@@ -29,7 +29,7 @@ export default function HomePageClient(props: any) {
                             className="w-full h-full object-cover opacity-20 blur-sm scale-105"
                         />
                     )}
-                    <div className="absolute inset-0 bg-white/60"></div>
+                    <div className="absolute inset-0 bg-white/60 dark:bg-black/30"></div>
                 </div>
 
                 <div className="max-w-[1400px] w-full relative z-10">
@@ -44,7 +44,7 @@ export default function HomePageClient(props: any) {
                         </h1>
                     </AnimatedSection>
                     <AnimatedSection delay={0.2} variant="fadeInUp">
-                        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-gray-600">
+                        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-gray-600 dark:text-gray-400">
                             {home.heroSubtitle}
                         </h2>
                     </AnimatedSection>
@@ -52,14 +52,14 @@ export default function HomePageClient(props: any) {
             </section>
 
             {/* News Section */}
-            <section className="py-20 lg:py-32 px-6 lg:px-12 bg-gray-50">
+            <section className="py-20 lg:py-32 px-6 lg:px-12 bg-gray-50 dark:bg-zinc-900">
                 <div className="max-w-[1400px] mx-auto">
                     <div className="flex items-end justify-between mb-16">
                         <AnimatedSection>
                             <h2 className="text-4xl font-bold uppercase tracking-tight">Latest News</h2>
                         </AnimatedSection>
                         <AnimatedSection delay={0.1}>
-                            <Link href="/news" className="text-sm font-medium uppercase tracking-widest hover:text-gray-600 transition-colors border-b border-black pb-1">
+                            <Link href="/news" className="text-sm font-medium uppercase tracking-widest hover:text-gray-600 dark:hover:text-gray-300 transition-colors border-b border-black dark:border-white pb-1">
                                 View All News
                             </Link>
                         </AnimatedSection>
@@ -82,9 +82,9 @@ export default function HomePageClient(props: any) {
 
                                     {/* Text Side */}
                                     <div className="lg:col-span-5 space-y-6">
-                                        <div className="flex items-center gap-4 text-sm font-medium text-gray-500 uppercase tracking-widest">
+                                        <div className="flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                                             <span>{item.date}</span>
-                                            <span className="w-8 h-[1px] bg-gray-300"></span>
+                                            <span className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700"></span>
                                             <span>Exhibition</span>
                                         </div>
                                         <h3 className="text-3xl lg:text-4xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
@@ -92,7 +92,7 @@ export default function HomePageClient(props: any) {
                                                 {item.title}
                                             </Link>
                                         </h3>
-                                        <p className="text-lg text-gray-600 line-clamp-3">
+                                        <p className="text-lg text-gray-600 dark:text-gray-400 line-clamp-3">
                                             {item.description}
                                         </p>
                                         <Link
@@ -114,17 +114,17 @@ export default function HomePageClient(props: any) {
             <section className="py-20 lg:py-32 px-6 lg:px-12">
                 <div className="max-w-[1400px] mx-auto">
                     <AnimatedSection>
-                        <p className="text-xl lg:text-2xl text-gray-600 mb-12">
+                        <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 mb-12">
                             {home.introText1}
                         </p>
                     </AnimatedSection>
                     <AnimatedSection delay={0.2}>
-                        <div className="text-[clamp(1.5rem,3vw,2.5rem)] font-normal leading-[1.4] max-w-4xl prose prose-lg prose-a:underline prose-a:text-black hover:prose-a:opacity-70">
+                        <div className="text-[clamp(1.5rem,3vw,2.5rem)] font-normal leading-[1.4] max-w-4xl prose prose-lg prose-a:underline prose-a:text-black dark:prose-a:text-white hover:prose-a:opacity-70 dark:text-gray-200">
                             <TinaMarkdown content={home.introText2} />
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={0.4}>
-                        <p className="text-xl lg:text-2xl text-gray-600 mt-12">
+                        <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-400 mt-12">
                             {home.introText3}
                         </p>
                     </AnimatedSection>

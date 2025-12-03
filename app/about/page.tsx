@@ -2,13 +2,24 @@ import { client } from '@/tina/__generated__/client'
 import AboutPageClient from './page-client'
 
 export default async function AboutPage() {
-    const aboutRes = await client.queries.about({ relativePath: 'about.json' })
+    let aboutData = {} as any
+    let query = ''
+    let variables = {}
+
+    try {
+        const aboutRes = await client.queries.about({ relativePath: 'about.json' })
+        aboutData = aboutRes.data.about
+        query = aboutRes.query
+        variables = aboutRes.variables
+    } catch (error) {
+        console.warn('Failed to fetch about data')
+    }
 
     return (
         <AboutPageClient
-            query={aboutRes.query}
-            variables={aboutRes.variables}
-            data={aboutRes.data}
+            query={query}
+            variables={variables}
+            data={{ about: aboutData }}
         />
     )
 }

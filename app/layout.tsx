@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -29,13 +30,22 @@ export const metadata: Metadata = {
     },
 }
 
+import { ThemeProvider } from '@/components/ThemeProvider'
+
+// ... imports
+
 export default async function RootLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
-    const globalRes = await client.queries.global({ relativePath: 'global.json' })
-    const globalData = globalRes.data.global
+    let globalData = {} as any
+    try {
+        const globalRes = await client.queries.global({ relativePath: 'global.json' })
+        globalData = globalRes.data.global
+    } catch (error) {
+        console.warn('Failed to fetch global data, using defaults')
+    }
 
     const sanitizedData = {
         site: {
@@ -43,26 +53,38 @@ export default async function RootLayout({
             description: globalData.site?.description || '',
             email: globalData.site?.email || '',
         },
-        navigation: globalData.navigation
-            ?.filter((item): item is NonNullable<typeof item> => item !== null)
-            .map((item) => ({
+        navigation: (globalData.navigation as any[])
+            ?.filter((item: any) => item !== null)
+            .map((item: any) => ({
                 label: item.label || '',
                 href: item.href || '',
             })) || [],
-        social: globalData.social
-            ?.filter((item): item is NonNullable<typeof item> => item !== null)
-            .map((item) => ({
+        social: (globalData.social as any[])
+            ?.filter((item: any) => item !== null)
+            .map((item: any) => ({
                 platform: item.platform || '',
                 url: item.url || '',
             })) || [],
+        headerToggle: {
+            leftText: globalData.headerToggle?.leftText || '梁家誠',
+            rightText: globalData.headerToggle?.rightText || 'Kent Design',
+            leftColor: globalData.headerToggle?.leftColor || '#1a1a1a',
+            rightColor: globalData.headerToggle?.rightColor || '#ffffff',
+            leftTextColor: globalData.headerToggle?.leftTextColor || '#ffffff',
+            rightTextColor: globalData.headerToggle?.rightTextColor || '#000000',
+        },
     }
 
     return (
-        <html lang="zh-TW" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <html lang="zh-TW" className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
             <body className="antialiased">
-                <Header data={sanitizedData} />
-                <main className="min-h-screen pt-20">{children}</main>
-                <Footer data={sanitizedData} />
+                <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+                    <Suspense fallback={<div className="h-24" />}>
+                        <Header data={sanitizedData} />
+                    </Suspense>
+                    <main className="min-h-screen pt-20">{children}</main>
+                    <Footer data={sanitizedData} />
+                </ThemeProvider>
             </body>
         </html>
     )

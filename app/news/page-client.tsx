@@ -27,13 +27,13 @@ export default function NewsPageClient(props: any) {
                     <AnimatedSection key={item.id} delay={index * 0.1}>
                         <article className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start group">
                             {/* Date & Meta */}
-                            <div className="lg:col-span-3 pt-2 border-t border-black">
+                            <div className="lg:col-span-3 pt-2 border-t border-black dark:border-white/20">
                                 <div className="text-lg font-medium mb-2">{item.date}</div>
-                                <div className="text-gray-500 text-sm uppercase tracking-widest">{item.description}</div>
+                                <div className="text-gray-500 dark:text-gray-400 text-sm uppercase tracking-widest">{item.description}</div>
                             </div>
 
                             {/* Content */}
-                            <div className="lg:col-span-9 border-t border-black pt-2">
+                            <div className="lg:col-span-9 border-t border-black dark:border-white/20 pt-2">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                                     <div className="space-y-8">
                                         <h2 className="text-3xl lg:text-4xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
@@ -44,13 +44,13 @@ export default function NewsPageClient(props: any) {
                                         {/* Note: Body is rich text, for list view we might want a simple excerpt or just skip body */}
                                         <Link
                                             href={`/news/${item._sys.filename}`}
-                                            className="inline-block text-sm font-medium uppercase tracking-widest border-b border-black pb-1 hover:opacity-60 transition-opacity"
+                                            className="inline-block text-sm font-medium uppercase tracking-widest border-b border-black dark:border-white pb-1 hover:opacity-60 transition-opacity"
                                         >
                                             Read Full Story
                                         </Link>
                                     </div>
 
-                                    <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gray-100">
+                                    <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gray-100 dark:bg-white/10">
                                         {item.coverImage && (
                                             <ZoomableImage
                                                 src={item.coverImage}

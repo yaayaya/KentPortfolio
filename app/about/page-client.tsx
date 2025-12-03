@@ -27,7 +27,7 @@ export default function AboutPageClient(props: any) {
                 {/* Left Column: Image & Contact */}
                 <div className="lg:col-span-5 lg:sticky lg:top-32">
                     <AnimatedSection>
-                        <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-100 mb-8">
+                        <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-100 dark:bg-white/10 mb-8">
                             {about.heroImage && (
                                 <ZoomableImage
                                     src={about.heroImage}
@@ -43,7 +43,7 @@ export default function AboutPageClient(props: any) {
                             <h3 className="text-sm font-bold uppercase tracking-widest">Contact</h3>
                             <a
                                 href={`mailto:${about.email}`}
-                                className="block text-2xl font-medium hover:text-gray-600 transition-colors break-all"
+                                className="block text-2xl font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors break-all"
                             >
                                 {about.email}
                             </a>
@@ -60,10 +60,10 @@ export default function AboutPageClient(props: any) {
                             <h2 className="text-5xl lg:text-7xl font-bold mb-4 tracking-tight">
                                 {about.name}
                             </h2>
-                            <p className="text-xl text-gray-500 mb-12 font-medium">
+                            <p className="text-xl text-gray-500 dark:text-gray-400 mb-12 font-medium">
                                 {about.title}
                             </p>
-                            <div className="space-y-2 text-lg lg:text-xl leading-relaxed text-gray-800 prose prose-lg">
+                            <div className="space-y-2 text-lg lg:text-xl leading-relaxed text-gray-800 dark:text-gray-200 prose prose-lg dark:prose-invert">
                                 <TinaMarkdown content={about.intro} />
                             </div>
                         </div>
@@ -71,18 +71,18 @@ export default function AboutPageClient(props: any) {
 
                     {/* Exhibitions */}
                     <AnimatedSection delay={0.3}>
-                        <div className="border-t border-black pt-12">
+                        <div className="border-t border-black dark:border-white/20 pt-12">
                             <h2 className="text-sm font-bold uppercase tracking-widest mb-8">
                                 Exhibitions
                             </h2>
                             <ul className="space-y-6">
                                 {about.exhibitions && about.exhibitions.map((ex: any, i: number) => (
                                     <li key={i} className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 group">
-                                        <span className="text-sm text-gray-500 w-16">{ex.year}</span>
+                                        <span className="text-sm text-gray-500 dark:text-gray-400 w-16">{ex.year}</span>
                                         <span className="text-lg font-medium group-hover:text-primary-600 transition-colors">
                                             {ex.title}
                                         </span>
-                                        <span className="text-gray-400 text-sm">{ex.location}</span>
+                                        <span className="text-gray-400 dark:text-gray-500 text-sm">{ex.location}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -91,11 +91,11 @@ export default function AboutPageClient(props: any) {
 
                     {/* Philosophy / Statement */}
                     <AnimatedSection delay={0.4}>
-                        <div className="border-t border-black pt-12">
+                        <div className="border-t border-black dark:border-white/20 pt-12">
                             <h2 className="text-sm font-bold uppercase tracking-widest mb-8">
                                 Artist Statement
                             </h2>
-                            <div className="prose prose-lg text-gray-600">
+                            <div className="prose prose-lg text-gray-600 dark:text-gray-300 dark:prose-invert">
                                 <TinaMarkdown content={about.artistStatement} />
                             </div>
                         </div>

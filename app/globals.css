@@ -23,6 +23,13 @@
     --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.dark {
+    --color-background: #000000;
+    --color-foreground: #ffffff;
+    --color-muted: #a3a3a3;
+    --color-border: #333333;
+}
+
 * {
     margin: 0;
     padding: 0;

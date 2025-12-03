@@ -2,19 +2,32 @@ import { client } from '@/tina/__generated__/client'
 import HomePageClient from './page-client'
 
 export default async function HomePage() {
-    const homeRes = await client.queries.home({ relativePath: 'home.json' })
-    const newsRes = await client.queries.newsConnection({
-        sort: 'date',
-        last: 2,
-    })
+    let homeData = {} as any
+    let newsData = { edges: [] } as any
+    let query = ''
+    let variables = {}
+
+    try {
+        const homeRes = await client.queries.home({ relativePath: 'home.json' })
+        const newsRes = await client.queries.newsConnection({
+            sort: 'date',
+            last: 2,
+        })
+        homeData = homeRes.data.home
+        newsData = newsRes.data.newsConnection
+        query = homeRes.query
+        variables = homeRes.variables
+    } catch (error) {
+        console.warn('Failed to fetch home data')
+    }
 
     return (
         <HomePageClient
-            query={homeRes.query}
-            variables={homeRes.variables}
+            query={query}
+            variables={variables}
             data={{
-                home: homeRes.data.home,
-                newsConnection: newsRes.data.newsConnection,
+                home: homeData,
+                newsConnection: newsData,
             }}
         />
     )

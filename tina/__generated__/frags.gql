@@ -64,4 +64,13 @@ fragment GlobalParts on Global {
     platform
     url
   }
+  headerToggle {
+    __typename
+    leftText
+    rightText
+    leftColor
+    rightColor
+    leftTextColor
+    rightTextColor
+  }
 }

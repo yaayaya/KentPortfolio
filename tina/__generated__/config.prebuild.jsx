@@ -3,8 +3,8 @@ import { defineConfig } from "tinacms";
 var branch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "master";
 var config_default = defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID ?? null,
-  token: process.env.TINA_TOKEN ?? null,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+  token: process.env.TINA_TOKEN || null,
   build: {
     outputFolder: "admin",
     publicFolder: "public"
@@ -244,6 +244,19 @@ var config_default = defineConfig({
             fields: [
               { type: "string", name: "platform", label: "Platform Name" },
               { type: "string", name: "url", label: "URL" }
+            ]
+          },
+          {
+            type: "object",
+            name: "headerToggle",
+            label: "Header Toggle Settings",
+            fields: [
+              { type: "string", name: "leftText", label: "Left Text (Dark Mode)", description: "Default: \u6881\u5BB6\u8AA0" },
+              { type: "string", name: "rightText", label: "Right Text (Light Mode)", description: "Default: Kent Design" },
+              { type: "string", name: "leftColor", label: "Left Background Color", ui: { component: "color" } },
+              { type: "string", name: "rightColor", label: "Right Background Color", ui: { component: "color" } },
+              { type: "string", name: "leftTextColor", label: "Left Text Color", ui: { component: "color" } },
+              { type: "string", name: "rightTextColor", label: "Right Text Color", ui: { component: "color" } }
             ]
           }
         ]

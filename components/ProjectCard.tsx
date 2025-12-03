@@ -31,7 +31,7 @@ export default function ProjectCard({
         >
             <Link href={`/work/${slug}`} className="group block">
                 {/* 圖片容器 */}
-                <div className="relative overflow-hidden rounded-lg bg-gray-100 aspect-[4/3] mb-6">
+                <div className="relative overflow-hidden rounded-lg bg-gray-100 dark:bg-white/10 aspect-[4/3] mb-6">
                     <Image
                         src={image}
                         alt={title}
@@ -45,7 +45,7 @@ export default function ProjectCard({
                     <h3 className="text-2xl lg:text-3xl font-medium mb-3 group-hover:opacity-70 transition-opacity">
                         {title}
                     </h3>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                         {subtitle}
                     </p>
                 </div>
