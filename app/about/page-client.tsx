@@ -16,6 +16,12 @@ export default function AboutPageClient(props: any) {
 
     return (
         <div className="pt-32 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">
+            <AnimatedSection>
+                <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tighter mb-20">
+                    About
+                </h1>
+            </AnimatedSection>
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
 
                 {/* Left Column: Image & Contact */}
@@ -41,11 +47,6 @@ export default function AboutPageClient(props: any) {
                             >
                                 {about.email}
                             </a>
-                            <div className="flex gap-4 pt-4">
-                                {/* Social Links Placeholders - Could be dynamic too if added to schema */}
-                                <a href="#" className="text-sm uppercase tracking-widest hover:underline">Instagram</a>
-                                <a href="#" className="text-sm uppercase tracking-widest hover:underline">LinkedIn</a>
-                            </div>
                         </div>
                     </AnimatedSection>
                 </div>
@@ -56,9 +57,9 @@ export default function AboutPageClient(props: any) {
                     {/* Intro */}
                     <AnimatedSection delay={0.1}>
                         <div>
-                            <h1 className="text-5xl lg:text-7xl font-bold mb-4 tracking-tight">
+                            <h2 className="text-5xl lg:text-7xl font-bold mb-4 tracking-tight">
                                 {about.name}
-                            </h1>
+                            </h2>
                             <p className="text-xl text-gray-500 mb-12 font-medium">
                                 {about.title}
                             </p>

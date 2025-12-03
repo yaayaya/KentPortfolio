@@ -26,68 +26,64 @@ export default function Footer({ data }: FooterProps) {
     const { site, navigation, social } = data || {}
 
     return (
-        <footer className="bg-white border-t border-gray-100 pt-24 pb-12 px-6 lg:px-12">
-            <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+        <footer className="bg-white border-t border-gray-100 py-12 px-6 lg:px-12">
+            <div className="max-w-[1600px] mx-auto flex flex-col items-center text-center gap-16">
 
-                {/* Brand Column (Col 1-6) */}
-                <div className="lg:col-span-6 flex flex-col justify-between h-full min-h-[200px]">
-                    <div className="space-y-6">
-                        <Link href="/" className="inline-block">
-                            <span className="text-2xl font-bold tracking-tighter uppercase">
-                                {site?.title || 'Kent'}
-                            </span>
-                        </Link>
-                        <p className="text-gray-500 text-lg leading-relaxed max-w-md">
-                            {site?.description}
-                        </p>
-                    </div>
-
-                    <div className="hidden lg:block text-xs text-gray-400 uppercase tracking-widest mt-auto">
-                        © {currentYear} {site?.title}. All rights reserved.
+                {/* Top: Brand Indicator */}
+                <div className="space-y-4">
+                    <div className="text-sm font-bold uppercase tracking-[0.2em] text-black">
+                        Today / {site?.title || 'Kent'}
                     </div>
                 </div>
 
-                {/* Sitemap (Col 7-9) */}
-                <div className="lg:col-span-3">
-                    <h4 className="text-xs font-bold uppercase tracking-widest mb-8 text-gray-400">Sitemap</h4>
-                    <ul className="space-y-4">
-                        {navigation?.map(item => (
-                            <li key={item.href}>
-                                <Link href={item.href} className="text-sm font-medium hover:text-gray-500 transition-colors uppercase tracking-wider">
+                {/* Middle: Contact Icons (No Email Text) */}
+                <div className="flex items-center gap-6">
+                    {/* Email Icon */}
+                    {site?.email && (
+                        <a
+                            href={`mailto:${site.email}`}
+                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:border-black hover:text-white transition-all group"
+                            title="Email"
+                        >
+                            <Mail size={20} />
+                        </a>
+                    )}
+
+                    {/* Social Icons */}
+                    {social?.map(item => {
+                        const Icon = getIcon(item.platform)
+                        // Skip Email in social loop if it's already handled above, or just handle all here if 'Email' is in social list
+                        if (item.platform.toLowerCase() === 'email') return null
+
+                        return (
+                            <a
+                                key={item.platform}
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:border-black hover:text-white transition-all"
+                                title={item.platform}
+                            >
+                                <Icon size={20} />
+                            </a>
+                        )
+                    })}
+                </div>
+
+                {/* Bottom: Sitemap & Copyright */}
+                <div className="w-full pt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-400 uppercase tracking-widest">
+                    <div className="flex gap-8">
+                        {navigation?.map(item => {
+                            if (item.label === 'Contact') return null
+                            return (
+                                <Link key={item.href} href={item.href} className="hover:text-black transition-colors">
                                     {item.label}
                                 </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                {/* Social / Contact (Col 10-12) */}
-                <div className="lg:col-span-3">
-                    <h4 className="text-xs font-bold uppercase tracking-widest mb-8 text-gray-400">Connect</h4>
-                    <div className="flex flex-wrap gap-4">
-                        {social?.map(item => {
-                            const Icon = getIcon(item.platform)
-                            return (
-                                <a
-                                    key={item.platform}
-                                    href={item.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:border-black hover:text-white transition-all"
-                                    title={item.platform}
-                                >
-                                    <Icon size={18} />
-                                </a>
                             )
                         })}
                     </div>
+                    <p>© {currentYear} {site?.title}. All rights reserved.</p>
                 </div>
-
-                {/* Mobile Copyright */}
-                <div className="lg:hidden text-xs text-gray-400 uppercase tracking-widest pt-8 border-t border-gray-100">
-                    © {currentYear} {site?.title}. All rights reserved.
-                </div>
-
             </div>
         </footer>
     )

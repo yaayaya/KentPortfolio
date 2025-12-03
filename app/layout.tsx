@@ -20,6 +20,13 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
     title: 'Kent 梁家誠 | Digital Artist',
     description: 'Digital Artist / Designer based in Taipei.',
+    keywords: ['Digital Art', 'Interactive Design', 'Installation', 'Portfolio', 'Kent 梁家誠'],
+    authors: [{ name: 'Kent 梁家誠' }],
+    openGraph: {
+        title: 'Kent 梁家誠 | Digital Artist',
+        description: 'Exploring the boundaries between tools and objects.',
+        type: 'website',
+    },
 }
 
 export default async function RootLayout({

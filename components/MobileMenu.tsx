@@ -56,25 +56,31 @@ export default function MobileMenu({ onClose, navigation, social }: MobileMenuPr
                 ))}
             </div>
 
-            {/* Social Icons */}
-            <div className="px-6 py-12 flex justify-center gap-6">
-                {social.map((item, index) => {
-                    const Icon = getIcon(item.platform)
-                    return (
-                        <motion.a
-                            key={item.platform}
-                            href={item.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5 + index * 0.05 }}
-                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all"
-                        >
-                            <Icon size={20} />
-                        </motion.a>
-                    )
-                })}
+            {/* Social Section */}
+            <div className="px-6 py-12 flex flex-col items-center gap-8">
+                {/* Icons Row */}
+                <div className="flex justify-center gap-6">
+                    {social.map((item, index) => {
+                        const Icon = getIcon(item.platform)
+                        // Skip Email icon here if we show text above? Or keep it? Manolo has both text and icons.
+                        // Let's keep icons.
+
+                        return (
+                            <motion.a
+                                key={item.platform}
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.5 + index * 0.05 }}
+                                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all"
+                            >
+                                <Icon size={20} />
+                            </motion.a>
+                        )
+                    })}
+                </div>
             </div>
         </motion.div>
     )
