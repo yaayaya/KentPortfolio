@@ -1,25 +1,25 @@
 ---
-title: 演算法之夢 - 作品
+title: 沈浸光影 - 作品
 light:
-  title: 演算法之夢 - 作品
+  title: 沈浸光影 - 作品
   category: Installation
   year: '2023'
-  description: 感受藝術的脈動，光影在空間中交錯，未來的設計概念，
-  coverImage: /content/images/messageImage_1763631187629_0.jpg
+  description: 未來的設計概念，透過科技展現美學，無盡的創意與靈感
+  coverImage: /content/images/pexels-pixabay-158826.jpg
   gallery:
-    - /content/images/Residual Warmth - Rainbow_0.jpg
-    - /content/images/pexels-jplenio-1103970.jpg
-    - /content/images/pexels-googledeepmind-17485658.jpg
-  body: 未來的設計概念，未來的設計概念，打破傳統的框架，沈浸式的視覺體驗，未來的設計概念，重新定義空間感知，
+    - /content/images/IridescentArtDisplay.png
+    - /content/images/pexels-googledeepmind-17483869.jpg
+    - /content/images/S__25813015_0_0.jpg
+  body: 互動裝置的魅力，探索未知的領域，視覺與聽覺的共鳴，流動的線條與色彩，這是一個新的開始，連結人與科技
 dark:
-  title: 空間詩學 - 作品
+  title: 光之軌跡 - 作品
   category: Digital
   year: '2023'
-  description: 重新定義空間感知，打破傳統的框架，探索數位與現實的邊界，
-  coverImage: /content/images/messageImage_1763631187629_0.jpg
+  description: 流動的線條與色彩，數位時代的詩意，打破傳統的框架
+  coverImage: /content/images/pexels-googledeepmind-25626434.jpg
   gallery:
-    - /content/images/Iridescent Art Display.png
-    - /content/images/pexels-jplenio-1103970.jpg
-    - /content/images/horizontal-1030.jpg
-  body: 探索未知的領域，重新定義空間感知，探索數位與現實的邊界，重新定義空間感知，展現數據之美。打破傳統的框架，
+    - /content/images/IridescentArtDisplay.png
+    - /content/images/pexels-rostislav-5011647.jpg
+    - /content/images/ResidualWarmth-Rainbow_0.jpg
+  body: 虛實整合的藝術形式，流動的線條與色彩，重新定義空間感知，數位時代的詩意，探索數位與現實的邊界，打破傳統的框架
 ---

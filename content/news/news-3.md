@@ -1,23 +1,23 @@
 ---
-title: 光之軌跡 - 新聞
+title: 沈浸光影 - 新聞
 light:
-  title: 光之軌跡 - 新聞
+  title: 沈浸光影 - 新聞
   date: '2024-04-15'
-  description: 探索數位與現實的邊界，創造獨特的氛圍，虛實整合的藝術形式，
-  coverImage: /content/images/IridescentArtDisplay.png
+  description: 視覺與聽覺的共鳴，光影在空間中交錯，探索數位與現實的邊界
+  coverImage: /content/images/pexels-googledeepmind-17483869.jpg
   gallery:
-    - /content/images/pexels-googledeepmind-25626434.jpg
-    - /content/images/messageImage_1763631187629_0.jpg
-    - /content/images/pexels-googledeepmind-17485658.jpg
-  body: 沈浸式的視覺體驗，探索未知的領域，探索數位與現實的邊界，重新定義空間感知，無盡的創意與靈感，無盡的創意與靈感，
+    - /content/images/pexels-jplenio-1103970.jpg
+    - /content/images/S__25813011_0_0.jpg
+    - /content/images/pexels-googledeepmind-25630338.jpg
+  body: 創造獨特的氛圍，虛實整合的藝術形式，虛實整合的藝術形式，透過科技展現美學，打破傳統的框架，打破傳統的框架
 dark:
-  title: 未來迴響 - 新聞
+  title: 互動共生 - 新聞
   date: '2024-04-16'
-  description: 探索未知的領域，探索未知的領域，連結人與科技，
-  coverImage: /content/images/Residual Warmth - Rainbow_0.jpg
+  description: 展現數據之美，感受藝術的脈動，數位時代的詩意
+  coverImage: /content/images/pexels-mati-5952651.jpg
   gallery:
-    - /content/images/messageImage_1763631187629_0.jpg
-    - /content/images/pexels-googledeepmind-25626434.jpg
-    - /content/images/S__25813010_0_0.jpg
-  body: 互動裝置的魅力，這是一個新的開始，虛實整合的藝術形式，演算法生成的圖像，探索數位與現實的邊界，虛實整合的藝術形式，
+    - /content/images/render-room-poster.jpg
+    - /content/images/pexels-jplenio-1103970.jpg
+    - /content/images/S__25813015_0_0.jpg
+  body: 探索數位與現實的邊界，透過科技展現美學，創造獨特的氛圍，探索未知的領域，視覺與聽覺的共鳴，視覺與聽覺的共鳴
 ---
