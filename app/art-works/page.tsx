@@ -9,6 +9,7 @@ export default async function ArtWorksPage() {
     try {
         const worksRes = await client.queries.art_worksConnection({
             sort: 'year',
+            last: 50,
         })
         worksData = worksRes.data.art_worksConnection
         query = worksRes.query

@@ -9,6 +9,7 @@ export default async function NewsPage() {
     try {
         const newsRes = await client.queries.newsConnection({
             sort: 'date',
+            last: 50,
         })
         newsData = newsRes.data.newsConnection
         query = newsRes.query

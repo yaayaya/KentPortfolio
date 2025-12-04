@@ -4,6 +4,8 @@ import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import AnimatedSection from '@/components/AnimatedSection'
 import ZoomableImage from '@/components/ZoomableImage'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export default function AboutPageClient(props: any) {
     const { data } = useTina({
@@ -13,6 +15,19 @@ export default function AboutPageClient(props: any) {
     })
 
     const { about } = data
+    const { resolvedTheme } = useTheme()
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return <div className="min-h-screen bg-white dark:bg-black" />
+    }
+
+    const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
+    const content = about[currentTheme] || {}
 
     return (
         <div className="pt-32 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">
@@ -28,10 +43,10 @@ export default function AboutPageClient(props: any) {
                 <div className="lg:col-span-5 lg:sticky lg:top-32">
                     <AnimatedSection>
                         <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-100 dark:bg-white/10 mb-8">
-                            {about.heroImage && (
+                            {content.heroImage && (
                                 <ZoomableImage
-                                    src={about.heroImage}
-                                    alt={about.name}
+                                    src={content.heroImage}
+                                    alt={content.name}
                                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                                 />
                             )}
@@ -42,10 +57,10 @@ export default function AboutPageClient(props: any) {
                         <div className="space-y-4">
                             <h3 className="text-sm font-bold uppercase tracking-widest">Contact</h3>
                             <a
-                                href={`mailto:${about.email}`}
+                                href={`mailto:${content.email}`}
                                 className="block text-2xl font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors break-all"
                             >
-                                {about.email}
+                                {content.email}
                             </a>
                         </div>
                     </AnimatedSection>
@@ -58,13 +73,13 @@ export default function AboutPageClient(props: any) {
                     <AnimatedSection delay={0.1}>
                         <div>
                             <h2 className="text-5xl lg:text-7xl font-bold mb-4 tracking-tight">
-                                {about.name}
+                                {content.name}
                             </h2>
                             <p className="text-xl text-gray-500 dark:text-gray-400 mb-12 font-medium">
-                                {about.title}
+                                {content.title}
                             </p>
                             <div className="space-y-2 text-lg lg:text-xl leading-relaxed text-gray-800 dark:text-gray-200 prose prose-lg dark:prose-invert">
-                                <TinaMarkdown content={about.intro} />
+                                {content.intro && <TinaMarkdown content={content.intro} />}
                             </div>
                         </div>
                     </AnimatedSection>
@@ -76,7 +91,7 @@ export default function AboutPageClient(props: any) {
                                 Exhibitions
                             </h2>
                             <ul className="space-y-6">
-                                {about.exhibitions && about.exhibitions.map((ex: any, i: number) => (
+                                {content.exhibitions && content.exhibitions.map((ex: any, i: number) => (
                                     <li key={i} className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 group">
                                         <span className="text-sm text-gray-500 dark:text-gray-400 w-16">{ex.year}</span>
                                         <span className="text-lg font-medium group-hover:text-primary-600 transition-colors">
@@ -96,7 +111,7 @@ export default function AboutPageClient(props: any) {
                                 Artist Statement
                             </h2>
                             <div className="prose prose-lg text-gray-600 dark:text-gray-300 dark:prose-invert">
-                                <TinaMarkdown content={about.artistStatement} />
+                                {content.artistStatement && <TinaMarkdown content={content.artistStatement} />}
                             </div>
                         </div>
                     </AnimatedSection>

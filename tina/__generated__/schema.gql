@@ -99,7 +99,7 @@ type Collection {
 
 union DocumentNode = Home | About | News | Art_works | Global | Folder
 
-type Home implements Node & Document {
+type HomeLight {
   heroTitle1: String
   heroTitle2: String
   heroSubtitle: String
@@ -107,6 +107,21 @@ type Home implements Node & Document {
   introText1: String
   introText2: JSON
   introText3: String
+}
+
+type HomeDark {
+  heroTitle1: String
+  heroTitle2: String
+  heroSubtitle: String
+  heroBackground: String
+  introText1: String
+  introText2: JSON
+  introText3: String
+}
+
+type Home implements Node & Document {
+  light: HomeLight
+  dark: HomeDark
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -132,7 +147,7 @@ input RichTextFilter {
   exists: Boolean
 }
 
-input HomeFilter {
+input HomeLightFilter {
   heroTitle1: StringFilter
   heroTitle2: StringFilter
   heroSubtitle: StringFilter
@@ -140,6 +155,21 @@ input HomeFilter {
   introText1: StringFilter
   introText2: RichTextFilter
   introText3: StringFilter
+}
+
+input HomeDarkFilter {
+  heroTitle1: StringFilter
+  heroTitle2: StringFilter
+  heroSubtitle: StringFilter
+  heroBackground: ImageFilter
+  introText1: StringFilter
+  introText2: RichTextFilter
+  introText3: StringFilter
+}
+
+input HomeFilter {
+  light: HomeLightFilter
+  dark: HomeDarkFilter
 }
 
 type HomeConnectionEdges {
@@ -153,39 +183,81 @@ type HomeConnection implements Connection {
   edges: [HomeConnectionEdges]
 }
 
-type AboutExhibitions {
+type AboutLightExhibitions {
   year: String
   title: String
   location: String
 }
 
-type About implements Node & Document {
+type AboutLight {
   heroImage: String
   name: String
   title: String
   email: String
   intro: JSON
-  exhibitions: [AboutExhibitions]
+  exhibitions: [AboutLightExhibitions]
   artistStatement: JSON
+}
+
+type AboutDarkExhibitions {
+  year: String
+  title: String
+  location: String
+}
+
+type AboutDark {
+  heroImage: String
+  name: String
+  title: String
+  email: String
+  intro: JSON
+  exhibitions: [AboutDarkExhibitions]
+  artistStatement: JSON
+}
+
+type About implements Node & Document {
+  light: AboutLight
+  dark: AboutDark
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input AboutExhibitionsFilter {
+input AboutLightExhibitionsFilter {
   year: StringFilter
   title: StringFilter
   location: StringFilter
 }
 
-input AboutFilter {
+input AboutLightFilter {
   heroImage: ImageFilter
   name: StringFilter
   title: StringFilter
   email: StringFilter
   intro: RichTextFilter
-  exhibitions: AboutExhibitionsFilter
+  exhibitions: AboutLightExhibitionsFilter
   artistStatement: RichTextFilter
+}
+
+input AboutDarkExhibitionsFilter {
+  year: StringFilter
+  title: StringFilter
+  location: StringFilter
+}
+
+input AboutDarkFilter {
+  heroImage: ImageFilter
+  name: StringFilter
+  title: StringFilter
+  email: StringFilter
+  intro: RichTextFilter
+  exhibitions: AboutDarkExhibitionsFilter
+  artistStatement: RichTextFilter
+}
+
+input AboutFilter {
+  light: AboutLightFilter
+  dark: AboutDarkFilter
 }
 
 type AboutConnectionEdges {
@@ -199,25 +271,53 @@ type AboutConnection implements Connection {
   edges: [AboutConnectionEdges]
 }
 
-type News implements Node & Document {
-  title: String!
-  date: String!
+type NewsLight {
+  title: String
   description: String
   coverImage: String
   body: JSON
   gallery: [String]
+}
+
+type NewsDark {
+  title: String
+  description: String
+  coverImage: String
+  body: JSON
+  gallery: [String]
+}
+
+type News implements Node & Document {
+  title: String!
+  date: String!
+  light: NewsLight
+  dark: NewsDark
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input NewsFilter {
+input NewsLightFilter {
   title: StringFilter
-  date: StringFilter
   description: StringFilter
   coverImage: ImageFilter
   body: RichTextFilter
   gallery: ImageFilter
+}
+
+input NewsDarkFilter {
+  title: StringFilter
+  description: StringFilter
+  coverImage: ImageFilter
+  body: RichTextFilter
+  gallery: ImageFilter
+}
+
+input NewsFilter {
+  title: StringFilter
+  date: StringFilter
+  light: NewsLightFilter
+  dark: NewsDarkFilter
 }
 
 type NewsConnectionEdges {
@@ -231,27 +331,55 @@ type NewsConnection implements Connection {
   edges: [NewsConnectionEdges]
 }
 
-type Art_works implements Node & Document {
-  title: String!
-  category: String
-  year: String
+type Art_worksLight {
+  title: String
   description: String
   coverImage: String
   body: JSON
   gallery: [String]
+}
+
+type Art_worksDark {
+  title: String
+  description: String
+  coverImage: String
+  body: JSON
+  gallery: [String]
+}
+
+type Art_works implements Node & Document {
+  title: String!
+  category: String
+  year: String
+  light: Art_worksLight
+  dark: Art_worksDark
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input Art_worksLightFilter {
+  title: StringFilter
+  description: StringFilter
+  coverImage: ImageFilter
+  body: RichTextFilter
+  gallery: ImageFilter
+}
+
+input Art_worksDarkFilter {
+  title: StringFilter
+  description: StringFilter
+  coverImage: ImageFilter
+  body: RichTextFilter
+  gallery: ImageFilter
 }
 
 input Art_worksFilter {
   title: StringFilter
   category: StringFilter
   year: StringFilter
-  description: StringFilter
-  coverImage: ImageFilter
-  body: RichTextFilter
-  gallery: ImageFilter
+  light: Art_worksLightFilter
+  dark: Art_worksDarkFilter
 }
 
 type Art_worksConnectionEdges {
@@ -382,7 +510,7 @@ input DocumentMutation {
   global: GlobalMutation
 }
 
-input HomeMutation {
+input HomeLightMutation {
   heroTitle1: String
   heroTitle2: String
   heroSubtitle: String
@@ -392,25 +520,91 @@ input HomeMutation {
   introText3: String
 }
 
-input AboutExhibitionsMutation {
+input HomeDarkMutation {
+  heroTitle1: String
+  heroTitle2: String
+  heroSubtitle: String
+  heroBackground: String
+  introText1: String
+  introText2: JSON
+  introText3: String
+}
+
+input HomeMutation {
+  light: HomeLightMutation
+  dark: HomeDarkMutation
+}
+
+input AboutLightExhibitionsMutation {
   year: String
   title: String
   location: String
 }
 
-input AboutMutation {
+input AboutLightMutation {
   heroImage: String
   name: String
   title: String
   email: String
   intro: JSON
-  exhibitions: [AboutExhibitionsMutation]
+  exhibitions: [AboutLightExhibitionsMutation]
   artistStatement: JSON
+}
+
+input AboutDarkExhibitionsMutation {
+  year: String
+  title: String
+  location: String
+}
+
+input AboutDarkMutation {
+  heroImage: String
+  name: String
+  title: String
+  email: String
+  intro: JSON
+  exhibitions: [AboutDarkExhibitionsMutation]
+  artistStatement: JSON
+}
+
+input AboutMutation {
+  light: AboutLightMutation
+  dark: AboutDarkMutation
+}
+
+input NewsLightMutation {
+  title: String
+  description: String
+  coverImage: String
+  body: JSON
+  gallery: [String]
+}
+
+input NewsDarkMutation {
+  title: String
+  description: String
+  coverImage: String
+  body: JSON
+  gallery: [String]
 }
 
 input NewsMutation {
   title: String
   date: String
+  light: NewsLightMutation
+  dark: NewsDarkMutation
+}
+
+input Art_worksLightMutation {
+  title: String
+  description: String
+  coverImage: String
+  body: JSON
+  gallery: [String]
+}
+
+input Art_worksDarkMutation {
+  title: String
   description: String
   coverImage: String
   body: JSON
@@ -421,10 +615,8 @@ input Art_worksMutation {
   title: String
   category: String
   year: String
-  description: String
-  coverImage: String
-  body: JSON
-  gallery: [String]
+  light: Art_worksLightMutation
+  dark: Art_worksDarkMutation
 }
 
 input GlobalSiteMutation {

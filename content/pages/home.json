@@ -1,9 +1,100 @@
 {
-  "heroTitle1": "Introductions",
-  "heroTitle2": "Cant Wait.",
-  "heroSubtitle": "Get to Know my WorkAAAAA?",
-  "heroBackground": "/content/images/render-room-poster.jpg",
-  "introText1": "Okay, Here's the introduction.",
-  "introText2": "*\\[object Object]*\n",
-  "introText3": "That's it. No long stories."
+  "light": {
+    "heroTitle1": "Luminous (Updated)",
+    "heroTitle2": "Perspectives",
+    "heroSubtitle": "Embracing the clarity of light in digital design.",
+    "heroBackground": "/content/images/S__25813016_0_0.jpg",
+    "introText1": "A journey into brightness.",
+    "introText2": {
+      "type": "root",
+      "children": [
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "structure lucid open morning perception day noon process bright brilliant lucid perspective time design form. lucid light lucid lucid form noon glow dawn vivid reality future glow dawn light. digital clear form aesthetic morning visible form aesthetic brilliant horizon time form structure visible. dawn azure space aesthetic work noon process open noon azure lucid. shine concept perspective sun vision azure clarity lucid reality open light shine light vision structure. sun sky horizon brilliant work azure vivid day glow sky structure dawn shine. sun concept future space azure design digital process horizon design white white future clear visible glow work. future radiant sky aesthetic work day light lucid aesthetic brilliant day horizon creation structure space clear clear work perception. white open creation creation structure work design open reality white vision vivid perception work."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "clear open bright creation visible design day bright glow form azure form. glow lucid radiant day perspective space vision dawn white brilliant sun form sun art. aesthetic structure perception aesthetic sky sun digital art form white day open perspective. vision light glow noon vivid white vivid glow perspective design noon morning sun perception. vision perception concept creation bright reality future white process structure bright art azure art vision. creation clear form perception morning future vision creation open art clear sun."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "brilliant aesthetic bright horizon vivid vision bright radiant brilliant day day radiant design aesthetic art horizon. digital creation bright sky brilliant morning visible work space aesthetic sky design. noon work form concept radiant work design design bright art white space day white form vivid. vision art form art creation sky light shine lucid vivid dawn brilliant process horizon vivid. process work perspective noon day shine lucid open work glow reality day dawn. vision visible clarity horizon azure sky light sun horizon bright clarity work work perspective reality space. noon noon reality day space clarity open process dawn design creation lucid design."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "noon brilliant visible dawn digital horizon bright noon creation horizon perception concept digital light white digital perspective. morning art perception shine vivid white azure process light day radiant structure bright structure brilliant. sky noon bright form vivid space concept perspective vision art digital sun. brilliant noon perception morning radiant space morning clarity noon visible light work shine bright horizon visible. white day future day time lucid reality digital clear form aesthetic aesthetic light time. perspective form day aesthetic bright sun sun structure light creation form vivid concept bright clarity process morning. light design perception clear work light visible creation time open vivid clear brilliant creation white."
+            }
+          ]
+        }
+      ]
+    },
+    "introText3": "Clarity is the ultimate sophistication."
+  },
+  "dark": {
+    "heroTitle1": "Obsidian (Updated)",
+    "heroTitle2": "Reflections",
+    "heroSubtitle": "Diving into the depths of the digital void.",
+    "heroBackground": "/content/images/S__25813011_0_0.jpg",
+    "introText1": "Secrets of the shadows.",
+    "introText2": {
+      "type": "root",
+      "children": [
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "void shade midnight hidden twilight structure dusky creation process gloom dim dark dark. aesthetic hidden night deep art work secret void vision dark perception horizon night void art void gloom. midnight gloom obscure reality time horizon dark time concept future hidden. horizon gloom midnight creation dark twilight vision midnight digital structure reality form time. space process perspective horizon dusky shade space midnight dusky moon twilight gloom form. aesthetic obscure vision mystery design obscure dark dusky void form dark design."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "time deep concept art design shadow deep shadow secret dusky moon. structure form work space time dim secret obscure vision obscure dark mystery perception horizon structure horizon process. dim eclipse process shade concept black deep perception reality hidden midnight concept aesthetic twilight structure noir dark. midnight aesthetic mystery hidden dusky aesthetic noir deep black time perspective shadow shade mystery obscure night aesthetic. hidden art perspective midnight vision shadow void noir deep obscure shadow dim shade perception. obscure deep time process secret digital twilight art space reality perspective aesthetic gloom obscure creation. night moon time design art mystery eclipse work black obscure mystery eclipse aesthetic. time concept process black art midnight horizon concept dusky process mystery hidden night. twilight space moon space work mystery future noir secret structure art reality perspective void art."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "deep shade deep concept black aesthetic shade space mystery structure aesthetic black abyss creation moon. midnight eclipse perception void gloom obscure dim void process deep process shade work vision mystery aesthetic noir. perception structure work horizon aesthetic midnight deep form twilight perception form. vision aesthetic noir abyss night digital process reality space vision process digital. horizon concept gloom process aesthetic mystery night work deep creation eclipse eclipse concept noir dim twilight. digital deep mystery mystery concept dusky moon concept dark deep aesthetic void gloom obscure dim deep art shadow. twilight reality work dim time night design obscure secret work eclipse noir dusky deep horizon. perception creation form shadow abyss night eclipse moon digital eclipse perspective dark aesthetic digital eclipse. night concept work black eclipse midnight abyss time black aesthetic mystery. design dim perspective form void obscure structure concept art mystery dusky twilight hidden."
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "concept aesthetic structure gloom time time reality moon obscure shadow digital perception midnight time midnight digital. concept design design design structure gloom work concept digital perspective art work midnight deep black shade. perception noir gloom shadow vision deep dusky secret hidden night form dark shadow secret black. noir obscure concept moon future design dusky twilight art abyss shadow perspective horizon night hidden shadow. time structure moon abyss perception aesthetic mystery horizon shade shade horizon aesthetic shade. secret horizon shadow gloom moon dark form dark void digital midnight twilight design work twilight art future."
+            }
+          ]
+        }
+      ]
+    },
+    "introText3": "Darkness reveals what light conceals."
+  }
 }

@@ -1,6 +1,142 @@
 // tina/config.ts
 import { defineConfig } from "tinacms";
 var branch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "master";
+var homeFields = [
+  {
+    type: "string",
+    name: "heroTitle1",
+    label: "Hero Title Line 1"
+  },
+  {
+    type: "string",
+    name: "heroTitle2",
+    label: "Hero Title Line 2"
+  },
+  {
+    type: "string",
+    name: "heroSubtitle",
+    label: "Hero Subtitle"
+  },
+  {
+    type: "image",
+    name: "heroBackground",
+    label: "Hero Background Image"
+  },
+  {
+    type: "string",
+    name: "introText1",
+    label: "Introduction Small Text"
+  },
+  {
+    type: "rich-text",
+    name: "introText2",
+    label: "Introduction Main Text"
+  },
+  {
+    type: "string",
+    name: "introText3",
+    label: "Introduction Footer Text"
+  }
+];
+var aboutFields = [
+  {
+    type: "image",
+    name: "heroImage",
+    label: "Profile Image"
+  },
+  {
+    type: "string",
+    name: "name",
+    label: "Name"
+  },
+  {
+    type: "string",
+    name: "title",
+    label: "Job Title"
+  },
+  {
+    type: "string",
+    name: "email",
+    label: "Email"
+  },
+  {
+    type: "rich-text",
+    name: "intro",
+    label: "Introduction"
+  },
+  {
+    type: "object",
+    name: "exhibitions",
+    label: "Exhibitions",
+    list: true,
+    fields: [
+      { type: "string", name: "year", label: "Year" },
+      { type: "string", name: "title", label: "Title" },
+      { type: "string", name: "location", label: "Location" }
+    ]
+  },
+  {
+    type: "rich-text",
+    name: "artistStatement",
+    label: "Artist Statement"
+  }
+];
+var newsContentFields = [
+  {
+    type: "string",
+    name: "title",
+    label: "Title"
+  },
+  {
+    type: "string",
+    name: "description",
+    label: "Short Description / Location"
+  },
+  {
+    type: "image",
+    name: "coverImage",
+    label: "Cover Image"
+  },
+  {
+    type: "rich-text",
+    name: "body",
+    label: "Body"
+  },
+  {
+    type: "image",
+    name: "gallery",
+    label: "Image Gallery",
+    list: true
+  }
+];
+var artWorksContentFields = [
+  {
+    type: "string",
+    name: "title",
+    label: "Title"
+  },
+  {
+    type: "string",
+    name: "description",
+    label: "Short Description"
+  },
+  {
+    type: "image",
+    name: "coverImage",
+    label: "Cover Image"
+  },
+  {
+    type: "rich-text",
+    name: "body",
+    label: "Body"
+  },
+  {
+    type: "image",
+    name: "gallery",
+    label: "Image Gallery",
+    list: true
+  }
+];
 var config_default = defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
@@ -28,39 +164,16 @@ var config_default = defineConfig({
         },
         fields: [
           {
-            type: "string",
-            name: "heroTitle1",
-            label: "Hero Title Line 1"
+            type: "object",
+            name: "light",
+            label: "Light Mode Content",
+            fields: homeFields
           },
           {
-            type: "string",
-            name: "heroTitle2",
-            label: "Hero Title Line 2"
-          },
-          {
-            type: "string",
-            name: "heroSubtitle",
-            label: "Hero Subtitle"
-          },
-          {
-            type: "image",
-            name: "heroBackground",
-            label: "Hero Background Image"
-          },
-          {
-            type: "string",
-            name: "introText1",
-            label: "Introduction Small Text"
-          },
-          {
-            type: "rich-text",
-            name: "introText2",
-            label: "Introduction Main Text"
-          },
-          {
-            type: "string",
-            name: "introText3",
-            label: "Introduction Footer Text"
+            type: "object",
+            name: "dark",
+            label: "Dark Mode Content",
+            fields: homeFields
           }
         ]
       },
@@ -75,45 +188,16 @@ var config_default = defineConfig({
         },
         fields: [
           {
-            type: "image",
-            name: "heroImage",
-            label: "Profile Image"
-          },
-          {
-            type: "string",
-            name: "name",
-            label: "Name"
-          },
-          {
-            type: "string",
-            name: "title",
-            label: "Job Title"
-          },
-          {
-            type: "string",
-            name: "email",
-            label: "Email"
-          },
-          {
-            type: "rich-text",
-            name: "intro",
-            label: "Introduction"
+            type: "object",
+            name: "light",
+            label: "Light Mode Content",
+            fields: aboutFields
           },
           {
             type: "object",
-            name: "exhibitions",
-            label: "Exhibitions",
-            list: true,
-            fields: [
-              { type: "string", name: "year", label: "Year" },
-              { type: "string", name: "title", label: "Title" },
-              { type: "string", name: "location", label: "Location" }
-            ]
-          },
-          {
-            type: "rich-text",
-            name: "artistStatement",
-            label: "Artist Statement"
+            name: "dark",
+            label: "Dark Mode Content",
+            fields: aboutFields
           }
         ]
       },
@@ -126,7 +210,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "title",
-            label: "Title",
+            label: "Title (Internal)",
             isTitle: true,
             required: true
           },
@@ -137,26 +221,16 @@ var config_default = defineConfig({
             required: true
           },
           {
-            type: "string",
-            name: "description",
-            label: "Short Description / Location"
+            type: "object",
+            name: "light",
+            label: "Light Mode Content",
+            fields: newsContentFields
           },
           {
-            type: "image",
-            name: "coverImage",
-            label: "Cover Image"
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true
-          },
-          {
-            type: "image",
-            name: "gallery",
-            label: "Image Gallery",
-            list: true
+            type: "object",
+            name: "dark",
+            label: "Dark Mode Content",
+            fields: newsContentFields
           }
         ]
       },
@@ -169,7 +243,7 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "title",
-            label: "Title",
+            label: "Title (Internal)",
             isTitle: true,
             required: true
           },
@@ -184,26 +258,16 @@ var config_default = defineConfig({
             label: "Year"
           },
           {
-            type: "string",
-            name: "description",
-            label: "Short Description"
+            type: "object",
+            name: "light",
+            label: "Light Mode Content",
+            fields: artWorksContentFields
           },
           {
-            type: "image",
-            name: "coverImage",
-            label: "Cover Image"
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true
-          },
-          {
-            type: "image",
-            name: "gallery",
-            label: "Image Gallery",
-            list: true
+            type: "object",
+            name: "dark",
+            label: "Dark Mode Content",
+            fields: artWorksContentFields
           }
         ]
       },

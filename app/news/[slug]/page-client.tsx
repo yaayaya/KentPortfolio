@@ -4,6 +4,8 @@ import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import AnimatedSection from '@/components/AnimatedSection'
 import ZoomableImage from '@/components/ZoomableImage'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export default function NewsDetailPageClient(props: any) {
     const { data } = useTina({
@@ -13,40 +15,53 @@ export default function NewsDetailPageClient(props: any) {
     })
 
     const item = data.news
+    const { resolvedTheme } = useTheme()
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return <div className="min-h-screen bg-white dark:bg-black" />
+    }
+
+    const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
+    const content = item[currentTheme] || {}
 
     return (
         <article className="pt-32 pb-20 px-6 lg:px-12 max-w-[1000px] mx-auto min-h-screen">
             {/* Header */}
             <AnimatedSection>
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 border-b border-black pb-8">
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 border-b border-black dark:border-white/20 pb-8">
                     <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                        {item.title}
+                        {content.title}
                     </h1>
                     <div className="text-right shrink-0">
                         <div className="text-xl font-medium">{item.date}</div>
-                        <div className="text-gray-500 text-sm uppercase tracking-widest mt-1">{item.description}</div>
+                        <div className="text-gray-500 dark:text-gray-400 text-sm uppercase tracking-widest mt-1">{content.description}</div>
                     </div>
                 </div>
             </AnimatedSection>
 
             {/* Content Body */}
             <AnimatedSection delay={0.1}>
-                <div className="prose prose-lg max-w-none mb-16">
-                    <TinaMarkdown content={item.body} />
+                <div className="prose prose-lg max-w-none mb-16 dark:prose-invert">
+                    {content.body && <TinaMarkdown content={content.body} />}
                 </div>
             </AnimatedSection>
 
             {/* Image Gallery */}
             <div className="space-y-12">
-                {item.gallery && item.gallery.map((img: string, index: number) => (
+                {content.gallery && content.gallery.map((img: string, index: number) => (
                     <AnimatedSection key={index} delay={0.2 + index * 0.1}>
                         <div className="w-full">
                             <ZoomableImage
                                 src={img}
-                                alt={`${item.title} - Image ${index + 1}`}
+                                alt={`${content.title} - Image ${index + 1}`}
                                 className="w-full h-auto rounded-sm shadow-sm"
                             />
-                            <p className="mt-4 text-sm text-gray-500 text-center uppercase tracking-widest">
+                            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center uppercase tracking-widest">
                                 Figure {index + 1}: Exhibition View
                             </p>
                         </div>
