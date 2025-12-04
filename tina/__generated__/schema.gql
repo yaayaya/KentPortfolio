@@ -283,7 +283,9 @@ type GlobalSocial {
 
 type GlobalHeaderToggle {
   leftText: String
+  leftSubtitle: String
   rightText: String
+  rightSubtitle: String
   leftColor: String
   rightColor: String
   leftTextColor: String
@@ -318,7 +320,9 @@ input GlobalSocialFilter {
 
 input GlobalHeaderToggleFilter {
   leftText: StringFilter
+  leftSubtitle: StringFilter
   rightText: StringFilter
+  rightSubtitle: StringFilter
   leftColor: StringFilter
   rightColor: StringFilter
   leftTextColor: StringFilter
@@ -441,7 +445,9 @@ input GlobalSocialMutation {
 
 input GlobalHeaderToggleMutation {
   leftText: String
+  leftSubtitle: String
   rightText: String
+  rightSubtitle: String
   leftColor: String
   rightColor: String
   leftTextColor: String

@@ -252,7 +252,9 @@ var config_default = defineConfig({
             label: "Header Toggle Settings",
             fields: [
               { type: "string", name: "leftText", label: "Left Text (Dark Mode)", description: "Default: \u6881\u5BB6\u8AA0" },
-              { type: "string", name: "rightText", label: "Right Text (Light Mode)", description: "Default: Kent Design" },
+              { type: "string", name: "leftSubtitle", label: "Left Subtitle (Dark Mode)", description: "Default: Art" },
+              { type: "string", name: "rightText", label: "Right Text (Light Mode)", description: "Default: Kent" },
+              { type: "string", name: "rightSubtitle", label: "Right Subtitle (Light Mode)", description: "Default: Designer" },
               { type: "string", name: "leftColor", label: "Left Background Color", ui: { component: "color" } },
               { type: "string", name: "rightColor", label: "Right Background Color", ui: { component: "color" } },
               { type: "string", name: "leftTextColor", label: "Left Text Color", ui: { component: "color" } },

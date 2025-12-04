@@ -20,7 +20,9 @@ interface HeaderProps {
         }[]
         headerToggle: {
             leftText: string
+            leftSubtitle: string
             rightText: string
+            rightSubtitle: string
             leftColor: string
             rightColor: string
             leftTextColor: string
@@ -40,13 +42,15 @@ export default function Header({ data }: HeaderProps) {
 
     const navigation = data?.navigation || []
     const social = data?.social || []
-    const toggle = data?.headerToggle || {
-        leftText: '梁家誠',
-        rightText: 'Kent Design',
-        leftColor: '#1a1a1a',
-        rightColor: '#ffffff',
-        leftTextColor: '#ffffff',
-        rightTextColor: '#000000'
+    const toggle = {
+        leftText: data?.headerToggle?.leftText || '梁家誠',
+        leftSubtitle: data?.headerToggle?.leftSubtitle || 'Art',
+        rightText: data?.headerToggle?.rightText || 'Kent',
+        rightSubtitle: data?.headerToggle?.rightSubtitle || 'Designer',
+        leftColor: data?.headerToggle?.leftColor || '#1a1a1a',
+        rightColor: data?.headerToggle?.rightColor || '#ffffff',
+        leftTextColor: data?.headerToggle?.leftTextColor || '#ffffff',
+        rightTextColor: data?.headerToggle?.rightTextColor || '#000000'
     }
 
     // Handle hydration mismatch
@@ -63,7 +67,8 @@ export default function Header({ data }: HeaderProps) {
                 setTheme(themeParam)
             }
         }
-    }, [searchParams, mounted, setTheme, theme])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [mounted])
 
     // 監聽滾動事件
     useEffect(() => {
@@ -78,23 +83,59 @@ export default function Header({ data }: HeaderProps) {
 
     return (
         <>
-            <header
-                className={clsx(
-                    'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out',
-                    isScrolled ? 'py-4 bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-sm' : 'py-8 bg-transparent'
-                )}
+            <motion.header
+                className="fixed top-0 left-0 right-0 z-50 flex items-center"
+                initial={{ height: '96px', backgroundColor: 'rgba(0,0,0,0)', backdropFilter: 'blur(0px)' }}
+                animate={{
+                    height: isScrolled ? '72px' : '96px',
+                    backgroundColor: isScrolled
+                        ? (theme === 'dark' ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.8)')
+                        : 'rgba(0, 0, 0, 0)',
+                    backdropFilter: isScrolled ? 'blur(12px)' : 'blur(0px)',
+                }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-                <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-between">
-                    <div className="flex items-center gap-6">
-                        {/* Branding Text */}
-                        <Link href="/" className="flex items-center gap-3 group">
-                            <span className="text-sm font-bold tracking-wider text-black dark:text-white transition-colors">
-                                {toggle.leftText}
-                            </span>
-                            <span className="w-[1px] h-4 bg-gray-300 dark:bg-gray-700"></span>
-                            <span className="text-sm font-bold tracking-wider text-black dark:text-white transition-colors">
-                                {toggle.rightText}
-                            </span>
+                <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-between w-full">
+                    <div className="flex items-center gap-3">
+                        {/* Branding Text - Identity Switch */}
+                        <Link href="/" className="flex items-center gap-2 group relative w-32 md:w-40 min-h-[2.5rem]">
+                            <AnimatePresence mode="wait">
+                                {theme === 'dark' ? (
+                                    <motion.div
+                                        key="dark-identity"
+                                        initial={{ y: 20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: -20, opacity: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="flex flex-wrap items-center gap-x-2 gap-y-0"
+                                    >
+                                        <span className="text-base md:text-lg font-bold tracking-wider text-white leading-none">
+                                            {toggle.leftText}
+                                        </span>
+                                        <span className="w-[1px] h-4 bg-gray-700"></span>
+                                        <span className="text-sm font-medium tracking-wider text-gray-400 leading-none">
+                                            {toggle.leftSubtitle}
+                                        </span>
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="light-identity"
+                                        initial={{ y: 20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: -20, opacity: 0 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="flex flex-wrap items-center gap-x-2 gap-y-0"
+                                    >
+                                        <span className="text-base md:text-lg font-bold tracking-wider text-black leading-none">
+                                            {toggle.rightText}
+                                        </span>
+                                        <span className="w-[1px] h-4 bg-gray-300"></span>
+                                        <span className="text-sm font-medium tracking-wider text-gray-500 leading-none">
+                                            {toggle.rightSubtitle}
+                                        </span>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </Link>
 
                         {/* Theme Toggle (Eclipse Style) */}
@@ -172,7 +213,7 @@ export default function Header({ data }: HeaderProps) {
                         </div>
                     </button>
                 </div>
-            </header>
+            </motion.header>
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>

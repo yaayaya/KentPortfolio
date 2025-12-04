@@ -67,7 +67,7 @@ export default async function RootLayout({
             })) || [],
         headerToggle: {
             leftText: globalData.headerToggle?.leftText || '梁家誠',
-            rightText: globalData.headerToggle?.rightText || 'Kent Design',
+            rightText: globalData.headerToggle?.rightText || 'Kent',
             leftColor: globalData.headerToggle?.leftColor || '#1a1a1a',
             rightColor: globalData.headerToggle?.rightColor || '#ffffff',
             leftTextColor: globalData.headerToggle?.leftTextColor || '#ffffff',

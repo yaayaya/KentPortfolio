@@ -24,7 +24,7 @@
 
     /* Header Toggle & View Transition Configuration */
     --toggle-light: hsla(230, 25%, 10%, 1);
-    --toggle-dark: hsla(230, 25%, 75%, 1);
+    --toggle-dark: hsla(0, 0%, 100%, 1);
 
     /* View Transition coordinates - updated via JS */
     --x: 50%;
@@ -159,7 +159,7 @@ body {
 }
 
 ::view-transition-old(root) {
-    animation: reveal-out 0.5s ease-in-out forwards;
+    animation: none;
     z-index: 0;
     mix-blend-mode: normal;
 }

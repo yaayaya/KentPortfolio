@@ -67,7 +67,9 @@ fragment GlobalParts on Global {
   headerToggle {
     __typename
     leftText
+    leftSubtitle
     rightText
+    rightSubtitle
     leftColor
     rightColor
     leftTextColor
