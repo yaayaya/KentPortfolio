@@ -2,6 +2,7 @@
 
 import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import Link from 'next/link'
 import AnimatedSection from '@/components/AnimatedSection'
 import ZoomableImage from '@/components/ZoomableImage'
 import { useTheme } from 'next-themes'
@@ -30,8 +31,16 @@ export default function ArtWorkDetailPageClient(props: any) {
     const content = work?.[currentTheme] || {}
 
     return (
-        <div className="pt-32 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen">
+        <div className="pt-28 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen">
             <AnimatedSection>
+                <div className="mb-8">
+                    <Link
+                        href="/art-works"
+                        className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+                    >
+                        <span>←</span> Back
+                    </Link>
+                </div>
                 <div className="mb-20 text-center max-w-4xl mx-auto">
                     <div className="text-sm font-medium uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
                         {content.category}

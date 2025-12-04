@@ -39,7 +39,7 @@ export default function NewsPageClient(props: any) {
         : []
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 lg:px-12">
+        <div className="min-h-screen pt-24 pb-20 px-6 lg:px-12">
             <div className="max-w-[1400px] mx-auto">
                 <AnimatedSection>
                     <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tight mb-20">
@@ -63,8 +63,6 @@ export default function NewsPageClient(props: any) {
                                 <div className="lg:col-span-5 space-y-6">
                                     <div className="flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                                         <span>{item.date}</span>
-                                        <span className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700"></span>
-                                        <span>News</span>
                                     </div>
                                     <h2 className="text-3xl lg:text-4xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
                                         <Link href={`/news/${item._sys.filename}`}>

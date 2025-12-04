@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import clsx from 'clsx'
 import { useTheme } from 'next-themes'
 import MobileMenu from './MobileMenu'
@@ -39,6 +39,7 @@ export default function Header({ data }: HeaderProps) {
     const searchParams = useSearchParams()
     const { theme, setTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
+    const { scrollY } = useScroll()
 
     const navigation = data?.navigation || []
     const social = data?.social || []
@@ -70,43 +71,52 @@ export default function Header({ data }: HeaderProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mounted])
 
-    // 監聽滾動事件
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50)
+    // Optimized scroll handler using framer-motion
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const scrolled = latest > 50
+        if (scrolled !== isScrolled) {
+            setIsScrolled(scrolled)
         }
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+    })
 
     if (!mounted) return null
+
+    const headerVariants = {
+        top: {
+            height: '100px',
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            backdropFilter: 'blur(0px)',
+            borderBottomColor: 'rgba(0,0,0,0)'
+        },
+        scrolled: {
+            height: '70px',
+            backgroundColor: theme === 'dark' ? 'rgba(0, 0, 0, 0.85)' : 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'blur(12px)',
+            borderBottomColor: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)'
+        }
+    }
 
     return (
         <>
             <motion.header
-                className="fixed top-0 left-0 right-0 z-50 flex items-center"
-                initial={{ height: '96px', backgroundColor: 'rgba(0,0,0,0)', backdropFilter: 'blur(0px)' }}
-                animate={{
-                    height: isScrolled ? '72px' : '96px',
-                    backgroundColor: isScrolled
-                        ? (theme === 'dark' ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.8)')
-                        : 'rgba(0, 0, 0, 0)',
-                    backdropFilter: isScrolled ? 'blur(12px)' : 'blur(0px)',
-                }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="fixed top-0 left-0 right-0 z-50 flex items-center border-b"
+                initial="top"
+                animate={isScrolled ? 'scrolled' : 'top'}
+                variants={headerVariants}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-                <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-between w-full">
+                <div className="max-w-[1600px] mx-auto px-6 lg:px-12 flex items-center justify-between w-full h-full">
                     <div className="flex items-center gap-3">
                         {/* Branding Text - Identity Switch */}
-                        <Link href="/" className="flex items-center gap-2 group relative w-32 md:w-40 min-h-[2.5rem]">
+                        <Link href="/" className="flex items-center gap-2 group relative w-32 md:w-40">
                             <AnimatePresence mode="wait">
                                 {theme === 'dark' ? (
                                     <motion.div
                                         key="dark-identity"
-                                        initial={{ y: 20, opacity: 0 }}
+                                        initial={{ y: 10, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
-                                        exit={{ y: -20, opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
+                                        exit={{ y: -10, opacity: 0 }}
+                                        transition={{ duration: 0.2 }}
                                         className="flex flex-wrap items-center gap-x-2 gap-y-0"
                                     >
                                         <span className="text-base md:text-lg font-bold tracking-wider text-white leading-none">
@@ -120,10 +130,10 @@ export default function Header({ data }: HeaderProps) {
                                 ) : (
                                     <motion.div
                                         key="light-identity"
-                                        initial={{ y: 20, opacity: 0 }}
+                                        initial={{ y: 10, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
-                                        exit={{ y: -20, opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
+                                        exit={{ y: -10, opacity: 0 }}
+                                        transition={{ duration: 0.2 }}
                                         className="flex flex-wrap items-center gap-x-2 gap-y-0"
                                     >
                                         <span className="text-base md:text-lg font-bold tracking-wider text-black leading-none">
@@ -184,7 +194,7 @@ export default function Header({ data }: HeaderProps) {
                                     key={item.href}
                                     href={item.href}
                                     className={clsx(
-                                        'text-xs font-medium uppercase tracking-[0.2em] transition-colors relative',
+                                        'text-xs font-medium uppercase tracking-[0.2em] transition-colors relative py-2',
                                         isActive ? 'text-black dark:text-white' : 'text-gray-400 hover:text-black dark:hover:text-white'
                                     )}
                                 >
@@ -192,7 +202,7 @@ export default function Header({ data }: HeaderProps) {
                                     {isActive && (
                                         <motion.div
                                             layoutId="underline"
-                                            className="absolute -bottom-2 left-0 right-0 h-[1px] bg-black dark:bg-white"
+                                            className="absolute bottom-0 left-0 right-0 h-[1px] bg-black dark:bg-white"
                                         />
                                     )}
                                 </Link>

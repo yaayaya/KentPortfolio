@@ -30,7 +30,7 @@ export default function AboutPageClient(props: any) {
     const content = about?.[currentTheme] || {}
 
     return (
-        <div className="pt-32 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">
+        <div className="pt-24 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">
             <AnimatedSection>
                 <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tighter mb-20">
                     About

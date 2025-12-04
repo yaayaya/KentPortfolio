@@ -2,6 +2,7 @@
 
 import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import Link from 'next/link'
 import AnimatedSection from '@/components/AnimatedSection'
 import ZoomableImage from '@/components/ZoomableImage'
 import { useTheme } from 'next-themes'
@@ -30,9 +31,17 @@ export default function NewsDetailPageClient(props: any) {
     const content = item?.[currentTheme] || {}
 
     return (
-        <article className="pt-32 pb-20 px-6 lg:px-12 max-w-[1000px] mx-auto min-h-screen">
+        <article className="pt-28 pb-20 px-6 lg:px-12 max-w-[1000px] mx-auto min-h-screen">
             {/* Header */}
             <AnimatedSection>
+                <div className="mb-8">
+                    <Link
+                        href="/news"
+                        className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+                    >
+                        <span>←</span> Back
+                    </Link>
+                </div>
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 border-b border-black dark:border-white/20 pb-8">
                     <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                         {content.title}

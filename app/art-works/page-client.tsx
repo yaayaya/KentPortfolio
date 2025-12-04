@@ -39,7 +39,7 @@ export default function ArtWorksPageClient(props: any) {
         : []
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 lg:px-12">
+        <div className="min-h-screen pt-24 pb-20 px-6 lg:px-12">
             <div className="max-w-[1400px] mx-auto">
                 <AnimatedSection>
                     <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tight mb-20">
@@ -47,7 +47,7 @@ export default function ArtWorksPageClient(props: any) {
                     </h1>
                 </AnimatedSection>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
                     {worksList.map((work: any, index: number) => (
                         <AnimatedSection key={work.id} delay={index * 0.1}>
                             <div className="group space-y-6">
