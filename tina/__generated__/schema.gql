@@ -273,6 +273,7 @@ type AboutConnection implements Connection {
 
 type NewsLight {
   title: String
+  date: String
   description: String
   coverImage: String
   body: JSON
@@ -281,6 +282,7 @@ type NewsLight {
 
 type NewsDark {
   title: String
+  date: String
   description: String
   coverImage: String
   body: JSON
@@ -289,7 +291,6 @@ type NewsDark {
 
 type News implements Node & Document {
   title: String!
-  date: String!
   light: NewsLight
   dark: NewsDark
   id: ID!
@@ -299,6 +300,7 @@ type News implements Node & Document {
 
 input NewsLightFilter {
   title: StringFilter
+  date: StringFilter
   description: StringFilter
   coverImage: ImageFilter
   body: RichTextFilter
@@ -307,6 +309,7 @@ input NewsLightFilter {
 
 input NewsDarkFilter {
   title: StringFilter
+  date: StringFilter
   description: StringFilter
   coverImage: ImageFilter
   body: RichTextFilter
@@ -315,7 +318,6 @@ input NewsDarkFilter {
 
 input NewsFilter {
   title: StringFilter
-  date: StringFilter
   light: NewsLightFilter
   dark: NewsDarkFilter
 }
@@ -333,6 +335,8 @@ type NewsConnection implements Connection {
 
 type Art_worksLight {
   title: String
+  category: String
+  year: String
   description: String
   coverImage: String
   body: JSON
@@ -341,6 +345,8 @@ type Art_worksLight {
 
 type Art_worksDark {
   title: String
+  category: String
+  year: String
   description: String
   coverImage: String
   body: JSON
@@ -349,8 +355,6 @@ type Art_worksDark {
 
 type Art_works implements Node & Document {
   title: String!
-  category: String
-  year: String
   light: Art_worksLight
   dark: Art_worksDark
   id: ID!
@@ -360,6 +364,8 @@ type Art_works implements Node & Document {
 
 input Art_worksLightFilter {
   title: StringFilter
+  category: StringFilter
+  year: StringFilter
   description: StringFilter
   coverImage: ImageFilter
   body: RichTextFilter
@@ -368,6 +374,8 @@ input Art_worksLightFilter {
 
 input Art_worksDarkFilter {
   title: StringFilter
+  category: StringFilter
+  year: StringFilter
   description: StringFilter
   coverImage: ImageFilter
   body: RichTextFilter
@@ -376,8 +384,6 @@ input Art_worksDarkFilter {
 
 input Art_worksFilter {
   title: StringFilter
-  category: StringFilter
-  year: StringFilter
   light: Art_worksLightFilter
   dark: Art_worksDarkFilter
 }
@@ -574,6 +580,7 @@ input AboutMutation {
 
 input NewsLightMutation {
   title: String
+  date: String
   description: String
   coverImage: String
   body: JSON
@@ -582,6 +589,7 @@ input NewsLightMutation {
 
 input NewsDarkMutation {
   title: String
+  date: String
   description: String
   coverImage: String
   body: JSON
@@ -590,13 +598,14 @@ input NewsDarkMutation {
 
 input NewsMutation {
   title: String
-  date: String
   light: NewsLightMutation
   dark: NewsDarkMutation
 }
 
 input Art_worksLightMutation {
   title: String
+  category: String
+  year: String
   description: String
   coverImage: String
   body: JSON
@@ -605,6 +614,8 @@ input Art_worksLightMutation {
 
 input Art_worksDarkMutation {
   title: String
+  category: String
+  year: String
   description: String
   coverImage: String
   body: JSON
@@ -613,8 +624,6 @@ input Art_worksDarkMutation {
 
 input Art_worksMutation {
   title: String
-  category: String
-  year: String
   light: Art_worksLightMutation
   dark: Art_worksDarkMutation
 }

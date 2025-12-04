@@ -14,7 +14,7 @@ export default function AboutPageClient(props: any) {
         data: props.data,
     })
 
-    const { about } = data
+    const { about } = data || {}
     const { resolvedTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
 
@@ -27,7 +27,7 @@ export default function AboutPageClient(props: any) {
     }
 
     const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
-    const content = about[currentTheme] || {}
+    const content = about?.[currentTheme] || {}
 
     return (
         <div className="pt-32 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">

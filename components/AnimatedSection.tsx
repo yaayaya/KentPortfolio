@@ -51,7 +51,7 @@ export default function AnimatedSection({
         <motion.div
             ref={ref}
             initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
+            animate="visible"
             variants={variants[variant]}
             transition={{
                 duration: 0.6,

@@ -14,7 +14,7 @@ export default function ArtWorkDetailPageClient(props: any) {
         data: props.data,
     })
 
-    const work = data.art_works
+    const work = data?.art_works
     const { resolvedTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
 
@@ -27,14 +27,14 @@ export default function ArtWorkDetailPageClient(props: any) {
     }
 
     const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
-    const content = work[currentTheme] || {}
+    const content = work?.[currentTheme] || {}
 
     return (
         <div className="pt-32 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen">
             <AnimatedSection>
                 <div className="mb-20 text-center max-w-4xl mx-auto">
                     <div className="text-sm font-medium uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
-                        {work.category}
+                        {content.category}
                     </div>
                     <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-tight mb-8">
                         {content.title}

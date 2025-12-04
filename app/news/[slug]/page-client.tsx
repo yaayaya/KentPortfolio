@@ -14,7 +14,7 @@ export default function NewsDetailPageClient(props: any) {
         data: props.data,
     })
 
-    const item = data.news
+    const item = data?.news
     const { resolvedTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
 
@@ -27,7 +27,7 @@ export default function NewsDetailPageClient(props: any) {
     }
 
     const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
-    const content = item[currentTheme] || {}
+    const content = item?.[currentTheme] || {}
 
     return (
         <article className="pt-32 pb-20 px-6 lg:px-12 max-w-[1000px] mx-auto min-h-screen">
@@ -38,7 +38,7 @@ export default function NewsDetailPageClient(props: any) {
                         {content.title}
                     </h1>
                     <div className="text-right shrink-0">
-                        <div className="text-xl font-medium">{item.date}</div>
+                        <div className="text-xl font-medium">{content.date}</div>
                         <div className="text-gray-500 dark:text-gray-400 text-sm uppercase tracking-widest mt-1">{content.description}</div>
                     </div>
                 </div>

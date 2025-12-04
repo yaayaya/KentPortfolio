@@ -8,19 +8,17 @@ export default async function HomePage() {
     let variables = {}
 
     try {
-        console.log('Fetching home data...')
         const homeRes = await client.queries.home({ relativePath: 'home.json' })
         const newsRes = await client.queries.newsConnection({
-            sort: 'date',
             last: 6,
         })
+
         homeData = homeRes.data.home
         newsData = newsRes.data.newsConnection
         query = homeRes.query
         variables = homeRes.variables
-        console.log('Home data fetched successfully')
     } catch (error) {
-        console.warn('Failed to fetch home data', error)
+        console.error('Failed to fetch home data:', error)
     }
 
     return (

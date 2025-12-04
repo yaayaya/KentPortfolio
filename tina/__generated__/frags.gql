@@ -59,10 +59,10 @@ fragment AboutParts on About {
 fragment NewsParts on News {
   __typename
   title
-  date
   light {
     __typename
     title
+    date
     description
     coverImage
     body
@@ -71,6 +71,7 @@ fragment NewsParts on News {
   dark {
     __typename
     title
+    date
     description
     coverImage
     body
@@ -81,11 +82,11 @@ fragment NewsParts on News {
 fragment Art_worksParts on Art_works {
   __typename
   title
-  category
-  year
   light {
     __typename
     title
+    category
+    year
     description
     coverImage
     body
@@ -94,6 +95,8 @@ fragment Art_worksParts on Art_works {
   dark {
     __typename
     title
+    category
+    year
     description
     coverImage
     body

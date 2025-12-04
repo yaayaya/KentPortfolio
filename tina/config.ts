@@ -93,6 +93,11 @@ const newsContentFields = [
     },
     {
         type: 'string',
+        name: 'date',
+        label: 'Date',
+    },
+    {
+        type: 'string',
         name: 'description',
         label: 'Short Description / Location',
     },
@@ -119,6 +124,16 @@ const artWorksContentFields = [
         type: 'string',
         name: 'title',
         label: 'Title',
+    },
+    {
+        type: 'string',
+        name: 'category',
+        label: 'Category',
+    },
+    {
+        type: 'string',
+        name: 'year',
+        label: 'Year',
     },
     {
         type: 'string',
@@ -222,12 +237,6 @@ export default defineConfig({
                         required: true,
                     },
                     {
-                        type: 'string',
-                        name: 'date',
-                        label: 'Date',
-                        required: true,
-                    },
-                    {
                         type: 'object',
                         name: 'light',
                         label: 'Light Mode Content',
@@ -253,16 +262,6 @@ export default defineConfig({
                         label: 'Title (Internal)',
                         isTitle: true,
                         required: true,
-                    },
-                    {
-                        type: 'string',
-                        name: 'category',
-                        label: 'Category',
-                    },
-                    {
-                        type: 'string',
-                        name: 'year',
-                        label: 'Year',
                     },
                     {
                         type: 'object',
