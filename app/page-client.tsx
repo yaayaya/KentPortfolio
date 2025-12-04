@@ -3,7 +3,6 @@
 import { useTina } from 'tinacms/dist/react'
 import Link from 'next/link'
 import AnimatedSection from '@/components/AnimatedSection'
-import ZoomableImage from '@/components/ZoomableImage'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
@@ -48,7 +47,7 @@ export default function HomePageClient(props: any) {
             {/* Hero 區塊 */}
             <section className="min-h-screen flex items-center justify-center px-6 lg:px-12 relative overflow-hidden">
                 {/* Background Image Layer */}
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 pt-18">
                     {content.heroBackground && (
                         <img
                             key={content.heroBackground}
@@ -100,7 +99,7 @@ export default function HomePageClient(props: any) {
                                     {/* Image Side */}
                                     <div className="lg:col-span-7 relative overflow-hidden rounded-lg aspect-[16/9]">
                                         {item.coverImage && (
-                                            <ZoomableImage
+                                            <img
                                                 src={item.coverImage}
                                                 alt={item.title}
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

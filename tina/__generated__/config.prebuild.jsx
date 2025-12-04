@@ -83,6 +83,12 @@ var aboutFields = [
 ];
 var newsContentFields = [
   {
+    type: "boolean",
+    name: "visible",
+    label: "Show in this mode",
+    description: "Toggle to show/hide this item in this specific theme mode"
+  },
+  {
     type: "string",
     name: "title",
     label: "Title"
@@ -115,6 +121,12 @@ var newsContentFields = [
   }
 ];
 var artWorksContentFields = [
+  {
+    type: "boolean",
+    name: "visible",
+    label: "Show in this mode",
+    description: "Toggle to show/hide this item in this specific theme mode"
+  },
   {
     type: "string",
     name: "title",

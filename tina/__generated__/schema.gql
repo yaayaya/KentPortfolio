@@ -272,6 +272,7 @@ type AboutConnection implements Connection {
 }
 
 type NewsLight {
+  visible: Boolean
   title: String
   date: String
   description: String
@@ -281,6 +282,7 @@ type NewsLight {
 }
 
 type NewsDark {
+  visible: Boolean
   title: String
   date: String
   description: String
@@ -298,7 +300,13 @@ type News implements Node & Document {
   _values: JSON!
 }
 
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
 input NewsLightFilter {
+  visible: BooleanFilter
   title: StringFilter
   date: StringFilter
   description: StringFilter
@@ -308,6 +316,7 @@ input NewsLightFilter {
 }
 
 input NewsDarkFilter {
+  visible: BooleanFilter
   title: StringFilter
   date: StringFilter
   description: StringFilter
@@ -334,6 +343,7 @@ type NewsConnection implements Connection {
 }
 
 type Art_worksLight {
+  visible: Boolean
   title: String
   category: String
   year: String
@@ -344,6 +354,7 @@ type Art_worksLight {
 }
 
 type Art_worksDark {
+  visible: Boolean
   title: String
   category: String
   year: String
@@ -363,6 +374,7 @@ type Art_works implements Node & Document {
 }
 
 input Art_worksLightFilter {
+  visible: BooleanFilter
   title: StringFilter
   category: StringFilter
   year: StringFilter
@@ -373,6 +385,7 @@ input Art_worksLightFilter {
 }
 
 input Art_worksDarkFilter {
+  visible: BooleanFilter
   title: StringFilter
   category: StringFilter
   year: StringFilter
@@ -579,6 +592,7 @@ input AboutMutation {
 }
 
 input NewsLightMutation {
+  visible: Boolean
   title: String
   date: String
   description: String
@@ -588,6 +602,7 @@ input NewsLightMutation {
 }
 
 input NewsDarkMutation {
+  visible: Boolean
   title: String
   date: String
   description: String
@@ -603,6 +618,7 @@ input NewsMutation {
 }
 
 input Art_worksLightMutation {
+  visible: Boolean
   title: String
   category: String
   year: String
@@ -613,6 +629,7 @@ input Art_worksLightMutation {
 }
 
 input Art_worksDarkMutation {
+  visible: Boolean
   title: String
   category: String
   year: String

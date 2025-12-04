@@ -3,7 +3,6 @@
 import { useTina } from 'tinacms/dist/react'
 import Link from 'next/link'
 import AnimatedSection from '@/components/AnimatedSection'
-import ZoomableImage from '@/components/ZoomableImage'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
@@ -16,6 +15,7 @@ export default function NewsPageClient(props: any) {
 
     const { resolvedTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
+    const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest')
 
     useEffect(() => {
         setMounted(true)
@@ -28,32 +28,59 @@ export default function NewsPageClient(props: any) {
     const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
 
     const newsList = data?.newsConnection?.edges
-        ? data.newsConnection.edges.map((edge: any) => {
-            const node = edge.node
-            const itemContent = node[currentTheme] || {}
-            return {
-                ...node,
-                ...itemContent,
-            }
-        })
+        ? data.newsConnection.edges
+            .map((edge: any) => {
+                const node = edge.node
+                const itemContent = node[currentTheme] || {}
+                return {
+                    ...node,
+                    ...itemContent,
+                }
+            })
+            .filter((item: any) => item.visible !== false && item.title)
+            .sort((a: any, b: any) => {
+                const dateA = new Date(a.date || 0).getTime()
+                const dateB = new Date(b.date || 0).getTime()
+                return sortOrder === 'newest' ? dateB - dateA : dateA - dateB
+            })
         : []
 
     return (
         <div className="min-h-screen pt-24 pb-20 px-6 lg:px-12">
             <div className="max-w-[1400px] mx-auto">
                 <AnimatedSection>
-                    <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tight mb-20">
-                        News
-                    </h1>
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+                        <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tight leading-none">
+                            News
+                        </h1>
+
+                        <div className="flex items-center gap-4 text-sm font-medium uppercase tracking-widest">
+                            <span className="text-gray-500 dark:text-gray-400">Sort by Date:</span>
+                            <div className="flex gap-4">
+                                <button
+                                    onClick={() => setSortOrder('newest')}
+                                    className={`transition-colors ${sortOrder === 'newest' ? 'text-black dark:text-white underline decoration-2 underline-offset-4' : 'text-gray-400 hover:text-black dark:hover:text-white'}`}
+                                >
+                                    Newest
+                                </button>
+                                <button
+                                    onClick={() => setSortOrder('oldest')}
+                                    className={`transition-colors ${sortOrder === 'oldest' ? 'text-black dark:text-white underline decoration-2 underline-offset-4' : 'text-gray-400 hover:text-black dark:hover:text-white'}`}
+                                >
+                                    Oldest
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </AnimatedSection>
 
                 <div className="grid grid-cols-1 gap-20">
                     {newsList.map((item: any, index: number) => (
                         <AnimatedSection key={item.id} delay={index * 0.1}>
-                            <div className="group grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-gray-200 dark:border-gray-800 pb-20 last:border-0">
+                            <div className="group grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-gray-200 dark:border-gray-800 pb-10 md:pb-20 last:border-0 ">
                                 <div className="lg:col-span-7 relative overflow-hidden rounded-lg aspect-[16/9]">
                                     {item.coverImage && (
-                                        <ZoomableImage
+                                        <img
                                             src={item.coverImage}
                                             alt={item.title}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

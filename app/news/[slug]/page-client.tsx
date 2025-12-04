@@ -39,7 +39,7 @@ export default function NewsDetailPageClient(props: any) {
                         href="/news"
                         className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                     >
-                        <span>←</span> Back
+                        <span>←</span> Back to News
                     </Link>
                 </div>
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 border-b border-black dark:border-white/20 pb-8">

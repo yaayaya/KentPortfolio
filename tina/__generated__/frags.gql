@@ -61,6 +61,7 @@ fragment NewsParts on News {
   title
   light {
     __typename
+    visible
     title
     date
     description
@@ -70,6 +71,7 @@ fragment NewsParts on News {
   }
   dark {
     __typename
+    visible
     title
     date
     description
@@ -84,6 +86,7 @@ fragment Art_worksParts on Art_works {
   title
   light {
     __typename
+    visible
     title
     category
     year
@@ -94,6 +97,7 @@ fragment Art_worksParts on Art_works {
   }
   dark {
     __typename
+    visible
     title
     category
     year

@@ -87,6 +87,12 @@ const aboutFields = [
 
 const newsContentFields = [
     {
+        type: 'boolean',
+        name: 'visible',
+        label: 'Show in this mode',
+        description: 'Toggle to show/hide this item in this specific theme mode',
+    },
+    {
         type: 'string',
         name: 'title',
         label: 'Title',
@@ -117,9 +123,15 @@ const newsContentFields = [
         label: 'Image Gallery',
         list: true,
     },
-]
+] as const
 
 const artWorksContentFields = [
+    {
+        type: 'boolean',
+        name: 'visible',
+        label: 'Show in this mode',
+        description: 'Toggle to show/hide this item in this specific theme mode',
+    },
     {
         type: 'string',
         name: 'title',
@@ -156,7 +168,7 @@ const artWorksContentFields = [
         label: 'Image Gallery',
         list: true,
     },
-]
+] as const
 
 export default defineConfig({
     branch,
@@ -189,13 +201,13 @@ export default defineConfig({
                         type: 'object',
                         name: 'light',
                         label: 'Light Mode Content',
-                        fields: homeFields,
+                        fields: homeFields as any,
                     },
                     {
                         type: 'object',
                         name: 'dark',
                         label: 'Dark Mode Content',
-                        fields: homeFields,
+                        fields: homeFields as any,
                     },
                 ],
             },
@@ -213,13 +225,13 @@ export default defineConfig({
                         type: 'object',
                         name: 'light',
                         label: 'Light Mode Content',
-                        fields: aboutFields,
+                        fields: aboutFields as any,
                     },
                     {
                         type: 'object',
                         name: 'dark',
                         label: 'Dark Mode Content',
-                        fields: aboutFields,
+                        fields: aboutFields as any,
                     },
                 ],
             },
@@ -240,13 +252,13 @@ export default defineConfig({
                         type: 'object',
                         name: 'light',
                         label: 'Light Mode Content',
-                        fields: newsContentFields,
+                        fields: newsContentFields as any,
                     },
                     {
                         type: 'object',
                         name: 'dark',
                         label: 'Dark Mode Content',
-                        fields: newsContentFields,
+                        fields: newsContentFields as any,
                     },
                 ],
             },
@@ -267,13 +279,13 @@ export default defineConfig({
                         type: 'object',
                         name: 'light',
                         label: 'Light Mode Content',
-                        fields: artWorksContentFields,
+                        fields: artWorksContentFields as any,
                     },
                     {
                         type: 'object',
                         name: 'dark',
                         label: 'Dark Mode Content',
-                        fields: artWorksContentFields,
+                        fields: artWorksContentFields as any,
                     },
                 ],
             },

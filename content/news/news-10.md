@@ -1,39 +1,23 @@
 ---
-title: News Item 10
+title: 未來迴響 - 新聞
 light:
-  title: "Light News 10"
+  title: 未來迴響 - 新聞
   date: '2024-02-15'
-  description: "A bright update about Light News 10."
-  coverImage: "/content/images/S__25813014_0_0.jpg"
+  description: 未來的設計概念，展現數據之美。探索未知的領域，
+  coverImage: /content/images/pexels-googledeepmind-25626434.jpg
   gallery:
-    - "/content/images/S__25813016_0_0.jpg"
-    - "/content/images/S__25813015_0_0.jpg"
-  body: |
-    sky future aesthetic open azure shine art concept morning digital reality vision creation digital. azure art form lucid art design brilliant aesthetic future work structure reality space. white future clarity clear brilliant aesthetic azure sun process time reality day shine. vivid vivid creation time clarity visible dawn day clear perspective reality process. art lucid glow creation visible reality dawn work process lucid clear horizon vision aesthetic process. design shine time vision design open structure space lucid glow shine digital azure. radiant white sky structure clarity creation day vivid azure noon sun perception clarity perception. perspective structure space azure perception noon brilliant digital sun design future clear horizon.
-    
-    clarity horizon work process light glow morning brilliant visible white bright reality clear. day radiant white white noon art time aesthetic sun noon brilliant. creation perspective day art vivid time clarity day dawn digital noon form open radiant azure vision glow concept design. sun noon white visible bright clear bright future noon vision concept structure structure design future aesthetic art. open digital clarity clarity sky brilliant design space work space structure open light form space reality. vision art clarity azure glow perspective reality digital light brilliant visible bright. process brilliant sun white reality bright visible reality reality structure concept lucid process horizon.
-    
-    visible future vivid perspective structure visible creation vision glow azure dawn. perspective clarity noon digital reality design work clear lucid sky sun morning morning creation reality day creation. design work lucid structure glow dawn art form dawn clarity digital form vivid noon. white noon sun reality concept noon white sun perspective art creation clear design dawn. work design future form creation space noon brilliant light open white sun reality bright. brilliant concept shine digital dawn visible open shine visible vision art clarity light white. space glow brilliant glow digital noon white aesthetic reality light shine azure digital space space.
-    
-    aesthetic process vivid clarity aesthetic future morning noon work aesthetic sun day. space vivid perception glow sky visible vivid work design aesthetic space process light aesthetic. glow azure clarity glow visible aesthetic dawn structure space open azure future white. time creation digital clarity reality time space light space reality structure creation brilliant aesthetic design structure. radiant shine creation perspective visible light space sun light form digital process vivid concept creation reality process brilliant future visible time. aesthetic perspective time bright visible creation process glow process aesthetic reality lucid work open future noon glow bright. bright clear process clear vision azure digital noon vivid design digital process design digital.
-    
-    vivid lucid brilliant perspective sun design future noon aesthetic glow sky art reality reality noon. perception art noon shine open vivid day dawn vivid brilliant structure space digital visible art. process digital concept future bright sky art open future vivid morning process sun open visible horizon. sky design light bright form concept time vision creation sky work creation aesthetic vivid visible. vision reality vision form reality dawn reality design visible work lucid process shine. brilliant radiant radiant open process space lucid sky bright brilliant aesthetic. light sun perception open form glow morning noon design future clear digital visible. brilliant open visible future glow design dawn sky lucid noon noon structure visible. aesthetic horizon glow time process form noon white shine radiant reality aesthetic shine. bright brilliant work white light form creation bright open design sky vivid glow day.
+    - /content/images/pexels-jplenio-1103970.jpg
+    - /content/images/pexels-pixabay-158826.jpg
+    - /content/images/pexels-googledeepmind-17485658.jpg
+  body: 探索數位與現實的邊界，未來的設計概念，虛實整合的藝術形式，無盡的創意與靈感，透過科技展現美學，數位時代的詩意，
 dark:
-  title: "Dark News 10"
+  title: 數據風景 - 新聞
   date: '2024-02-16'
-  description: "A shadowy update about Dark News 10."
-  coverImage: "/content/images/個展小卡_0.jpg"
+  description: 連結人與科技，這是一個新的開始，演算法生成的圖像，
+  coverImage: /content/images/render-room-poster.jpg
   gallery:
-    - "/content/images/Residual Warmth - Rainbow_0.jpg"
-    - "/content/images/S__25813016_0_0.jpg"
-  body: |
-    time concept twilight night secret twilight shade structure process midnight midnight shadow. reality shade structure art digital dusky structure abyss twilight dim noir. void shadow concept night gloom deep abyss time moon concept time shadow twilight creation art moon. secret deep horizon midnight aesthetic time form aesthetic abyss dark aesthetic space future time design. void eclipse perception aesthetic midnight obscure eclipse creation midnight gloom dusky concept obscure form gloom void hidden abyss shadow. moon moon moon deep vision work twilight noir creation concept eclipse secret hidden. dim form deep digital perspective shadow digital perspective deep reality design night perception gloom secret vision horizon.
-    
-    abyss deep shadow twilight form vision perception mystery eclipse reality aesthetic dark dim black dark twilight space. eclipse design hidden structure work obscure eclipse shade shade space hidden shade digital time horizon. dusky shade black hidden black black aesthetic black gloom horizon future shade shadow secret hidden vision. perception night secret gloom obscure horizon night dusky vision concept obscure twilight midnight. moon reality obscure obscure eclipse shadow night night time perception noir. dark form form mystery gloom perception future space horizon horizon space digital digital art black mystery. future work process shadow twilight horizon digital aesthetic design dim vision moon form. future shadow twilight perception noir concept vision eclipse concept reality dim design mystery space process abyss form perception.
-    
-    mystery mystery noir twilight midnight aesthetic deep hidden obscure dim void vision twilight. design creation design eclipse art time shade perspective void dark void creation void dusky perspective form. future process deep dusky void mystery space gloom abyss perception creation perception shadow shade. obscure concept abyss eclipse abyss work dusky vision void work creation work noir. gloom form art night secret perception abyss creation reality process shadow secret space mystery night aesthetic design. void reality time dusky future art dim shadow digital dusky noir eclipse. time time process void shadow black shadow art structure shadow creation moon hidden perception perception secret dim.
-    
-    future shade work vision deep dusky dark abyss noir shade hidden aesthetic creation. night aesthetic perception horizon process aesthetic gloom hidden perspective deep twilight dusky perception reality. reality black reality time midnight obscure dark abyss time dim twilight digital eclipse black. process aesthetic process dark night twilight shadow mystery vision concept horizon work mystery horizon digital. reality perspective work abyss work void night deep noir night form perspective. form perception secret perspective digital moon creation horizon eclipse dusky form moon. process perception digital midnight night obscure creation void form work reality concept future twilight twilight noir vision. gloom concept night noir creation shade void concept design midnight eclipse shade gloom obscure horizon. midnight process space twilight future art design reality dark aesthetic space black dusky work deep.
-    
-    shade obscure work vision future dark time art structure twilight perspective. perception perspective space hidden secret mystery secret hidden reality art dark hidden reality digital. eclipse time design noir twilight concept time midnight work art concept shadow abyss abyss night noir. digital abyss abyss horizon shade midnight time shadow form design space mystery secret dark. art shade abyss work midnight obscure perspective mystery perspective form midnight abyss void midnight. secret vision hidden perception digital midnight shadow vision design dark obscure form digital.
+    - /content/images/pexels-adrien-olichon-1257089-3137068.jpg
+    - /content/images/pexels-jplenio-1103970.jpg
+    - /content/images/S__25813016_0_0.jpg
+  body: 沈浸式的視覺體驗，未來的設計概念，重新定義空間感知，演算法生成的圖像，感受藝術的脈動，打破傳統的框架，
 ---

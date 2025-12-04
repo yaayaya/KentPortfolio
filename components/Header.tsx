@@ -99,8 +99,8 @@ export default function Header({ data }: HeaderProps) {
     return (
         <>
             <motion.header
-                className="fixed top-0 left-0 right-0 z-50 flex items-center border-b"
-                initial="top"
+                className="fixed top-0 left-0 right-0 z-[100] flex items-center border-b"
+                initial={isScrolled ? 'scrolled' : 'top'}
                 animate={isScrolled ? 'scrolled' : 'top'}
                 variants={headerVariants}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}

@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { Mail, Instagram, Linkedin, Github, Dribbble } from 'lucide-react'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
+import { useState } from 'react'
 
 interface FooterProps {
     data: {
@@ -24,9 +26,22 @@ interface FooterProps {
 export default function Footer({ data }: FooterProps) {
     const currentYear = new Date().getFullYear()
     const { site, navigation, social } = data || {}
+    const [showBackToTop, setShowBackToTop] = useState(false)
+    const { scrollY } = useScroll()
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setShowBackToTop(latest > 200)
+    })
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
 
     return (
-        <footer className="bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 py-12 px-6 lg:px-12">
+        <footer className="relative bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 py-12 px-6 lg:px-12">
             <div className="max-w-[1600px] mx-auto flex flex-col items-center text-center gap-16">
 
                 {/* Top: Brand Indicator */}
@@ -85,6 +100,34 @@ export default function Footer({ data }: FooterProps) {
                     <p>© {currentYear} {site?.title}. All rights reserved.</p>
                 </div>
             </div>
+
+            {/* Back to Top Button */}
+            <AnimatePresence>
+                {showBackToTop && (
+                    <motion.button
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
+                        onClick={scrollToTop}
+                        className="fixed bottom-8 right-8 lg:bottom-12 lg:right-12 z-50 p-3 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md border border-gray-200 dark:border-white/20 shadow-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
+                        aria-label="Back to Top"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="group-hover:-translate-y-1 transition-transform duration-300"
+                        >
+                            <path d="M12 19V5M5 12l7-7 7 7" />
+                        </svg>
+                    </motion.button>
+                )}
+            </AnimatePresence>
         </footer>
     )
 }

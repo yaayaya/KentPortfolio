@@ -3,7 +3,6 @@
 import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import AnimatedSection from '@/components/AnimatedSection'
-import ZoomableImage from '@/components/ZoomableImage'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
@@ -44,7 +43,7 @@ export default function AboutPageClient(props: any) {
                     <AnimatedSection>
                         <div className="aspect-[4/5] overflow-hidden rounded-sm bg-gray-100 dark:bg-white/10 mb-8">
                             {content.heroImage && (
-                                <ZoomableImage
+                                <img
                                     src={content.heroImage}
                                     alt={content.name}
                                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
