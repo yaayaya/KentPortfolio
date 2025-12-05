@@ -45,13 +45,17 @@ export default function NewsPageClient(props: any) {
             })
         : []
 
+    const globalData = data?.global || props.data?.global
+    const newsLabelItem = globalData?.navigation?.find((item: any) => item.href === '/news')
+    const newsLabel = (resolvedTheme === 'dark' ? newsLabelItem?.labelDark : newsLabelItem?.labelLight) || 'News'
+
     return (
         <div className="min-h-screen pt-24 pb-20 px-6 lg:px-12">
             <div className="max-w-[1400px] mx-auto">
                 <AnimatedSection>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
                         <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tight leading-none">
-                            News
+                            {newsLabel}
                         </h1>
 
                         <div className="flex items-center gap-4 text-sm font-medium uppercase tracking-widest">

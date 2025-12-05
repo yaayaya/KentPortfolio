@@ -3,6 +3,7 @@ import ArtWorksPageClient from './page-client'
 
 export default async function ArtWorksPage() {
     let worksData = { edges: [] } as any
+    let globalData = {} as any
     let query = ''
     let variables = {}
 
@@ -10,7 +11,10 @@ export default async function ArtWorksPage() {
         const worksRes = await client.queries.art_worksConnection({
             last: 50,
         })
+        const globalRes = await client.queries.global({ relativePath: 'global.json' })
+
         worksData = worksRes.data.art_worksConnection
+        globalData = globalRes.data.global
         query = worksRes.query
         variables = worksRes.variables
     } catch (error) {
@@ -21,7 +25,10 @@ export default async function ArtWorksPage() {
         <ArtWorksPageClient
             query={query}
             variables={variables}
-            data={{ art_worksConnection: worksData }}
+            data={{
+                art_worksConnection: worksData,
+                global: globalData
+            }}
         />
     )
 }

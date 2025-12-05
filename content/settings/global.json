@@ -1,47 +1,61 @@
 {
-    "site": {
-        "title": "Kent 梁家誠",
-        "description": "Digital Artist / Designer",
-        "email": "kent@example.com"
+  "site": {
+    "title": "Kent 梁家誠",
+    "description": "Digital Artist / Designer",
+    "email": "kent@example.com"
+  },
+  "navigation": [
+    {
+      "labelLight": "首頁",
+      "labelDark": "Home",
+      "href": "/"
     },
-    "navigation": [
-        {
-            "label": "Home",
-            "href": "/"
-        },
-        {
-            "label": "News",
-            "href": "/news"
-        },
-        {
-            "label": "Art Works",
-            "href": "/art-works"
-        },
-        {
-            "label": "About",
-            "href": "/about"
-        }
-    ],
-    "social": [
-        {
-            "platform": "Email",
-            "url": "mailto:kent@example.com"
-        },
-        {
-            "platform": "LinkedIn",
-            "url": "https://linkedin.com"
-        },
-        {
-            "platform": "Instagram",
-            "url": "https://instagram.com"
-        },
-        {
-            "platform": "Github",
-            "url": "https://github.com"
-        },
-        {
-            "platform": "Dribbble",
-            "url": "https://dribbble.com"
-        }
-    ]
+    {
+      "labelLight": "活動",
+      "labelDark": "News",
+      "href": "/news"
+    },
+    {
+      "labelLight": "作品",
+      "labelDark": "Art Works",
+      "href": "/art-works"
+    },
+    {
+      "labelLight": "關於",
+      "labelDark": "關於關於",
+      "href": "/about"
+    }
+  ],
+  "social": [
+    {
+      "platform": "Email",
+      "url": "mailto:kent@example.com"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com"
+    },
+    {
+      "platform": "Github",
+      "url": "https://github.com"
+    },
+    {
+      "platform": "Dribbble",
+      "url": "https://dribbble.com"
+    }
+  ],
+  "headerToggle": {
+    "leftText": "梁家誠",
+    "leftSubtitle": "Art",
+    "rightText": "Kent",
+    "rightSubtitle": "Designer",
+    "leftColor": "#1a1a1a",
+    "rightColor": "#ffffff",
+    "leftTextColor": "#ffffff",
+    "rightTextColor": "#000000"
+  }
 }

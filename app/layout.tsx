@@ -56,7 +56,8 @@ export default async function RootLayout({
         navigation: (globalData.navigation as any[])
             ?.filter((item: any) => item !== null)
             .map((item: any) => ({
-                label: item.label || '',
+                labelLight: item.labelLight || item.label || '',
+                labelDark: item.labelDark || item.label || '',
                 href: item.href || '',
             })) || [],
         social: (globalData.social as any[])

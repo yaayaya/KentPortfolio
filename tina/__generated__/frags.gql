@@ -118,7 +118,8 @@ fragment GlobalParts on Global {
   }
   navigation {
     __typename
-    label
+    labelLight
+    labelDark
     href
   }
   social {

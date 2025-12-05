@@ -314,7 +314,8 @@ export default defineConfig({
                         label: 'Navigation',
                         list: true,
                         fields: [
-                            { type: 'string', name: 'label', label: 'Label' },
+                            { type: 'string', name: 'labelLight', label: 'Label (Light Mode)' },
+                            { type: 'string', name: 'labelDark', label: 'Label (Dark Mode)' },
                             { type: 'string', name: 'href', label: 'Link' },
                         ],
                     },

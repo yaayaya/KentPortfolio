@@ -3,6 +3,7 @@ import NewsPageClient from './page-client'
 
 export default async function NewsPage() {
     let newsData = { edges: [] } as any
+    let globalData = {} as any
     let query = ''
     let variables = {}
 
@@ -10,7 +11,10 @@ export default async function NewsPage() {
         const newsRes = await client.queries.newsConnection({
             last: 50,
         })
+        const globalRes = await client.queries.global({ relativePath: 'global.json' })
+
         newsData = newsRes.data.newsConnection
+        globalData = globalRes.data.global
         query = newsRes.query
         variables = newsRes.variables
     } catch (error) {
@@ -21,7 +25,10 @@ export default async function NewsPage() {
         <NewsPageClient
             query={query}
             variables={variables}
-            data={{ newsConnection: newsData }}
+            data={{
+                newsConnection: newsData,
+                global: globalData
+            }}
         />
     )
 }

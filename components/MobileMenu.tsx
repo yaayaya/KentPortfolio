@@ -4,10 +4,13 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { X, Mail, Linkedin, Instagram, Github, Dribbble } from 'lucide-react'
 
+import { useTheme } from 'next-themes'
+
 interface MobileMenuProps {
     onClose: () => void
     navigation: {
-        label: string
+        labelLight: string
+        labelDark: string
         href: string
     }[]
     social: {
@@ -17,6 +20,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ onClose, navigation, social }: MobileMenuProps) {
+    const { theme } = useTheme()
+
     return (
         <motion.div
             initial={{ opacity: 0, y: '-100%' }}
@@ -38,22 +43,25 @@ export default function MobileMenu({ onClose, navigation, social }: MobileMenuPr
 
             {/* Links */}
             <div className="flex-1 flex flex-col justify-center px-6 gap-6 items-center">
-                {navigation.map((item, index) => (
-                    <motion.div
-                        key={item.href}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 + index * 0.1 }}
-                    >
-                        <Link
-                            href={item.href}
-                            onClick={onClose}
-                            className="text-4xl lg:text-6xl font-light uppercase tracking-tight hover:text-gray-500 dark:hover:text-gray-400 transition-colors block"
+                {navigation.map((item, index) => {
+                    const label = theme === 'dark' ? item.labelDark : item.labelLight
+                    return (
+                        <motion.div
+                            key={item.href}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 + index * 0.1 }}
                         >
-                            {item.label}
-                        </Link>
-                    </motion.div>
-                ))}
+                            <Link
+                                href={item.href}
+                                onClick={onClose}
+                                className="text-4xl lg:text-6xl font-light uppercase tracking-tight hover:text-gray-500 dark:hover:text-gray-400 transition-colors block"
+                            >
+                                {label}
+                            </Link>
+                        </motion.div>
+                    )
+                })}
             </div>
 
             {/* Social Section */}

@@ -30,6 +30,10 @@ export default function ArtWorkDetailPageClient(props: any) {
     const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
     const content = work?.[currentTheme] || {}
 
+    const globalData = data?.global || props.data?.global
+    const worksLabelItem = globalData?.navigation?.find((item: any) => item.href === '/art-works')
+    const worksLabel = (resolvedTheme === 'dark' ? worksLabelItem?.labelDark : worksLabelItem?.labelLight) || 'Art Works'
+
     return (
         <div className="pt-28 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen">
             <AnimatedSection>
@@ -38,7 +42,7 @@ export default function ArtWorkDetailPageClient(props: any) {
                         href="/art-works"
                         className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                     >
-                        <span>←</span> Back
+                        <span>←</span> Back to {worksLabel}
                     </Link>
                 </div>
                 <div className="mb-20 text-center max-w-4xl mx-auto">

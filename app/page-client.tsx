@@ -42,6 +42,10 @@ export default function HomePageClient(props: any) {
             .slice(0, 4)
         : []
 
+    const globalData = data?.global || props.data?.global
+    const newsLabelItem = globalData?.navigation?.find((item: any) => item.href === '/news')
+    const newsLabel = (resolvedTheme === 'dark' ? newsLabelItem?.labelDark : newsLabelItem?.labelLight) || 'News'
+
     return (
         <div>
             {/* Hero 區塊 */}
@@ -83,11 +87,11 @@ export default function HomePageClient(props: any) {
                 <div className="max-w-[1400px] mx-auto">
                     <div className="flex items-end justify-between mb-16">
                         <AnimatedSection>
-                            <h2 className="text-4xl font-bold uppercase tracking-tight">Latest News</h2>
+                            <h2 className="text-4xl font-bold uppercase tracking-tight">{newsLabel}</h2>
                         </AnimatedSection>
                         <AnimatedSection delay={0.1}>
                             <Link href="/news" className="text-sm font-medium uppercase tracking-widest hover:text-gray-600 dark:hover:text-gray-300 transition-colors border-b border-black dark:border-white pb-1">
-                                View All News
+                                View All {newsLabel}
                             </Link>
                         </AnimatedSection>
                     </div>

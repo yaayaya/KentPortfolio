@@ -5,6 +5,8 @@ import { Mail, Instagram, Linkedin, Github, Dribbble } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import { useState } from 'react'
 
+import { useTheme } from 'next-themes'
+
 interface FooterProps {
     data: {
         site: {
@@ -13,7 +15,8 @@ interface FooterProps {
             email: string
         }
         navigation: {
-            label: string
+            labelLight: string
+            labelDark: string
             href: string
         }[]
         social: {
@@ -28,6 +31,7 @@ export default function Footer({ data }: FooterProps) {
     const { site, navigation, social } = data || {}
     const [showBackToTop, setShowBackToTop] = useState(false)
     const { scrollY } = useScroll()
+    const { theme } = useTheme()
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setShowBackToTop(latest > 200)
@@ -89,10 +93,11 @@ export default function Footer({ data }: FooterProps) {
                 <div className="w-full pt-12 border-t border-gray-100 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-400 dark:text-gray-500 uppercase tracking-widest">
                     <div className="flex gap-8">
                         {navigation?.map(item => {
-                            if (item.label === 'Contact') return null
+                            const label = theme === 'dark' ? item.labelDark : item.labelLight
+                            if (label === 'Contact') return null
                             return (
                                 <Link key={item.href} href={item.href} className="hover:text-black dark:hover:text-white transition-colors">
-                                    {item.label}
+                                    {label}
                                 </Link>
                             )
                         })}

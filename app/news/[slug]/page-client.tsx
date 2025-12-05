@@ -30,6 +30,10 @@ export default function NewsDetailPageClient(props: any) {
     const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
     const content = item?.[currentTheme] || {}
 
+    const globalData = data?.global || props.data?.global
+    const newsLabelItem = globalData?.navigation?.find((item: any) => item.href === '/news')
+    const newsLabel = (resolvedTheme === 'dark' ? newsLabelItem?.labelDark : newsLabelItem?.labelLight) || 'News'
+
     return (
         <article className="pt-28 pb-20 px-6 lg:px-12 max-w-[1000px] mx-auto min-h-screen">
             {/* Header */}
@@ -39,7 +43,7 @@ export default function NewsDetailPageClient(props: any) {
                         href="/news"
                         className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                     >
-                        <span>←</span> Back
+                        <span>←</span> Back to {newsLabel}
                     </Link>
                 </div>
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 border-b border-black dark:border-white/20 pb-8">

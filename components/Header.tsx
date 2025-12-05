@@ -11,7 +11,8 @@ import MobileMenu from './MobileMenu'
 interface HeaderProps {
     data: {
         navigation: {
-            label: string
+            labelLight: string
+            labelDark: string
             href: string
         }[]
         social: {
@@ -188,6 +189,7 @@ export default function Header({ data }: HeaderProps) {
                     <nav className="hidden lg:flex items-center gap-12">
                         {navigation.map((item) => {
                             const isActive = pathname === item.href
+                            const label = theme === 'dark' ? item.labelDark : item.labelLight
 
                             return (
                                 <Link
@@ -198,7 +200,7 @@ export default function Header({ data }: HeaderProps) {
                                         isActive ? 'text-black dark:text-white' : 'text-gray-400 hover:text-black dark:hover:text-white'
                                     )}
                                 >
-                                    {item.label}
+                                    {label}
                                     {isActive && (
                                         <motion.div
                                             layoutId="underline"

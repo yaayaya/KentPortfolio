@@ -28,11 +28,15 @@ export default function AboutPageClient(props: any) {
     const currentTheme = resolvedTheme === 'dark' ? 'dark' : 'light'
     const content = about?.[currentTheme] || {}
 
+    const globalData = data?.global || props.data?.global
+    const aboutLabelItem = globalData?.navigation?.find((item: any) => item.href === '/about')
+    const aboutLabel = (resolvedTheme === 'dark' ? aboutLabelItem?.labelDark : aboutLabelItem?.labelLight) || 'About'
+
     return (
         <div className="pt-24 pb-20 px-6 lg:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">
             <AnimatedSection>
                 <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tighter mb-20">
-                    About
+                    {aboutLabel}
                 </h1>
             </AnimatedSection>
 
