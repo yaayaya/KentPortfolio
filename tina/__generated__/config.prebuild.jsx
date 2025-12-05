@@ -65,6 +65,11 @@ var aboutFields = [
     label: "Introduction"
   },
   {
+    type: "string",
+    name: "exhibitionsTitle",
+    label: "Exhibitions Section Title"
+  },
+  {
     type: "object",
     name: "exhibitions",
     label: "Exhibitions",
@@ -100,6 +105,12 @@ var newsContentFields = [
   },
   {
     type: "string",
+    name: "category",
+    label: "Category Label",
+    description: "e.g. Exhibition"
+  },
+  {
+    type: "string",
     name: "description",
     label: "Short Description / Location"
   },
@@ -114,10 +125,14 @@ var newsContentFields = [
     label: "Body"
   },
   {
-    type: "image",
+    type: "object",
     name: "gallery",
     label: "Image Gallery",
-    list: true
+    list: true,
+    fields: [
+      { type: "image", name: "src", label: "Image" },
+      { type: "string", name: "caption", label: "Caption" }
+    ]
   }
 ];
 var artWorksContentFields = [
@@ -153,15 +168,24 @@ var artWorksContentFields = [
     label: "Cover Image"
   },
   {
+    type: "string",
+    name: "projectDetailsTitle",
+    label: "Project Details Section Title"
+  },
+  {
     type: "rich-text",
     name: "body",
     label: "Body"
   },
   {
-    type: "image",
+    type: "object",
     name: "gallery",
     label: "Image Gallery",
-    list: true
+    list: true,
+    fields: [
+      { type: "image", name: "src", label: "Image" },
+      { type: "string", name: "caption", label: "Caption" }
+    ]
   }
 ];
 var config_default = defineConfig({

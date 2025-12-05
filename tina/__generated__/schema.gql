@@ -195,6 +195,7 @@ type AboutLight {
   title: String
   email: String
   intro: JSON
+  exhibitionsTitle: String
   exhibitions: [AboutLightExhibitions]
   artistStatement: JSON
 }
@@ -211,6 +212,7 @@ type AboutDark {
   title: String
   email: String
   intro: JSON
+  exhibitionsTitle: String
   exhibitions: [AboutDarkExhibitions]
   artistStatement: JSON
 }
@@ -235,6 +237,7 @@ input AboutLightFilter {
   title: StringFilter
   email: StringFilter
   intro: RichTextFilter
+  exhibitionsTitle: StringFilter
   exhibitions: AboutLightExhibitionsFilter
   artistStatement: RichTextFilter
 }
@@ -251,6 +254,7 @@ input AboutDarkFilter {
   title: StringFilter
   email: StringFilter
   intro: RichTextFilter
+  exhibitionsTitle: StringFilter
   exhibitions: AboutDarkExhibitionsFilter
   artistStatement: RichTextFilter
 }
@@ -271,24 +275,36 @@ type AboutConnection implements Connection {
   edges: [AboutConnectionEdges]
 }
 
+type NewsLightGallery {
+  src: String
+  caption: String
+}
+
 type NewsLight {
   visible: Boolean
   title: String
   date: String
+  category: String
   description: String
   coverImage: String
   body: JSON
-  gallery: [String]
+  gallery: [NewsLightGallery]
+}
+
+type NewsDarkGallery {
+  src: String
+  caption: String
 }
 
 type NewsDark {
   visible: Boolean
   title: String
   date: String
+  category: String
   description: String
   coverImage: String
   body: JSON
-  gallery: [String]
+  gallery: [NewsDarkGallery]
 }
 
 type News implements Node & Document {
@@ -305,24 +321,36 @@ input BooleanFilter {
   exists: Boolean
 }
 
+input NewsLightGalleryFilter {
+  src: ImageFilter
+  caption: StringFilter
+}
+
 input NewsLightFilter {
   visible: BooleanFilter
   title: StringFilter
   date: StringFilter
+  category: StringFilter
   description: StringFilter
   coverImage: ImageFilter
   body: RichTextFilter
-  gallery: ImageFilter
+  gallery: NewsLightGalleryFilter
+}
+
+input NewsDarkGalleryFilter {
+  src: ImageFilter
+  caption: StringFilter
 }
 
 input NewsDarkFilter {
   visible: BooleanFilter
   title: StringFilter
   date: StringFilter
+  category: StringFilter
   description: StringFilter
   coverImage: ImageFilter
   body: RichTextFilter
-  gallery: ImageFilter
+  gallery: NewsDarkGalleryFilter
 }
 
 input NewsFilter {
@@ -342,6 +370,11 @@ type NewsConnection implements Connection {
   edges: [NewsConnectionEdges]
 }
 
+type Art_worksLightGallery {
+  src: String
+  caption: String
+}
+
 type Art_worksLight {
   visible: Boolean
   title: String
@@ -349,8 +382,14 @@ type Art_worksLight {
   year: String
   description: String
   coverImage: String
+  projectDetailsTitle: String
   body: JSON
-  gallery: [String]
+  gallery: [Art_worksLightGallery]
+}
+
+type Art_worksDarkGallery {
+  src: String
+  caption: String
 }
 
 type Art_worksDark {
@@ -360,8 +399,9 @@ type Art_worksDark {
   year: String
   description: String
   coverImage: String
+  projectDetailsTitle: String
   body: JSON
-  gallery: [String]
+  gallery: [Art_worksDarkGallery]
 }
 
 type Art_works implements Node & Document {
@@ -373,6 +413,11 @@ type Art_works implements Node & Document {
   _values: JSON!
 }
 
+input Art_worksLightGalleryFilter {
+  src: ImageFilter
+  caption: StringFilter
+}
+
 input Art_worksLightFilter {
   visible: BooleanFilter
   title: StringFilter
@@ -380,8 +425,14 @@ input Art_worksLightFilter {
   year: StringFilter
   description: StringFilter
   coverImage: ImageFilter
+  projectDetailsTitle: StringFilter
   body: RichTextFilter
-  gallery: ImageFilter
+  gallery: Art_worksLightGalleryFilter
+}
+
+input Art_worksDarkGalleryFilter {
+  src: ImageFilter
+  caption: StringFilter
 }
 
 input Art_worksDarkFilter {
@@ -391,8 +442,9 @@ input Art_worksDarkFilter {
   year: StringFilter
   description: StringFilter
   coverImage: ImageFilter
+  projectDetailsTitle: StringFilter
   body: RichTextFilter
-  gallery: ImageFilter
+  gallery: Art_worksDarkGalleryFilter
 }
 
 input Art_worksFilter {
@@ -568,6 +620,7 @@ input AboutLightMutation {
   title: String
   email: String
   intro: JSON
+  exhibitionsTitle: String
   exhibitions: [AboutLightExhibitionsMutation]
   artistStatement: JSON
 }
@@ -584,6 +637,7 @@ input AboutDarkMutation {
   title: String
   email: String
   intro: JSON
+  exhibitionsTitle: String
   exhibitions: [AboutDarkExhibitionsMutation]
   artistStatement: JSON
 }
@@ -593,30 +647,47 @@ input AboutMutation {
   dark: AboutDarkMutation
 }
 
+input NewsLightGalleryMutation {
+  src: String
+  caption: String
+}
+
 input NewsLightMutation {
   visible: Boolean
   title: String
   date: String
+  category: String
   description: String
   coverImage: String
   body: JSON
-  gallery: [String]
+  gallery: [NewsLightGalleryMutation]
+}
+
+input NewsDarkGalleryMutation {
+  src: String
+  caption: String
 }
 
 input NewsDarkMutation {
   visible: Boolean
   title: String
   date: String
+  category: String
   description: String
   coverImage: String
   body: JSON
-  gallery: [String]
+  gallery: [NewsDarkGalleryMutation]
 }
 
 input NewsMutation {
   title: String
   light: NewsLightMutation
   dark: NewsDarkMutation
+}
+
+input Art_worksLightGalleryMutation {
+  src: String
+  caption: String
 }
 
 input Art_worksLightMutation {
@@ -626,8 +697,14 @@ input Art_worksLightMutation {
   year: String
   description: String
   coverImage: String
+  projectDetailsTitle: String
   body: JSON
-  gallery: [String]
+  gallery: [Art_worksLightGalleryMutation]
+}
+
+input Art_worksDarkGalleryMutation {
+  src: String
+  caption: String
 }
 
 input Art_worksDarkMutation {
@@ -637,8 +714,9 @@ input Art_worksDarkMutation {
   year: String
   description: String
   coverImage: String
+  projectDetailsTitle: String
   body: JSON
-  gallery: [String]
+  gallery: [Art_worksDarkGalleryMutation]
 }
 
 input Art_worksMutation {

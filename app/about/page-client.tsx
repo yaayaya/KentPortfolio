@@ -91,7 +91,7 @@ export default function AboutPageClient(props: any) {
                     <AnimatedSection delay={0.3}>
                         <div className="border-t border-black dark:border-white/20 pt-12">
                             <h2 className="text-sm font-bold uppercase tracking-widest mb-8">
-                                Exhibitions
+                                {content.exhibitionsTitle || 'Exhibitions'}
                             </h2>
                             <ul className="space-y-6">
                                 {content.exhibitions && content.exhibitions.map((ex: any, i: number) => (

@@ -340,6 +340,7 @@ export type AboutLight = {
   title?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
   intro?: Maybe<Scalars['JSON']['output']>;
+  exhibitionsTitle?: Maybe<Scalars['String']['output']>;
   exhibitions?: Maybe<Array<Maybe<AboutLightExhibitions>>>;
   artistStatement?: Maybe<Scalars['JSON']['output']>;
 };
@@ -358,6 +359,7 @@ export type AboutDark = {
   title?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
   intro?: Maybe<Scalars['JSON']['output']>;
+  exhibitionsTitle?: Maybe<Scalars['String']['output']>;
   exhibitions?: Maybe<Array<Maybe<AboutDarkExhibitions>>>;
   artistStatement?: Maybe<Scalars['JSON']['output']>;
 };
@@ -383,6 +385,7 @@ export type AboutLightFilter = {
   title?: InputMaybe<StringFilter>;
   email?: InputMaybe<StringFilter>;
   intro?: InputMaybe<RichTextFilter>;
+  exhibitionsTitle?: InputMaybe<StringFilter>;
   exhibitions?: InputMaybe<AboutLightExhibitionsFilter>;
   artistStatement?: InputMaybe<RichTextFilter>;
 };
@@ -399,6 +402,7 @@ export type AboutDarkFilter = {
   title?: InputMaybe<StringFilter>;
   email?: InputMaybe<StringFilter>;
   intro?: InputMaybe<RichTextFilter>;
+  exhibitionsTitle?: InputMaybe<StringFilter>;
   exhibitions?: InputMaybe<AboutDarkExhibitionsFilter>;
   artistStatement?: InputMaybe<RichTextFilter>;
 };
@@ -421,15 +425,28 @@ export type AboutConnection = Connection & {
   edges?: Maybe<Array<Maybe<AboutConnectionEdges>>>;
 };
 
+export type NewsLightGallery = {
+  __typename?: 'NewsLightGallery';
+  src?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
+};
+
 export type NewsLight = {
   __typename?: 'NewsLight';
   visible?: Maybe<Scalars['Boolean']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   date?: Maybe<Scalars['String']['output']>;
+  category?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   coverImage?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
-  gallery?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  gallery?: Maybe<Array<Maybe<NewsLightGallery>>>;
+};
+
+export type NewsDarkGallery = {
+  __typename?: 'NewsDarkGallery';
+  src?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
 };
 
 export type NewsDark = {
@@ -437,10 +454,11 @@ export type NewsDark = {
   visible?: Maybe<Scalars['Boolean']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   date?: Maybe<Scalars['String']['output']>;
+  category?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   coverImage?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
-  gallery?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  gallery?: Maybe<Array<Maybe<NewsDarkGallery>>>;
 };
 
 export type News = Node & Document & {
@@ -458,24 +476,36 @@ export type BooleanFilter = {
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type NewsLightGalleryFilter = {
+  src?: InputMaybe<ImageFilter>;
+  caption?: InputMaybe<StringFilter>;
+};
+
 export type NewsLightFilter = {
   visible?: InputMaybe<BooleanFilter>;
   title?: InputMaybe<StringFilter>;
   date?: InputMaybe<StringFilter>;
+  category?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   coverImage?: InputMaybe<ImageFilter>;
   body?: InputMaybe<RichTextFilter>;
-  gallery?: InputMaybe<ImageFilter>;
+  gallery?: InputMaybe<NewsLightGalleryFilter>;
+};
+
+export type NewsDarkGalleryFilter = {
+  src?: InputMaybe<ImageFilter>;
+  caption?: InputMaybe<StringFilter>;
 };
 
 export type NewsDarkFilter = {
   visible?: InputMaybe<BooleanFilter>;
   title?: InputMaybe<StringFilter>;
   date?: InputMaybe<StringFilter>;
+  category?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   coverImage?: InputMaybe<ImageFilter>;
   body?: InputMaybe<RichTextFilter>;
-  gallery?: InputMaybe<ImageFilter>;
+  gallery?: InputMaybe<NewsDarkGalleryFilter>;
 };
 
 export type NewsFilter = {
@@ -497,6 +527,12 @@ export type NewsConnection = Connection & {
   edges?: Maybe<Array<Maybe<NewsConnectionEdges>>>;
 };
 
+export type Art_WorksLightGallery = {
+  __typename?: 'Art_worksLightGallery';
+  src?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
+};
+
 export type Art_WorksLight = {
   __typename?: 'Art_worksLight';
   visible?: Maybe<Scalars['Boolean']['output']>;
@@ -505,8 +541,15 @@ export type Art_WorksLight = {
   year?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   coverImage?: Maybe<Scalars['String']['output']>;
+  projectDetailsTitle?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
-  gallery?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  gallery?: Maybe<Array<Maybe<Art_WorksLightGallery>>>;
+};
+
+export type Art_WorksDarkGallery = {
+  __typename?: 'Art_worksDarkGallery';
+  src?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
 };
 
 export type Art_WorksDark = {
@@ -517,8 +560,9 @@ export type Art_WorksDark = {
   year?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   coverImage?: Maybe<Scalars['String']['output']>;
+  projectDetailsTitle?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
-  gallery?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  gallery?: Maybe<Array<Maybe<Art_WorksDarkGallery>>>;
 };
 
 export type Art_Works = Node & Document & {
@@ -531,6 +575,11 @@ export type Art_Works = Node & Document & {
   _values: Scalars['JSON']['output'];
 };
 
+export type Art_WorksLightGalleryFilter = {
+  src?: InputMaybe<ImageFilter>;
+  caption?: InputMaybe<StringFilter>;
+};
+
 export type Art_WorksLightFilter = {
   visible?: InputMaybe<BooleanFilter>;
   title?: InputMaybe<StringFilter>;
@@ -538,8 +587,14 @@ export type Art_WorksLightFilter = {
   year?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   coverImage?: InputMaybe<ImageFilter>;
+  projectDetailsTitle?: InputMaybe<StringFilter>;
   body?: InputMaybe<RichTextFilter>;
-  gallery?: InputMaybe<ImageFilter>;
+  gallery?: InputMaybe<Art_WorksLightGalleryFilter>;
+};
+
+export type Art_WorksDarkGalleryFilter = {
+  src?: InputMaybe<ImageFilter>;
+  caption?: InputMaybe<StringFilter>;
 };
 
 export type Art_WorksDarkFilter = {
@@ -549,8 +604,9 @@ export type Art_WorksDarkFilter = {
   year?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   coverImage?: InputMaybe<ImageFilter>;
+  projectDetailsTitle?: InputMaybe<StringFilter>;
   body?: InputMaybe<RichTextFilter>;
-  gallery?: InputMaybe<ImageFilter>;
+  gallery?: InputMaybe<Art_WorksDarkGalleryFilter>;
 };
 
 export type Art_WorksFilter = {
@@ -829,6 +885,7 @@ export type AboutLightMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   intro?: InputMaybe<Scalars['JSON']['input']>;
+  exhibitionsTitle?: InputMaybe<Scalars['String']['input']>;
   exhibitions?: InputMaybe<Array<InputMaybe<AboutLightExhibitionsMutation>>>;
   artistStatement?: InputMaybe<Scalars['JSON']['input']>;
 };
@@ -845,6 +902,7 @@ export type AboutDarkMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   intro?: InputMaybe<Scalars['JSON']['input']>;
+  exhibitionsTitle?: InputMaybe<Scalars['String']['input']>;
   exhibitions?: InputMaybe<Array<InputMaybe<AboutDarkExhibitionsMutation>>>;
   artistStatement?: InputMaybe<Scalars['JSON']['input']>;
 };
@@ -854,30 +912,47 @@ export type AboutMutation = {
   dark?: InputMaybe<AboutDarkMutation>;
 };
 
+export type NewsLightGalleryMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type NewsLightMutation = {
   visible?: InputMaybe<Scalars['Boolean']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   coverImage?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
-  gallery?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  gallery?: InputMaybe<Array<InputMaybe<NewsLightGalleryMutation>>>;
+};
+
+export type NewsDarkGalleryMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type NewsDarkMutation = {
   visible?: InputMaybe<Scalars['Boolean']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   coverImage?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
-  gallery?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  gallery?: InputMaybe<Array<InputMaybe<NewsDarkGalleryMutation>>>;
 };
 
 export type NewsMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   light?: InputMaybe<NewsLightMutation>;
   dark?: InputMaybe<NewsDarkMutation>;
+};
+
+export type Art_WorksLightGalleryMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Art_WorksLightMutation = {
@@ -887,8 +962,14 @@ export type Art_WorksLightMutation = {
   year?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   coverImage?: InputMaybe<Scalars['String']['input']>;
+  projectDetailsTitle?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
-  gallery?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  gallery?: InputMaybe<Array<InputMaybe<Art_WorksLightGalleryMutation>>>;
+};
+
+export type Art_WorksDarkGalleryMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Art_WorksDarkMutation = {
@@ -898,8 +979,9 @@ export type Art_WorksDarkMutation = {
   year?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   coverImage?: InputMaybe<Scalars['String']['input']>;
+  projectDetailsTitle?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
-  gallery?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  gallery?: InputMaybe<Array<InputMaybe<Art_WorksDarkGalleryMutation>>>;
 };
 
 export type Art_WorksMutation = {
@@ -945,11 +1027,11 @@ export type GlobalMutation = {
 
 export type HomePartsFragment = { __typename: 'Home', light?: { __typename: 'HomeLight', heroTitle1?: string | null, heroTitle2?: string | null, heroSubtitle?: string | null, heroBackground?: string | null, introText1?: string | null, introText2?: any | null, introText3?: string | null } | null, dark?: { __typename: 'HomeDark', heroTitle1?: string | null, heroTitle2?: string | null, heroSubtitle?: string | null, heroBackground?: string | null, introText1?: string | null, introText2?: any | null, introText3?: string | null } | null };
 
-export type AboutPartsFragment = { __typename: 'About', light?: { __typename: 'AboutLight', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutLightExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null, dark?: { __typename: 'AboutDark', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutDarkExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null };
+export type AboutPartsFragment = { __typename: 'About', light?: { __typename: 'AboutLight', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, exhibitionsTitle?: string | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutLightExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null, dark?: { __typename: 'AboutDark', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, exhibitionsTitle?: string | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutDarkExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null };
 
-export type NewsPartsFragment = { __typename: 'News', title: string, light?: { __typename: 'NewsLight', visible?: boolean | null, title?: string | null, date?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null, dark?: { __typename: 'NewsDark', visible?: boolean | null, title?: string | null, date?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null };
+export type NewsPartsFragment = { __typename: 'News', title: string, light?: { __typename: 'NewsLight', visible?: boolean | null, title?: string | null, date?: string | null, category?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<{ __typename: 'NewsLightGallery', src?: string | null, caption?: string | null } | null> | null } | null, dark?: { __typename: 'NewsDark', visible?: boolean | null, title?: string | null, date?: string | null, category?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<{ __typename: 'NewsDarkGallery', src?: string | null, caption?: string | null } | null> | null } | null };
 
-export type Art_WorksPartsFragment = { __typename: 'Art_works', title: string, light?: { __typename: 'Art_worksLight', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null, dark?: { __typename: 'Art_worksDark', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null };
+export type Art_WorksPartsFragment = { __typename: 'Art_works', title: string, light?: { __typename: 'Art_worksLight', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, projectDetailsTitle?: string | null, body?: any | null, gallery?: Array<{ __typename: 'Art_worksLightGallery', src?: string | null, caption?: string | null } | null> | null } | null, dark?: { __typename: 'Art_worksDark', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, projectDetailsTitle?: string | null, body?: any | null, gallery?: Array<{ __typename: 'Art_worksDarkGallery', src?: string | null, caption?: string | null } | null> | null } | null };
 
 export type GlobalPartsFragment = { __typename: 'Global', site?: { __typename: 'GlobalSite', title?: string | null, description?: string | null, email?: string | null } | null, navigation?: Array<{ __typename: 'GlobalNavigation', labelLight?: string | null, labelDark?: string | null, href?: string | null } | null> | null, social?: Array<{ __typename: 'GlobalSocial', platform?: string | null, url?: string | null } | null> | null, headerToggle?: { __typename: 'GlobalHeaderToggle', leftText?: string | null, leftSubtitle?: string | null, rightText?: string | null, rightSubtitle?: string | null, leftColor?: string | null, rightColor?: string | null, leftTextColor?: string | null, rightTextColor?: string | null } | null };
 
@@ -977,7 +1059,7 @@ export type AboutQueryVariables = Exact<{
 }>;
 
 
-export type AboutQuery = { __typename?: 'Query', about: { __typename: 'About', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'AboutLight', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutLightExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null, dark?: { __typename: 'AboutDark', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutDarkExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null } };
+export type AboutQuery = { __typename?: 'Query', about: { __typename: 'About', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'AboutLight', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, exhibitionsTitle?: string | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutLightExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null, dark?: { __typename: 'AboutDark', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, exhibitionsTitle?: string | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutDarkExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null } };
 
 export type AboutConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -989,14 +1071,14 @@ export type AboutConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutConnectionQuery = { __typename?: 'Query', aboutConnection: { __typename?: 'AboutConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AboutConnectionEdges', cursor: string, node?: { __typename: 'About', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'AboutLight', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutLightExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null, dark?: { __typename: 'AboutDark', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutDarkExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null } | null } | null> | null } };
+export type AboutConnectionQuery = { __typename?: 'Query', aboutConnection: { __typename?: 'AboutConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AboutConnectionEdges', cursor: string, node?: { __typename: 'About', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'AboutLight', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, exhibitionsTitle?: string | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutLightExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null, dark?: { __typename: 'AboutDark', heroImage?: string | null, name?: string | null, title?: string | null, email?: string | null, intro?: any | null, exhibitionsTitle?: string | null, artistStatement?: any | null, exhibitions?: Array<{ __typename: 'AboutDarkExhibitions', year?: string | null, title?: string | null, location?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export type NewsQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type NewsQuery = { __typename?: 'Query', news: { __typename: 'News', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'NewsLight', visible?: boolean | null, title?: string | null, date?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null, dark?: { __typename: 'NewsDark', visible?: boolean | null, title?: string | null, date?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null } };
+export type NewsQuery = { __typename?: 'Query', news: { __typename: 'News', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'NewsLight', visible?: boolean | null, title?: string | null, date?: string | null, category?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<{ __typename: 'NewsLightGallery', src?: string | null, caption?: string | null } | null> | null } | null, dark?: { __typename: 'NewsDark', visible?: boolean | null, title?: string | null, date?: string | null, category?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<{ __typename: 'NewsDarkGallery', src?: string | null, caption?: string | null } | null> | null } | null } };
 
 export type NewsConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1008,14 +1090,14 @@ export type NewsConnectionQueryVariables = Exact<{
 }>;
 
 
-export type NewsConnectionQuery = { __typename?: 'Query', newsConnection: { __typename?: 'NewsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'NewsConnectionEdges', cursor: string, node?: { __typename: 'News', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'NewsLight', visible?: boolean | null, title?: string | null, date?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null, dark?: { __typename: 'NewsDark', visible?: boolean | null, title?: string | null, date?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null } | null } | null> | null } };
+export type NewsConnectionQuery = { __typename?: 'Query', newsConnection: { __typename?: 'NewsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'NewsConnectionEdges', cursor: string, node?: { __typename: 'News', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'NewsLight', visible?: boolean | null, title?: string | null, date?: string | null, category?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<{ __typename: 'NewsLightGallery', src?: string | null, caption?: string | null } | null> | null } | null, dark?: { __typename: 'NewsDark', visible?: boolean | null, title?: string | null, date?: string | null, category?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<{ __typename: 'NewsDarkGallery', src?: string | null, caption?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export type Art_WorksQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type Art_WorksQuery = { __typename?: 'Query', art_works: { __typename: 'Art_works', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'Art_worksLight', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null, dark?: { __typename: 'Art_worksDark', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null } };
+export type Art_WorksQuery = { __typename?: 'Query', art_works: { __typename: 'Art_works', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'Art_worksLight', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, projectDetailsTitle?: string | null, body?: any | null, gallery?: Array<{ __typename: 'Art_worksLightGallery', src?: string | null, caption?: string | null } | null> | null } | null, dark?: { __typename: 'Art_worksDark', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, projectDetailsTitle?: string | null, body?: any | null, gallery?: Array<{ __typename: 'Art_worksDarkGallery', src?: string | null, caption?: string | null } | null> | null } | null } };
 
 export type Art_WorksConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1027,7 +1109,7 @@ export type Art_WorksConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Art_WorksConnectionQuery = { __typename?: 'Query', art_worksConnection: { __typename?: 'Art_worksConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Art_worksConnectionEdges', cursor: string, node?: { __typename: 'Art_works', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'Art_worksLight', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null, dark?: { __typename: 'Art_worksDark', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, body?: any | null, gallery?: Array<string | null> | null } | null } | null } | null> | null } };
+export type Art_WorksConnectionQuery = { __typename?: 'Query', art_worksConnection: { __typename?: 'Art_worksConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Art_worksConnectionEdges', cursor: string, node?: { __typename: 'Art_works', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, light?: { __typename: 'Art_worksLight', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, projectDetailsTitle?: string | null, body?: any | null, gallery?: Array<{ __typename: 'Art_worksLightGallery', src?: string | null, caption?: string | null } | null> | null } | null, dark?: { __typename: 'Art_worksDark', visible?: boolean | null, title?: string | null, category?: string | null, year?: string | null, description?: string | null, coverImage?: string | null, projectDetailsTitle?: string | null, body?: any | null, gallery?: Array<{ __typename: 'Art_worksDarkGallery', src?: string | null, caption?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export type GlobalQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -1083,6 +1165,7 @@ export const AboutPartsFragmentDoc = gql`
     title
     email
     intro
+    exhibitionsTitle
     exhibitions {
       __typename
       year
@@ -1098,6 +1181,7 @@ export const AboutPartsFragmentDoc = gql`
     title
     email
     intro
+    exhibitionsTitle
     exhibitions {
       __typename
       year
@@ -1117,20 +1201,30 @@ export const NewsPartsFragmentDoc = gql`
     visible
     title
     date
+    category
     description
     coverImage
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
   dark {
     __typename
     visible
     title
     date
+    category
     description
     coverImage
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
 }
     `;
@@ -1146,8 +1240,13 @@ export const Art_WorksPartsFragmentDoc = gql`
     year
     description
     coverImage
+    projectDetailsTitle
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
   dark {
     __typename
@@ -1157,8 +1256,13 @@ export const Art_WorksPartsFragmentDoc = gql`
     year
     description
     coverImage
+    projectDetailsTitle
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
 }
     `;

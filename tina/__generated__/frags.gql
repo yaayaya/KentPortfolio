@@ -31,6 +31,7 @@ fragment AboutParts on About {
     title
     email
     intro
+    exhibitionsTitle
     exhibitions {
       __typename
       year
@@ -46,6 +47,7 @@ fragment AboutParts on About {
     title
     email
     intro
+    exhibitionsTitle
     exhibitions {
       __typename
       year
@@ -64,20 +66,30 @@ fragment NewsParts on News {
     visible
     title
     date
+    category
     description
     coverImage
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
   dark {
     __typename
     visible
     title
     date
+    category
     description
     coverImage
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
 }
 
@@ -92,8 +104,13 @@ fragment Art_worksParts on Art_works {
     year
     description
     coverImage
+    projectDetailsTitle
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
   dark {
     __typename
@@ -103,8 +120,13 @@ fragment Art_worksParts on Art_works {
     year
     description
     coverImage
+    projectDetailsTitle
     body
-    gallery
+    gallery {
+      __typename
+      src
+      caption
+    }
   }
 }
 

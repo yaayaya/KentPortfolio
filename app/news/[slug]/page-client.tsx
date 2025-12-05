@@ -66,20 +66,25 @@ export default function NewsDetailPageClient(props: any) {
 
             {/* Image Gallery */}
             <div className="space-y-12">
-                {content.gallery && content.gallery.map((img: string, index: number) => (
-                    <AnimatedSection key={index} delay={0.2 + index * 0.1}>
-                        <div className="w-full">
-                            <ZoomableImage
-                                src={img}
-                                alt={`${content.title} - Image ${index + 1}`}
-                                className="w-full h-auto rounded-sm shadow-sm"
-                            />
-                            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center uppercase tracking-widest">
-                                Figure {index + 1}: Exhibition View
-                            </p>
-                        </div>
-                    </AnimatedSection>
-                ))}
+                {content.gallery && content.gallery.map((item: any, index: number) => {
+                    const imgSrc = typeof item === 'string' ? item : item.src
+                    const imgCaption = (typeof item === 'object' && item.caption) ? item.caption : (content.galleryFigureText || 'Exhibition View')
+
+                    return (
+                        <AnimatedSection key={index} delay={0.2 + index * 0.1}>
+                            <div className="w-full">
+                                <ZoomableImage
+                                    src={imgSrc}
+                                    alt={`${content.title} - Image ${index + 1}`}
+                                    className="w-full h-auto rounded-sm shadow-sm"
+                                />
+                                <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center uppercase tracking-widest">
+                                    Figure {index + 1}: {imgCaption}
+                                </p>
+                            </div>
+                        </AnimatedSection>
+                    )
+                })}
             </div>
         </article>
     )

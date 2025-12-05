@@ -60,25 +60,30 @@ export default function ArtWorkDetailPageClient(props: any) {
             </AnimatedSection>
 
             <div className="space-y-20">
-                {content.gallery && content.gallery.map((img: string, index: number) => (
-                    <AnimatedSection key={index} delay={0.2 + index * 0.1}>
-                        <div className="relative w-full">
-                            <ZoomableImage
-                                src={img}
-                                alt={`${content.title} view ${index + 1}`}
-                                className="w-full h-auto max-h-[85vh] object-contain mx-auto shadow-lg"
-                            />
-                        </div>
-                        <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center uppercase tracking-widest">
-                            Figure {index + 1}: Exhibition View
-                        </p>
-                    </AnimatedSection>
-                ))}
+                {content.gallery && content.gallery.map((item: any, index: number) => {
+                    const imgSrc = typeof item === 'string' ? item : item.src
+                    const imgCaption = (typeof item === 'object' && item.caption) ? item.caption : (content.galleryFigureText || 'Exhibition View')
+
+                    return (
+                        <AnimatedSection key={index} delay={0.2 + index * 0.1}>
+                            <div className="relative w-full">
+                                <ZoomableImage
+                                    src={imgSrc}
+                                    alt={`${content.title} view ${index + 1}`}
+                                    className="w-full h-auto max-h-[85vh] object-contain mx-auto shadow-lg"
+                                />
+                            </div>
+                            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center uppercase tracking-widest">
+                                Figure {index + 1}: {imgCaption}
+                            </p>
+                        </AnimatedSection>
+                    )
+                })}
             </div>
 
             <AnimatedSection delay={0.5}>
                 <div className="mt-32 pt-12 border-t border-gray-200 dark:border-white/20 text-center">
-                    <h3 className="text-lg font-bold mb-4">Project Details</h3>
+                    <h3 className="text-lg font-bold mb-4">{content.projectDetailsTitle || 'Project Details'}</h3>
                     <div className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 leading-relaxed prose prose-lg dark:prose-invert">
                         {content.body && <TinaMarkdown content={content.body} />}
                     </div>

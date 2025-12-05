@@ -39,6 +39,7 @@ export default function HomePageClient(props: any) {
                     ...itemContent,
                 }
             })
+            .filter((item: any) => item.visible !== false)
             .slice(0, 4)
         : []
 
@@ -120,7 +121,7 @@ export default function HomePageClient(props: any) {
                                             <div className="flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                                                 <span>{item.date}</span>
                                                 <span className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700"></span>
-                                                <span>Exhibition</span>
+                                                <span>{item.category || 'Exhibition'}</span>
                                             </div>
                                             <h3 className="text-3xl lg:text-4xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
                                                 {item.title}
