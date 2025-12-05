@@ -96,7 +96,7 @@ export default function AboutPageClient(props: any) {
                             <ul className="space-y-6">
                                 {content.exhibitions && content.exhibitions.map((ex: any, i: number) => (
                                     <li key={i} className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 group">
-                                        <span className="text-sm text-gray-500 dark:text-gray-400 w-16">{ex.year}</span>
+                                        <span className="text-sm text-gray-500 dark:text-gray-400">{ex.year}</span>
                                         <span className="text-lg font-medium transition-colors">
                                             {ex.title}
                                         </span>
@@ -111,7 +111,7 @@ export default function AboutPageClient(props: any) {
                     <AnimatedSection delay={0.4}>
                         <div className="border-t border-black dark:border-white/20 pt-12">
                             <h2 className="text-sm font-bold uppercase tracking-widest mb-8">
-                                Artist Statement
+                                Statement
                             </h2>
                             <div className="prose prose-lg text-gray-600 dark:text-gray-300 dark:prose-invert">
                                 {content.artistStatement && <TinaMarkdown content={content.artistStatement} />}

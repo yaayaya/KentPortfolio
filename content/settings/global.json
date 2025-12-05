@@ -1,35 +1,35 @@
 {
   "site": {
-    "title": "Kent 梁家誠",
-    "description": "Digital Artist / Designer",
+    "title": "Kent 梁家誠 Portfolio",
+    "description": "Exhibition Designer / Digital Artist",
     "email": "kent@example.com"
   },
   "navigation": [
     {
       "labelLight": "首頁",
-      "labelDark": "Home",
+      "labelDark": "首頁",
       "href": "/"
     },
     {
-      "labelLight": "活動",
-      "labelDark": "News",
+      "labelLight": "最新動態",
+      "labelDark": "最新動態",
       "href": "/news"
     },
     {
       "labelLight": "作品",
-      "labelDark": "Art Works",
+      "labelDark": "創作",
       "href": "/art-works"
     },
     {
-      "labelLight": "關於",
-      "labelDark": "關於關於",
+      "labelLight": "CV",
+      "labelDark": "關於",
       "href": "/about"
     }
   ],
   "social": [
     {
       "platform": "Email",
-      "url": "mailto:kent@example.com"
+      "url": "mailto:design.kent@example.com"
     },
     {
       "platform": "LinkedIn",
@@ -40,17 +40,13 @@
       "url": "https://instagram.com"
     },
     {
-      "platform": "Github",
-      "url": "https://github.com"
-    },
-    {
-      "platform": "Dribbble",
-      "url": "https://dribbble.com"
+      "platform": "Behance",
+      "url": "https://behance.net"
     }
   ],
   "headerToggle": {
-    "leftText": "梁家誠",
-    "leftSubtitle": "Art",
+    "leftText": "Kent",
+    "leftSubtitle": "Artist",
     "rightText": "Kent",
     "rightSubtitle": "Designer",
     "leftColor": "#1a1a1a",

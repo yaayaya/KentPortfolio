@@ -1,25 +1,37 @@
 ---
-title: 演算法之夢 - 作品
+title: 'Work 04'
 light:
-  title: 演算法之夢 - 作品
-  category: Installation
-  year: '2024'
-  description: 創造獨特的氛圍，透過科技展現美學，未來的設計概念
-  coverImage: /content/images/pexels-adrien-olichon-1257089-3137068.jpg
+  visible: true
+  title: '《回聲》演唱會舞台視覺'
+  category: 'Stage Design'
+  year: '2023'
+  description: '獨立樂團巡迴演唱會的舞台視覺統籌。將音樂的情緒轉化為巨型的 LED 影像。'
+  coverImage: '/content/images/S__25813009_0_0.jpg'
+  projectDetailsTitle: '音樂與視覺'
+  body: |
+    ## 聽覺視覺化
+    
+    針對每一首歌曲的情境，我們設計了對應的動態影像。從迷幻的幾何圖形到寫實的風景拼貼。
+    
+    視覺不搶走音樂的風采，而是成為氛圍的放大器，讓觀眾沈浸在樂團構築的世界觀中。
   gallery:
-    - /content/images/render-room-poster.jpg
-    - /content/images/pexels-googledeepmind-17483906.jpg
-    - /content/images/pexels-googledeepmind-17483869.jpg
-  body: 探索數位與現實的邊界，互動裝置的魅力，展現數據之美，透過科技展現美學，創造獨特的氛圍，虛實整合的藝術形式
+    - src: '/content/images/S__25813009_0_0.jpg'
+      caption: '演唱會現場'
 dark:
-  title: 空間詩學 - 作品
-  category: Digital
+  visible: true
+  title: 'Cyber Fossil'
+  category: '3D Art'
   year: '2024'
-  description: 連結人與科技，流動的線條與色彩，透過科技展現美學
-  coverImage: /content/images/pexels-googledeepmind-17483906.jpg
+  description: '未來考古學系列。想像一千年後的人類如何挖掘我們這個時代的數位遺跡。'
+  coverImage: '/content/images/S__25813011_0_0.jpg'
+  projectDetailsTitle: '未來考古'
+  body: |
+    ## 被石化的科技
+    
+    我用 3D 雕塑技術製作了「石化的手機」、「結晶的電路板」。
+    
+    這些當代最尖端的科技，在作品中成為了斑駁的化石。這是對科技進步速度的一種反諷，也是對物質永恆性的質疑。
   gallery:
-    - /content/images/pexels-googledeepmind-17485658.jpg
-    - /content/images/pexels-googledeepmind-25626434.jpg
-    - /content/images/ResidualWarmth-Rainbow_0.jpg
-  body: 未來的設計概念，沈浸式的視覺體驗，創造獨特的氛圍，虛實整合的藝術形式，演算法生成的圖像，虛實整合的藝術形式
+    - src: '/content/images/S__25813011_0_0.jpg'
+      caption: '數位化石模型'
 ---

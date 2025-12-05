@@ -5,133 +5,139 @@ var homeFields = [
   {
     type: "string",
     name: "heroTitle1",
-    label: "Hero Title Line 1"
+    label: "\u4E3B\u6A19\u984C\u7B2C\u4E00\u884C"
   },
   {
     type: "string",
     name: "heroTitle2",
-    label: "Hero Title Line 2"
+    label: "\u4E3B\u6A19\u984C\u7B2C\u4E8C\u884C"
   },
   {
     type: "string",
     name: "heroSubtitle",
-    label: "Hero Subtitle"
+    label: "\u526F\u6A19\u984C"
   },
   {
     type: "image",
     name: "heroBackground",
-    label: "Hero Background Image"
+    label: "\u4E3B\u8996\u89BA\u80CC\u666F\u5716\u7247"
   },
   {
     type: "string",
     name: "introText1",
-    label: "Introduction Small Text"
+    label: "\u7C21\u4ECB\u5C0F\u6A19\u984C"
   },
   {
     type: "rich-text",
     name: "introText2",
-    label: "Introduction Main Text"
+    label: "\u7C21\u4ECB\u4E3B\u8981\u5167\u5BB9"
   },
   {
     type: "string",
     name: "introText3",
-    label: "Introduction Footer Text"
+    label: "\u7C21\u4ECB\u5E95\u90E8\u6587\u5B57"
   }
 ];
 var aboutFields = [
   {
     type: "image",
     name: "heroImage",
-    label: "Profile Image"
+    label: "\u500B\u4EBA\u7167\u7247"
   },
   {
     type: "string",
     name: "name",
-    label: "Name"
+    label: "\u59D3\u540D"
   },
   {
     type: "string",
     name: "title",
-    label: "Job Title"
+    label: "\u8077\u7A31"
   },
   {
     type: "string",
     name: "email",
-    label: "Email"
+    label: "\u96FB\u5B50\u90F5\u4EF6"
   },
   {
     type: "rich-text",
     name: "intro",
-    label: "Introduction"
+    label: "\u7C21\u4ECB"
   },
   {
     type: "string",
     name: "exhibitionsTitle",
-    label: "Exhibitions Section Title"
+    label: "\u5C55\u89BD\u5340\u584A\u6A19\u984C"
   },
   {
     type: "object",
     name: "exhibitions",
-    label: "Exhibitions",
+    label: "\u5C55\u89BD\u7D93\u6B77",
     list: true,
     fields: [
-      { type: "string", name: "year", label: "Year" },
-      { type: "string", name: "title", label: "Title" },
-      { type: "string", name: "location", label: "Location" }
+      { type: "string", name: "year", label: "\u5E74\u4EFD" },
+      { type: "string", name: "title", label: "\u6A19\u984C" },
+      { type: "string", name: "location", label: "\u5730\u9EDE" }
     ]
   },
   {
     type: "rich-text",
     name: "artistStatement",
-    label: "Artist Statement"
+    label: "\u85DD\u8853\u5BB6\u8072\u660E"
   }
 ];
 var newsContentFields = [
   {
     type: "boolean",
     name: "visible",
-    label: "Show in this mode",
-    description: "Toggle to show/hide this item in this specific theme mode"
+    label: "\u5728\u6B64\u6A21\u5F0F\u986F\u793A",
+    description: "\u5207\u63DB\u4EE5\u5728\u6B64\u7279\u5B9A\u4E3B\u984C\u6A21\u5F0F\u4E2D\u986F\u793A/\u96B1\u85CF\u6B64\u9805\u76EE",
+    ui: {
+      defaultValue: true
+    }
   },
   {
     type: "string",
     name: "title",
-    label: "Title"
+    label: "\u6A19\u984C"
   },
   {
-    type: "string",
+    type: "datetime",
     name: "date",
-    label: "Date"
+    label: "\u65E5\u671F",
+    dateFormat: "YYYY-MM-DD",
+    timeFormat: ""
+    // Set to empty string to only show date picker
   },
   {
     type: "string",
     name: "category",
-    label: "Category Label",
-    description: "e.g. Exhibition"
+    label: "\u5206\u985E\u6A19\u7C64",
+    description: "\u4F8B\u5982\uFF1A\u5C55\u89BD"
   },
   {
     type: "string",
     name: "description",
-    label: "Short Description / Location"
+    label: "\u7C21\u77ED\u63CF\u8FF0 / \u5730\u9EDE"
   },
   {
     type: "image",
     name: "coverImage",
-    label: "Cover Image"
+    label: "\u5C01\u9762\u5716\u7247"
   },
   {
     type: "rich-text",
     name: "body",
-    label: "Body"
+    label: "\u5167\u6587"
   },
   {
     type: "object",
     name: "gallery",
-    label: "Image Gallery",
+    label: "\u5716\u7247\u5EAB",
     list: true,
     fields: [
-      { type: "image", name: "src", label: "Image" },
-      { type: "string", name: "caption", label: "Caption" }
+      { type: "image", name: "src", label: "\u5716\u7247" },
+      { type: "string", name: "caption", label: "\u8AAA\u660E\u6587\u5B57" }
     ]
   }
 ];
@@ -139,52 +145,55 @@ var artWorksContentFields = [
   {
     type: "boolean",
     name: "visible",
-    label: "Show in this mode",
-    description: "Toggle to show/hide this item in this specific theme mode"
+    label: "\u5728\u6B64\u6A21\u5F0F\u986F\u793A",
+    description: "\u5207\u63DB\u4EE5\u5728\u6B64\u7279\u5B9A\u4E3B\u984C\u6A21\u5F0F\u4E2D\u986F\u793A/\u96B1\u85CF\u6B64\u9805\u76EE",
+    ui: {
+      defaultValue: true
+    }
   },
   {
     type: "string",
     name: "title",
-    label: "Title"
+    label: "\u6A19\u984C"
   },
   {
     type: "string",
     name: "category",
-    label: "Category"
+    label: "\u5206\u985E"
   },
   {
     type: "string",
     name: "year",
-    label: "Year"
+    label: "\u5E74\u4EFD"
   },
   {
     type: "string",
     name: "description",
-    label: "Short Description"
+    label: "\u7C21\u77ED\u63CF\u8FF0"
   },
   {
     type: "image",
     name: "coverImage",
-    label: "Cover Image"
+    label: "\u5C01\u9762\u5716\u7247"
   },
   {
     type: "string",
     name: "projectDetailsTitle",
-    label: "Project Details Section Title"
+    label: "\u5C08\u6848\u8A73\u60C5\u5340\u584A\u6A19\u984C"
   },
   {
     type: "rich-text",
     name: "body",
-    label: "Body"
+    label: "\u5167\u6587"
   },
   {
     type: "object",
     name: "gallery",
-    label: "Image Gallery",
+    label: "\u5716\u7247\u5EAB",
     list: true,
     fields: [
-      { type: "image", name: "src", label: "Image" },
-      { type: "string", name: "caption", label: "Caption" }
+      { type: "image", name: "src", label: "\u5716\u7247" },
+      { type: "string", name: "caption", label: "\u8AAA\u660E\u6587\u5B57" }
     ]
   }
 ];
@@ -206,7 +215,7 @@ var config_default = defineConfig({
     collections: [
       {
         name: "home",
-        label: "Home Page",
+        label: "Home",
         path: "content/pages",
         match: { include: "home" },
         format: "json",
@@ -217,20 +226,20 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "light",
-            label: "Light Mode Content",
+            label: "\u6DFA\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: homeFields
           },
           {
             type: "object",
             name: "dark",
-            label: "Dark Mode Content",
+            label: "\u6DF1\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: homeFields
           }
         ]
       },
       {
         name: "about",
-        label: "About Page",
+        label: "About",
         path: "content/pages",
         match: { include: "about" },
         format: "json",
@@ -241,13 +250,13 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "light",
-            label: "Light Mode Content",
+            label: "\u6DFA\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: aboutFields
           },
           {
             type: "object",
             name: "dark",
-            label: "Dark Mode Content",
+            label: "\u6DF1\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: aboutFields
           }
         ]
@@ -261,54 +270,54 @@ var config_default = defineConfig({
           {
             type: "string",
             name: "title",
-            label: "Title (Internal)",
+            label: "\u6A19\u984C (\u5167\u90E8\u4F7F\u7528)",
             isTitle: true,
             required: true
           },
           {
             type: "object",
             name: "light",
-            label: "Light Mode Content",
+            label: "\u6DFA\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: newsContentFields
           },
           {
             type: "object",
             name: "dark",
-            label: "Dark Mode Content",
+            label: "\u6DF1\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: newsContentFields
           }
         ]
       },
       {
         name: "art_works",
-        label: "Art Works",
+        label: "Works",
         path: "content/art-works",
         format: "md",
         fields: [
           {
             type: "string",
             name: "title",
-            label: "Title (Internal)",
+            label: "\u6A19\u984C (\u5167\u90E8\u4F7F\u7528)",
             isTitle: true,
             required: true
           },
           {
             type: "object",
             name: "light",
-            label: "Light Mode Content",
+            label: "\u6DFA\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: artWorksContentFields
           },
           {
             type: "object",
             name: "dark",
-            label: "Dark Mode Content",
+            label: "\u6DF1\u8272\u6A21\u5F0F\u5167\u5BB9",
             fields: artWorksContentFields
           }
         ]
       },
       {
         name: "global",
-        label: "Global Settings",
+        label: "\u5168\u57DF\u8A2D\u5B9A",
         path: "content/settings",
         format: "json",
         ui: {
@@ -318,47 +327,47 @@ var config_default = defineConfig({
           {
             type: "object",
             name: "site",
-            label: "Site Info",
+            label: "\u7DB2\u7AD9\u8CC7\u8A0A",
             fields: [
-              { type: "string", name: "title", label: "Site Title" },
-              { type: "string", name: "description", label: "Site Description" },
-              { type: "string", name: "email", label: "Contact Email" }
+              { type: "string", name: "title", label: "\u7DB2\u7AD9\u6A19\u984C" },
+              { type: "string", name: "description", label: "\u7DB2\u7AD9\u63CF\u8FF0" },
+              { type: "string", name: "email", label: "\u806F\u7D61\u4FE1\u7BB1" }
             ]
           },
           {
             type: "object",
             name: "navigation",
-            label: "Navigation",
+            label: "\u5C0E\u822A\u9078\u55AE",
             list: true,
             fields: [
-              { type: "string", name: "labelLight", label: "Label (Light Mode)" },
-              { type: "string", name: "labelDark", label: "Label (Dark Mode)" },
-              { type: "string", name: "href", label: "Link" }
+              { type: "string", name: "labelLight", label: "\u6A19\u7C64 (\u6DFA\u8272\u6A21\u5F0F)" },
+              { type: "string", name: "labelDark", label: "\u6A19\u7C64 (\u6DF1\u8272\u6A21\u5F0F)" },
+              { type: "string", name: "href", label: "\u9023\u7D50" }
             ]
           },
           {
             type: "object",
             name: "social",
-            label: "Social Links",
+            label: "\u793E\u7FA4\u9023\u7D50",
             list: true,
             fields: [
-              { type: "string", name: "platform", label: "Platform Name" },
-              { type: "string", name: "url", label: "URL" }
+              { type: "string", name: "platform", label: "\u5E73\u53F0\u540D\u7A31" },
+              { type: "string", name: "url", label: "\u7DB2\u5740" }
             ]
           },
           {
             type: "object",
             name: "headerToggle",
-            label: "Header Toggle Settings",
+            label: "\u9801\u9996\u5207\u63DB\u8A2D\u5B9A",
             fields: [
-              { type: "string", name: "leftText", label: "Left Text (Dark Mode)", description: "Default: \u6881\u5BB6\u8AA0" },
-              { type: "string", name: "leftSubtitle", label: "Left Subtitle (Dark Mode)", description: "Default: Art" },
-              { type: "string", name: "rightText", label: "Right Text (Light Mode)", description: "Default: Kent" },
-              { type: "string", name: "rightSubtitle", label: "Right Subtitle (Light Mode)", description: "Default: Designer" },
-              { type: "string", name: "leftColor", label: "Left Background Color", ui: { component: "color" } },
-              { type: "string", name: "rightColor", label: "Right Background Color", ui: { component: "color" } },
-              { type: "string", name: "leftTextColor", label: "Left Text Color", ui: { component: "color" } },
-              { type: "string", name: "rightTextColor", label: "Right Text Color", ui: { component: "color" } }
+              { type: "string", name: "leftText", label: "\u5DE6\u5074\u6587\u5B57 (\u6DF1\u8272\u6A21\u5F0F)", description: "\u9810\u8A2D: \u6881\u5BB6\u8AA0" },
+              { type: "string", name: "leftSubtitle", label: "\u5DE6\u5074\u526F\u6A19\u984C (\u6DF1\u8272\u6A21\u5F0F)", description: "\u9810\u8A2D: Art" },
+              { type: "string", name: "rightText", label: "\u53F3\u5074\u6587\u5B57 (\u6DFA\u8272\u6A21\u5F0F)", description: "\u9810\u8A2D: Kent" },
+              { type: "string", name: "rightSubtitle", label: "\u53F3\u5074\u526F\u6A19\u984C (\u6DFA\u8272\u6A21\u5F0F)", description: "\u9810\u8A2D: Designer" },
+              { type: "string", name: "leftColor", label: "\u5DE6\u5074\u80CC\u666F\u984F\u8272", ui: { component: "color" } },
+              { type: "string", name: "rightColor", label: "\u53F3\u5074\u80CC\u666F\u984F\u8272", ui: { component: "color" } },
+              { type: "string", name: "leftTextColor", label: "\u5DE6\u5074\u6587\u5B57\u984F\u8272", ui: { component: "color" } },
+              { type: "string", name: "rightTextColor", label: "\u53F3\u5074\u6587\u5B57\u984F\u8272", ui: { component: "color" } }
             ]
           }
         ]

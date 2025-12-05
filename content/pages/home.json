@@ -1,10 +1,10 @@
 {
   "light": {
-    "heroTitle1": "白天社畜",
-    "heroTitle2": "快樂設計師",
-    "heroSubtitle": "Embracing the clarity of light in digital design.",
-    "heroBackground": "/content/images/S__25813016_0_0.jpg",
-    "introText1": "A journey into brightness.",
+    "heroTitle1": "空間敘事",
+    "heroTitle2": "視覺對話",
+    "heroSubtitle": "將訊息轉化為空間的體驗，讓視覺引導觀者的動線",
+    "heroBackground": "/content/images/horizontal_1030.jpg",
+    "introText1": "你好，我是 Kent。專注於展場與平面設計的視覺溝通者。",
     "introText2": {
       "type": "root",
       "children": [
@@ -13,20 +13,29 @@
           "children": [
             {
               "type": "text",
-              "text": "Welcome to the light side."
+              "text": "設計不只是平面的排列組合，更是立體的感官引導。我擅長透過平面設計的語彙，在實體空間中構建獨特的氛圍與故事。"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "從一張海報到整個展場的規劃，我注重材質的觸感、光線的流動以及觀者的視角。每一個細節，都是為了傳遞最精準的訊息。"
             }
           ]
         }
       ]
     },
-    "introText3": "Clarity is the ultimate sophistication."
+    "introText3": "讓設計成為連接作品與觀眾的橋樑。"
   },
   "dark": {
-    "heroTitle1": "晚上藝術家",
-    "heroTitle2": "有機會一定",
-    "heroSubtitle": "Diving into the depths of the digital void.",
-    "heroBackground": "/content/images/S__25813011_0_0.jpg",
-    "introText1": "Secrets of the shadows.",
+    "heroTitle1": "數位維度",
+    "heroTitle2": "虛擬感知",
+    "heroSubtitle": "在螢幕的另一端，探索不可見的真實",
+    "heroBackground": "/content/images/exhibition_card.jpg",
+    "introText1": "我是梁家誠。夜幕低垂時，我潛入數位的海洋進行創作。",
     "introText2": {
       "type": "root",
       "children": [
@@ -35,12 +44,21 @@
           "children": [
             {
               "type": "text",
-              "text": "Welcome to the dark side."
+              "text": "如果不被物質束縛，藝術還能是什麼？我利用數位工具重塑光影與形態，探索影像在虛擬空間中的無限可能。"
+            }
+          ]
+        },
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "這裡沒有重力，只有想像力的延伸。透過3D演算與動態影像，我試圖捕捉那些現實中無法存有的瞬間，將其轉化為永恆的數位標本。"
             }
           ]
         }
       ]
     },
-    "introText3": "Darkness reveals what light conceals."
+    "introText3": "歡迎來到我的數位實驗室。"
   }
 }

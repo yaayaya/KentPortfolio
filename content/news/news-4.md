@@ -1,23 +1,33 @@
 ---
-title: 沈浸光影 - 新聞
+title: 'News 04'
 light:
-  title: 沈浸光影 - 新聞
-  date: '2024-05-15'
-  description: 互動裝置的魅力，光影在空間中交錯，沈浸式的視覺體驗
-  coverImage: /content/images/pexels-googledeepmind-17485658.jpg
+  visible: true
+  title: '博物館導覽手冊出版'
+  date: '2023-08-30'
+  category: '出版'
+  description: '負責設計的歷史博物館年度導覽手冊正式發行。注重閱讀體驗與資訊層級。'
+  coverImage: '/content/images/pexels-googledeepmind-18069695.jpg'
+  body: |
+    ## 紙上的展覽
+
+    導覽手冊是展覽的延伸。我們選用了溫潤的紙材，並透過特殊的折頁設計，讓觀者在翻閱時如同在紙上進行一場微型的展覽巡禮。
   gallery:
-    - /content/images/pexels-rostislav-5011647.jpg
-    - /content/images/pexels-googledeepmind-17483869.jpg
-    - /content/images/pexels-pixabay-158826.jpg
-  body: 連結人與科技，視覺與聽覺的共鳴，無盡的創意與靈感，沈浸式的視覺體驗，透過科技展現美學，展現數據之美
+    - src: '/content/images/pexels-googledeepmind-18069695.jpg'
+      caption: '手冊內頁設計'
 dark:
-  title: 未來迴響 - 新聞
-  date: '2024-05-16'
-  description: 打破傳統的框架，虛實整合的藝術形式，透過科技展現美學
-  coverImage: /content/images/pexels-adrien-olichon-1257089-3137068.jpg
+  visible: true
+  title: '虛擬人像實驗計畫'
+  date: '2023-07-15'
+  category: '實驗'
+  description: '與時尚品牌合作，創作虛擬模特兒的數位影像系列。'
+  coverImage: '/content/images/S__25813016_0_0.jpg'
+  body: |
+    ## 完美的虛假
+
+    在社群媒體時代，真實與虛擬的界線日益模糊。這個計畫創造了一位永遠完美、不會老去的虛擬模特兒。
+    
+    透過 3D 掃描與運算，我們賦予「她」極致的細節，挑戰觀者對於真實的定義。
   gallery:
-    - /content/images/pexels-pixabay-158826.jpg
-    - /content/images/pexels-mati-5952651.jpg
-    - /content/images/S__25813009_0_0.jpg
-  body: 互動裝置的魅力，探索數位與現實的邊界，感受藝術的脈動，探索數位與現實的邊界，探索未知的領域，探索數位與現實的邊界
+    - src: '/content/images/S__25813016_0_0.jpg'
+      caption: '虛擬人像渲染圖'
 ---

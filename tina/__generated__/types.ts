@@ -476,6 +476,14 @@ export type BooleanFilter = {
   exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type DatetimeFilter = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type NewsLightGalleryFilter = {
   src?: InputMaybe<ImageFilter>;
   caption?: InputMaybe<StringFilter>;
@@ -484,7 +492,7 @@ export type NewsLightGalleryFilter = {
 export type NewsLightFilter = {
   visible?: InputMaybe<BooleanFilter>;
   title?: InputMaybe<StringFilter>;
-  date?: InputMaybe<StringFilter>;
+  date?: InputMaybe<DatetimeFilter>;
   category?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   coverImage?: InputMaybe<ImageFilter>;
@@ -500,7 +508,7 @@ export type NewsDarkGalleryFilter = {
 export type NewsDarkFilter = {
   visible?: InputMaybe<BooleanFilter>;
   title?: InputMaybe<StringFilter>;
-  date?: InputMaybe<StringFilter>;
+  date?: InputMaybe<DatetimeFilter>;
   category?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   coverImage?: InputMaybe<ImageFilter>;

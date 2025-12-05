@@ -1,25 +1,37 @@
 ---
-title: 沈浸光影 - 作品
+title: 'Work 03'
 light:
-  title: 沈浸光影 - 作品
-  category: Installation
+  visible: true
+  title: '城市閱讀節 海報設計'
+  category: 'Graphic Design'
   year: '2023'
-  description: 未來的設計概念，透過科技展現美學，無盡的創意與靈感
-  coverImage: /content/images/pexels-pixabay-158826.jpg
+  description: '以「翻閱城市」為主題的系列海報。運用錯視手法將建築轉化為書本。'
+  coverImage: '/content/images/render-room-poster.jpg'
+  projectDetailsTitle: '視覺策略'
+  body: |
+    ## 建築即書本
+    
+    我們觀察到高樓大廈的窗戶排列與書本的文字段落有著異曲同工之妙。
+    
+    透過圖底反轉的設計手法，讓觀者第一眼看到的是建築，第二眼則看到了一本打開的書。這是一場視覺的解謎遊戲。
   gallery:
-    - /content/images/IridescentArtDisplay.png
-    - /content/images/pexels-googledeepmind-17483869.jpg
-    - /content/images/S__25813015_0_0.jpg
-  body: 互動裝置的魅力，探索未知的領域，視覺與聽覺的共鳴，流動的線條與色彩，這是一個新的開始，連結人與科技
+    - src: '/content/images/render-room-poster.jpg'
+      caption: '系列海報展示'
 dark:
-  title: 光之軌跡 - 作品
-  category: Digital
-  year: '2023'
-  description: 流動的線條與色彩，數位時代的詩意，打破傳統的框架
-  coverImage: /content/images/pexels-googledeepmind-25626434.jpg
+  visible: true
+  title: 'Waves - 互動裝置'
+  category: 'Interactive'
+  year: '2022'
+  description: '感知人體動作的海洋投影。觀者的移動會擾動虛擬的水面。'
+  coverImage: '/content/images/S__25813014_0_0.jpg'
+  projectDetailsTitle: '互動機制'
+  body: |
+    ## 不可見的連結
+    
+    透過紅外線深度攝影機捕捉觀眾的肢體，即時運算流體力學模擬。
+    
+    當你揮手，牆上的數位海洋便會掀起波瀾。這件作品在說：即使是最微小的動作，也能對環境產生影響。
   gallery:
-    - /content/images/IridescentArtDisplay.png
-    - /content/images/pexels-rostislav-5011647.jpg
-    - /content/images/ResidualWarmth-Rainbow_0.jpg
-  body: 虛實整合的藝術形式，流動的線條與色彩，重新定義空間感知，數位時代的詩意，探索數位與現實的邊界，打破傳統的框架
+    - src: '/content/images/S__25813014_0_0.jpg'
+      caption: '觀眾與作品互動'
 ---

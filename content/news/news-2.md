@@ -1,28 +1,35 @@
 ---
-title: 'Light : 測試  Dark : 無'
+title: 'News 02'
 light:
   visible: true
-  title: Light會顯示
-  date: '2025-03-15'
-  description: 無盡的創意與靈感，探索未知的領域，沈浸式的視覺體驗
-  coverImage: /content/images/pexels-mati-5952651.jpg
+  title: '展覽設計實務講座'
+  date: '2024-03-15'
+  category: '講座'
+  description: '受邀至藝術大學分享展場規劃經驗，從動線安排到材質選用的實務技巧。'
+  coverImage: '/content/images/horizontal_1030.jpg'
   body: |
-    重新定義空間感知，流動的線條與色彩，探索未知的領域，打破傳統的框架，連結人與科技，數位時代的詩意，互動裝置的魅力
-  gallery:
-    - {}
-    - {}
-    - {}
-dark:
-  visible: false
-  title: Dark不顯示
-  date: '2025-03-16'
-  description: 打破傳統的框架，互動裝置的魅力，光影在空間中交錯
-  coverImage: /content/images/pexels-jplenio-1103970.jpg
-  body: |
-    打破傳統的框架，重新定義空間感知，沈浸式的視覺體驗，重新定義空間感知，透過科技展現美學，視覺與聽覺的共鳴
-  gallery:
-    - {}
-    - {}
-    - {}
----
+    ## 從平面到空間
 
+    許多學生對於如何將平面視覺延伸至立體空間感到困惑。在這場講座中，我分享了如何利用「視角」來引導觀眾的注意力。
+
+    展覽設計不僅是擺放展品，更是設計觀眾的「身體經驗」。每一個轉角，都應該有驚喜。
+  gallery:
+    - src: '/content/images/horizontal_1030.jpg'
+      caption: '講座現場'
+dark:
+  visible: true
+  title: 'NFT 系列 - "Void" 發布'
+  date: '2024-01-20'
+  category: '發布'
+  description: '首個生成式藝術 NFT 系列 "Void" 於 Foundation 平台上架。'
+  coverImage: '/content/images/pexels-googledeepmind-25630338.jpg'
+  body: |
+    ## 數位資產的獨特性
+
+    "Void" 系列探討的是虛擬空間中的正負空間關係。每一件作品都是透過演算法隨機生成的獨一無二版本。
+
+    這不僅是銷售作品，更是建立一個數位藝術收藏社群的實驗。
+  gallery:
+    - src: '/content/images/pexels-googledeepmind-25630338.jpg'
+      caption: 'Void #01 - #04 預覽'
+---

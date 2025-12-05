@@ -1,23 +1,35 @@
 ---
-title: 流動視界 - 新聞
+title: 'News 05'
 light:
-  title: 流動視界 - 新聞
-  date: '2024-06-15'
-  description: 展現數據之美，視覺與聽覺的共鳴，無盡的創意與靈感
-  coverImage: /content/images/pexels-googledeepmind-17485658.jpg
+  visible: true
+  title: '海報設計年鑑收錄'
+  date: '2023-05-01'
+  category: '榮耀'
+  description: '三件海報作品被收錄於國際平面設計年鑑，展現台灣設計能量。'
+  coverImage: '/content/images/render-room-poster.jpg'
+  body: |
+    ## 平面的力量
+
+    儘管媒體形式不斷變遷，海報作為最純粹的視覺傳達載體，依然有其獨特的魅力。
+    
+    這次入選的作品皆以「文化轉譯」為主題，嘗試用現代手法詮釋傳統節慶。
   gallery:
-    - /content/images/pexels-googledeepmind-17483869.jpg
-    - /content/images/S__25813009_0_0.jpg
-    - /content/images/pexels-jplenio-1103970.jpg
-  body: 未來的設計概念，互動裝置的魅力，光影在空間中交錯，流動的線條與色彩，這是一個新的開始，展現數據之美
+    - src: '/content/images/render-room-poster.jpg'
+      caption: '收錄作品一覽'
 dark:
-  title: 數位維度 - 新聞
-  date: '2024-06-16'
-  description: 互動裝置的魅力，流動的線條與色彩，互動裝置的魅力
-  coverImage: /content/images/pexels-mati-5952651.jpg
+  visible: true
+  title: 'Audio-Visual Live 表演'
+  date: '2023-04-20'
+  category: '演出'
+  description: '於地下實驗場域進行的聲響影像即時演出。'
+  coverImage: '/content/images/S__25813010_0_0.jpg'
+  body: |
+    ## 高強度的感官體驗
+
+    這是一場沒有預演的即興演出。聲音藝術家給出訊號，我用影像予以回應。
+    
+    在漆黑的空間中，高頻的閃爍與低頻的震動將觀眾包圍，這是一場集體的數位迷幻儀式。
   gallery:
-    - /content/images/S__25813011_0_0.jpg
-    - /content/images/pexels-googledeepmind-17483906.jpg
-    - /content/images/S__25813016_0_0.jpg
-  body: 演算法生成的圖像，感受藝術的脈動，虛實整合的藝術形式，探索數位與現實的邊界，這是一個新的開始，這是一個新的開始
+    - src: '/content/images/S__25813010_0_0.jpg'
+      caption: '演出實況'
 ---

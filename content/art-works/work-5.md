@@ -1,25 +1,37 @@
 ---
-title: 流動視界 - 作品
+title: 'Work 05'
 light:
-  title: 流動視界 - 作品
-  category: Installation
-  year: '2020'
-  description: 流動的線條與色彩，演算法生成的圖像，創造獨特的氛圍
-  coverImage: /content/images/pexels-googledeepmind-17483906.jpg
+  visible: true
+  title: '在地茶葉品牌包裝'
+  category: 'Packaging'
+  year: '2022'
+  description: '結合傳統窗花元素的茶葉禮盒設計。透過包裝說出台灣茶的故事。'
+  coverImage: '/content/images/pexels-googledeepmind-25626434.jpg'
+  projectDetailsTitle: '結構與材質'
+  body: |
+    ## 開箱的儀式感
+    
+    禮盒結構借鑒了傳統多寶格的設計，讓開箱過程像是在探索一座微型博物館。
+    
+    材質選用環保再生紙，並輔以燙金工藝，在樸實中展現精緻的細節，呼應茶葉「回甘」的層次感。
   gallery:
-    - /content/images/S__25813010_0_0.jpg
-    - /content/images/pexels-googledeepmind-18069695.jpg
-    - /content/images/S__25813015_0_0.jpg
-  body: 虛實整合的藝術形式，展現數據之美，探索未知的領域，演算法生成的圖像，展現數據之美，流動的線條與色彩
+    - src: '/content/images/pexels-googledeepmind-25626434.jpg'
+      caption: '禮盒結構展示'
 dark:
-  title: 未來迴響 - 作品
-  category: Digital
-  year: '2020'
-  description: 無盡的創意與靈感，數位時代的詩意，展現數據之美
-  coverImage: /content/images/pexels-mati-5952651.jpg
+  visible: true
+  title: 'AR 濾鏡 - "Mask"'
+  category: 'AR Filter'
+  year: '2023'
+  description: 'Instagram 擴增實境面具。探討社群媒體上的偽裝與變形。'
+  coverImage: '/content/images/S__25813016_0_0.jpg'
+  projectDetailsTitle: '虛擬面具'
+  body: |
+    ## 臉部的畫布
+    
+    透過臉部追蹤技術，將金屬、玻璃等非現實材質覆蓋於使用者的臉上。
+    
+    當你透過螢幕看著自己，那張臉既是你，又不是你。我們在濾鏡中尋找自尊，還是迷失自我？
   gallery:
-    - /content/images/S__25813010_0_0.jpg
-    - /content/images/S__25813016_0_0.jpg
-    - /content/images/pexels-googledeepmind-17483906.jpg
-  body: 未來的設計概念，重新定義空間感知，展現數據之美，無盡的創意與靈感，光影在空間中交錯，重新定義空間感知
+    - src: '/content/images/S__25813016_0_0.jpg'
+      caption: '濾鏡使用效果'
 ---

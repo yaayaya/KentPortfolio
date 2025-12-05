@@ -1,23 +1,37 @@
 ---
-title: 未來迴響 - 新聞
+title: 'News 01'
 light:
-  title: 未來迴響 - 新聞
-  date: '2024-02-15'
-  description: 虛實整合的藝術形式，展現數據之美，重新定義空間感知
-  coverImage: /content/images/messageImage_1763631187629_0.jpg
+  visible: true
+  title: '2024 金點設計獎 入圍'
+  date: '2024-09-10'
+  category: '獎項'
+  description: '為「地方創生特展」設計的主視覺海報入圍年度金點與設計獎。'
+  coverImage: '/content/images/render-room-poster.jpg'
+  body: |
+    ## 看見在地的力量
+
+    這次的設計核心在於將地方的紋理轉化為現代的視覺語彙。我們採集了當地的土壤顏色與植物形態，將其重組為抽象的幾何圖形。
+
+    海報採用特選的美術紙印刷，試圖在數位時代保留紙張的觸感溫度。入圍是對團隊堅持細節的肯定。
   gallery:
-    - /content/images/pexels-googledeepmind-18069695.jpg
-    - /content/images/S__25813015_0_0.jpg
-    - /content/images/pexels-rostislav-5011647.jpg
-  body: 沈浸式的視覺體驗，感受藝術的脈動，感受藝術的脈動，探索未知的領域，這是一個新的開始，創造獨特的氛圍
+    - src: '/content/images/render-room-poster.jpg'
+      caption: '入圍系列海報'
+    - src: '/content/images/exhibition_card.jpg'
+      caption: '設計概念草圖'
 dark:
-  title: 未來迴響 - 新聞
-  date: '2024-02-16'
-  description: 數位時代的詩意，流動的線條與色彩，探索未知的領域
-  coverImage: /content/images/messageImage_1763631187629_0.jpg
+  visible: true
+  title: '白晝之夜 - 影像投影'
+  date: '2024-10-05'
+  category: '展演'
+  description: '參與白晝之夜活動，於城市建築外牆進行大型光雕投影演出。'
+  coverImage: '/content/images/S__25813015_0_0.jpg'
+  body: |
+    ## 喚醒沈睡的建築
+
+    城市的建築在夜晚往往沈寂，我們試圖透過影像賦予它新的生命。
+
+    投影內容結合了建築本身的線條結構，創造出彷彿建築物在呼吸、變形的錯覺。這是一場與城市地景的直接對話。
   gallery:
-    - /content/images/S__25813009_0_0.jpg
-    - /content/images/messageImage_1763631187629_0.jpg
-    - /content/images/exhibition_card.jpg
-  body: 透過科技展現美學，展現數據之美，無盡的創意與靈感，光影在空間中交錯，數位時代的詩意，感受藝術的脈動
+    - src: '/content/images/S__25813015_0_0.jpg'
+      caption: '投影測試現場'
 ---

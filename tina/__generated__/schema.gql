@@ -321,6 +321,14 @@ input BooleanFilter {
   exists: Boolean
 }
 
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
 input NewsLightGalleryFilter {
   src: ImageFilter
   caption: StringFilter
@@ -329,7 +337,7 @@ input NewsLightGalleryFilter {
 input NewsLightFilter {
   visible: BooleanFilter
   title: StringFilter
-  date: StringFilter
+  date: DatetimeFilter
   category: StringFilter
   description: StringFilter
   coverImage: ImageFilter
@@ -345,7 +353,7 @@ input NewsDarkGalleryFilter {
 input NewsDarkFilter {
   visible: BooleanFilter
   title: StringFilter
-  date: StringFilter
+  date: DatetimeFilter
   category: StringFilter
   description: StringFilter
   coverImage: ImageFilter

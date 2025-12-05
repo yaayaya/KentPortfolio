@@ -1,9 +1,9 @@
 {
   "light": {
-    "heroImage": "/content/images/ResidualWarmth-Rainbow_0.jpg",
-    "name": "Kent (Day)",
-    "title": "Visual Designer",
-    "email": "day.kent@example.com",
+    "heroImage": "/content/images/S__25813010_0_0.jpg",
+    "name": "梁家誠 Kent",
+    "title": "展場 / 平面設計師",
+    "email": "design.kent@example.com",
     "intro": {
       "type": "root",
       "children": [
@@ -12,7 +12,7 @@
           "children": [
             {
               "type": "text",
-              "text": "glow form space aesthetic process perspective perspective dawn future horizon sky lucid brilliant concept form glow. time process form white art noon aesthetic perception art shine dawn aesthetic perspective space vision process design. perception art morning clarity future glow open structure creation digital horizon azure dawn art perception. dawn lucid perspective radiant creation digital vivid perception art time azure perception visible dawn. visible work space light day perspective bright future future lucid visible glow morning bright design. light azure azure day visible work creation concept glow lucid space vision shine aesthetic clarity shine clear clear. horizon light noon white design future creation aesthetic radiant perception bright lucid vision space reality. creation aesthetic shine future lucid open structure design sun future form."
+              "text": "擁有豐富的展覽策劃與視覺整合經驗，擅長處理空間與平面的跨域設計。曾與多間美術館、畫廊及商業品牌合作，負責主視覺設計、展場動線規劃及相關文宣製作。"
             }
           ]
         },
@@ -21,37 +21,28 @@
           "children": [
             {
               "type": "text",
-              "text": "lucid digital brilliant design concept digital sky digital visible work dawn aesthetic. dawn bright brilliant structure creation reality white aesthetic azure glow shine horizon light structure. white day visible design brilliant dawn noon sun vision bright design vivid azure shine. digital structure radiant concept horizon dawn morning clear structure day sky concept vivid glow sun structure. work sky clarity reality work radiant future brilliant bright lucid digital shine shine time art aesthetic clear. creation glow white clear horizon work noon glow reality space form dawn vivid morning. glow creation future future structure structure morning clear radiant aesthetic structure digital structure."
-            }
-          ]
-        },
-        {
-          "type": "p",
-          "children": [
-            {
-              "type": "text",
-              "text": "open process clear space creation day vivid reality structure time vision clear vision light lucid. perception concept azure shine concept work sun perspective digital aesthetic horizon sun sun morning clear visible azure. digital design future day vivid sun sun aesthetic sun light noon future white shine form white morning. process dawn space radiant brilliant process day visible white work horizon light space dawn. work vision clear radiant concept visible light perception perception visible form form noon. perception process glow aesthetic noon noon open lucid noon sky future bright azure. shine brilliant art space concept vision morning brilliant process perspective future day visible future white glow sky dawn."
+              "text": "我相信好的展覽設計應該是隱形的，它在潛意識中引導觀眾，讓作品成為主角，同時創造出令人難忘的空間體驗。"
             }
           ]
         }
       ]
     },
-    "exhibitionsTitle": "Exhibitions",
+    "exhibitionsTitle": "工作經歷",
     "exhibitions": [
       {
-        "year": "2024",
-        "title": "Solar Flares",
-        "location": "Daylight Gallery"
+        "year": "2023-Present",
+        "title": "資深視覺設計師",
+        "location": "M 空間設計事務所"
       },
       {
-        "year": "2023",
-        "title": "Prism",
-        "location": "Spectrum Hall"
+        "year": "2020-2023",
+        "title": "展覽企劃 / 設計",
+        "location": "當代藝術基金會"
       },
       {
-        "year": "2022",
-        "title": "White Noise",
-        "location": "Open Space"
+        "year": "2019-2020",
+        "title": "平面設計助理",
+        "location": "O 自有設計工作室"
       }
     ],
     "artistStatement": {
@@ -62,16 +53,7 @@
           "children": [
             {
               "type": "text",
-              "text": "work aesthetic day white design structure sun aesthetic design aesthetic morning future noon brilliant concept white dawn. azure brilliant radiant space time concept future sun bright reality design aesthetic creation. clarity lucid creation morning reality design vivid lucid time bright shine lucid lucid work azure. clarity clarity white process aesthetic azure day process morning shine creation form horizon future open. perception vivid lucid shine clarity sky brilliant time time day clarity sky space clear. space reality art noon noon work white brilliant structure process concept horizon perspective. digital azure clear visible brilliant dawn sky reality dawn horizon process radiant design. day day bright future perception bright design dawn bright work bright design concept time process."
-            }
-          ]
-        },
-        {
-          "type": "p",
-          "children": [
-            {
-              "type": "text",
-              "text": "process morning white sun reality radiant time day morning art process morning light. clarity future perception aesthetic vivid vision morning perspective light clarity aesthetic shine. space bright future brilliant design work design concept light perspective digital shine. future open day visible day clarity design clear glow noon clear clarity aesthetic bright horizon digital. concept open radiant sun light day lucid glow shine creation bright future aesthetic azure structure creation day vivid white noon. clarity horizon lucid space vivid time noon visible vision brilliant brilliant sun."
+              "text": "「設計是空間的語言。」我致力於讓這門語言說得流暢、優雅，且深入人心。"
             }
           ]
         }
@@ -79,10 +61,10 @@
     }
   },
   "dark": {
-    "heroImage": "/content/images/S__25813016_0_0.jpg",
-    "name": "Kent (Night)",
-    "title": "Shadow Architect",
-    "email": "night.kent@example.com",
+    "heroImage": "/content/images/S__25813014_0_0.jpg",
+    "name": "梁家誠 (Nocturne)",
+    "title": "數位藝術創作者",
+    "email": "art.kent@example.com",
     "intro": {
       "type": "root",
       "children": [
@@ -91,7 +73,7 @@
           "children": [
             {
               "type": "text",
-              "text": "dim shade perception black black vision hidden deep twilight vision noir digital black abyss. form night process twilight concept perspective eclipse digital midnight eclipse secret. vision reality horizon void structure twilight process dim void future gloom shadow secret abyss noir secret. design form work time shade vision concept aesthetic concept art secret dark concept. time reality design form midnight perspective perception mystery time work art. reality process digital noir horizon midnight obscure eclipse creation creation vision noir noir structure. future obscure moon time structure work deep dim shade creation black dark digital future time dark dark. perspective deep vision noir work space obscure perspective secret shade moon perspective dark perspective form concept gloom. structure future perception eclipse moon noir horizon mystery night work night obscure creation future design. dim abyss moon deep concept midnight perspective mystery twilight black design obscure form noir moon dark."
+              "text": "數位媒體是我的畫筆，螢幕是我的畫布。我不追求複雜的程式碼邏輯，而是專注於數位影像本身的質感、光影與動態張力。"
             }
           ]
         },
@@ -100,37 +82,28 @@
           "children": [
             {
               "type": "text",
-              "text": "dusky vision dim perspective form time midnight creation deep concept concept shadow aesthetic hidden vision art vision. deep art twilight mystery mystery black perception structure twilight obscure night noir. deep shade creation hidden moon design aesthetic mystery moon creation space form black night structure. twilight midnight eclipse secret perspective process future secret shade concept aesthetic mystery noir art. noir hidden dim art time perception aesthetic twilight noir mystery space shadow vision concept. work obscure obscure black night black vision design twilight night obscure dark aesthetic vision moon twilight. future noir dusky shade dark moon time form time deep concept obscure digital time vision dim. dim vision gloom work digital aesthetic space structure black art aesthetic abyss."
-            }
-          ]
-        },
-        {
-          "type": "p",
-          "children": [
-            {
-              "type": "text",
-              "text": "eclipse future future space structure noir moon deep dim mystery reality shade. hidden dark form digital time creation process deep shadow shade eclipse form obscure aesthetic. hidden work secret dark creation perception space digital perspective midnight perception vision process. abyss space shade dusky dim mystery eclipse future form perception vision gloom shade shade hidden. black secret dark concept night moon moon shade secret abyss perspective future gloom moon art black process shadow midnight. perception work gloom twilight dusky twilight night gloom reality process dim aesthetic time structure concept process mystery dark art. abyss structure work art digital horizon future black future perspective creation void noir horizon process dark deep process time. dark dim future future form vision noir gloom eclipse space creation midnight."
+              "text": "作品常探討科技與自然景觀的超現實結合，透過 3D 渲染與後製合成，創造出既熟悉又陌生的異世界風景。"
             }
           ]
         }
       ]
     },
-    "exhibitionsTitle": "Exhibitions",
+    "exhibitionsTitle": "參展經歷",
     "exhibitions": [
       {
         "year": "2024",
-        "title": "Eclipse",
-        "location": "Underground Bunker"
+        "title": "數位幻景 聯展",
+        "location": "線上虛擬藝廊"
       },
       {
         "year": "2023",
-        "title": "Void",
-        "location": "Black Box"
+        "title": "光之邊界 投影藝術節",
+        "location": "台北流行音樂中心"
       },
       {
         "year": "2022",
-        "title": "Dark Matter",
-        "location": "Deep Space"
+        "title": "未來風景：個展",
+        "location": "濕地 Venue"
       }
     ],
     "artistStatement": {
@@ -141,16 +114,7 @@
           "children": [
             {
               "type": "text",
-              "text": "void structure shadow creation concept dark eclipse creation perspective perspective process abyss design digital. shade perspective space work night midnight abyss eclipse vision obscure concept future. mystery void design aesthetic dusky eclipse concept mystery art hidden creation obscure hidden work art dim aesthetic space eclipse. work shadow reality space work work void hidden black deep time black time perspective structure. mystery process noir reality form hidden art horizon black process midnight midnight mystery hidden space. concept eclipse dark form concept art space obscure secret work art perception process aesthetic moon noir black. future abyss eclipse art vision perspective dim dark creation space future space process."
-            }
-          ]
-        },
-        {
-          "type": "p",
-          "children": [
-            {
-              "type": "text",
-              "text": "work secret structure horizon aesthetic void secret dark mystery hidden time noir moon. eclipse midnight perspective space midnight perspective concept perception aesthetic abyss form horizon perception digital gloom art. dark space mystery form midnight reality midnight abyss reality space dusky moon gloom art dim night shadow gloom process process. black shadow concept design black form black deep abyss reality black dim. eclipse art noir mystery abyss gloom process aesthetic vision form moon void deep form. shade noir aesthetic shade void design abyss night deep shade mystery work mystery. horizon hidden moon dim eclipse perspective mystery moon eclipse vision obscure time. obscure midnight hidden dark structure perception midnight abyss twilight eclipse future perception twilight obscure aesthetic black digital."
+              "text": "在虛擬的世界裡，唯一的限制只有想像力。我試圖打破物理法則，重組視覺的秩序。"
             }
           ]
         }
