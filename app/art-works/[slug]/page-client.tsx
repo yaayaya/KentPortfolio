@@ -40,13 +40,14 @@ export default function ArtWorkDetailPageClient(props: any) {
                 <div className="mb-8">
                     <Link
                         href="/art-works"
-                        className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-400
+                         hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors"
                     >
-                        <span>←</span> Back to {worksLabel}
+                        <span>←</span><span> Back</span>
                     </Link>
                 </div>
                 <div className="mb-20 text-center max-w-4xl mx-auto">
-                    <div className="text-sm font-medium uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
+                    <div className="text-sm font-medium uppercase tracking-widest text-gray-600 dark:text-gray-400 mb-4">
                         {content.category}
                     </div>
                     <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-tight mb-8">
@@ -68,6 +69,9 @@ export default function ArtWorkDetailPageClient(props: any) {
                                 className="w-full h-auto max-h-[85vh] object-contain mx-auto shadow-lg"
                             />
                         </div>
+                        <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center uppercase tracking-widest">
+                            Figure {index + 1}: Exhibition View
+                        </p>
                     </AnimatedSection>
                 ))}
             </div>

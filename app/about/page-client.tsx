@@ -97,7 +97,7 @@ export default function AboutPageClient(props: any) {
                                 {content.exhibitions && content.exhibitions.map((ex: any, i: number) => (
                                     <li key={i} className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 group">
                                         <span className="text-sm text-gray-500 dark:text-gray-400 w-16">{ex.year}</span>
-                                        <span className="text-lg font-medium group-hover:text-primary-600 transition-colors">
+                                        <span className="text-lg font-medium transition-colors">
                                             {ex.title}
                                         </span>
                                         <span className="text-gray-400 dark:text-gray-500 text-sm">{ex.location}</span>

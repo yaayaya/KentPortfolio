@@ -43,7 +43,7 @@ export default function NewsDetailPageClient(props: any) {
                         href="/news"
                         className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                     >
-                        <span>←</span> Back to {newsLabel}
+                        <span>←</span> Back
                     </Link>
                 </div>
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 border-b border-black dark:border-white/20 pb-8">
@@ -51,8 +51,8 @@ export default function NewsDetailPageClient(props: any) {
                         {content.title}
                     </h1>
                     <div className="text-right shrink-0">
-                        <div className="text-xl font-medium">{content.date}</div>
-                        <div className="text-gray-500 dark:text-gray-400 text-sm uppercase tracking-widest mt-1">{content.description}</div>
+                        <div className="text-base font-medium text-gray-800 dark:text-gray-200">{content.date}</div>
+                        <div className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-widest mt-1">{content.description}</div>
                     </div>
                 </div>
             </AnimatedSection>
