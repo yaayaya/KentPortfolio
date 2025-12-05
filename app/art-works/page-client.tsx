@@ -81,8 +81,8 @@ export default function ArtWorksPageClient(props: any) {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
                     {worksList.map((work: any, index: number) => (
                         <AnimatedSection key={work.id} delay={index * 0.1}>
-                            <div className="group space-y-6">
-                                <div className="relative overflow-hidden rounded-lg aspect-[4/5]">
+                            <div className="space-y-6">
+                                <div className="relative overflow-hidden rounded-lg aspect-[4/5] group">
                                     {work.coverImage && (
                                         <img
                                             src={work.coverImage}
@@ -92,18 +92,21 @@ export default function ArtWorksPageClient(props: any) {
                                     )}
                                 </div>
                                 <div className="space-y-2">
-                                    <div className="flex items-center justify-between text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest">
-                                        <span>{work.category}</span>
-                                        <span>{work.year}</span>
-                                    </div>
-                                    <h2 className="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
-                                        <Link href={`/art-works/${work._sys.filename}`}>
+                                    <Link
+                                        href={`/art-works/${work._sys.filename}`}
+                                        className="group block"
+                                    >
+                                        <div className="flex items-center justify-between text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2">
+                                            <span>{work.category}</span>
+                                            <span>{work.year}</span>
+                                        </div>
+                                        <h2 className="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors mb-2">
                                             {work.title}
-                                        </Link>
-                                    </h2>
-                                    <p className="text-gray-600 dark:text-gray-400 line-clamp-2">
-                                        {work.description}
-                                    </p>
+                                        </h2>
+                                        <p className="text-gray-600 dark:text-gray-400 line-clamp-2">
+                                            {work.description}
+                                        </p>
+                                    </Link>
                                 </div>
                             </div>
                         </AnimatedSection>

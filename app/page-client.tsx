@@ -99,9 +99,9 @@ export default function HomePageClient(props: any) {
                     <div className="grid grid-cols-1 gap-20">
                         {latestNews.map((item: any, index: number) => (
                             <AnimatedSection key={item.id} delay={index * 0.1}>
-                                <div className="group grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                                     {/* Image Side */}
-                                    <div className="lg:col-span-7 relative overflow-hidden rounded-lg aspect-[16/9]">
+                                    <div className="lg:col-span-7 relative overflow-hidden rounded-lg aspect-[16/9] group">
                                         {item.coverImage && (
                                             <img
                                                 src={item.coverImage}
@@ -112,26 +112,28 @@ export default function HomePageClient(props: any) {
                                     </div>
 
                                     {/* Text Side */}
-                                    <div className="lg:col-span-5 space-y-6">
-                                        <div className="flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest">
-                                            <span>{item.date}</span>
-                                            <span className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700"></span>
-                                            <span>Exhibition</span>
-                                        </div>
-                                        <h3 className="text-3xl lg:text-4xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
-                                            <Link href={`/news/${item._sys.filename}`}>
-                                                {item.title}
-                                            </Link>
-                                        </h3>
-                                        <p className="text-lg text-gray-600 dark:text-gray-400 line-clamp-3">
-                                            {item.description}
-                                        </p>
+                                    <div className="lg:col-span-5">
                                         <Link
                                             href={`/news/${item._sys.filename}`}
-                                            className="inline-flex items-center text-sm font-medium uppercase tracking-widest mt-4 hover:opacity-70 transition-opacity"
+                                            className="group block space-y-6"
                                         >
-                                            Read More
-                                            <span className="ml-2">→</span>
+                                            <div className="flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                                                <span>{item.date}</span>
+                                                <span className="w-8 h-[1px] bg-gray-300 dark:bg-gray-700"></span>
+                                                <span>Exhibition</span>
+                                            </div>
+                                            <h3 className="text-3xl lg:text-4xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-lg text-gray-600 dark:text-gray-400 line-clamp-3">
+                                                {item.description}
+                                            </p>
+                                            <div
+                                                className="inline-flex items-center text-sm font-medium uppercase tracking-widest mt-4 group-hover:opacity-70 transition-opacity"
+                                            >
+                                                Read More
+                                                <span className="ml-2">→</span>
+                                            </div>
                                         </Link>
                                     </div>
                                 </div>

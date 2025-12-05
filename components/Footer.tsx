@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Mail, Instagram, Linkedin, Github, Dribbble } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { useTheme } from 'next-themes'
 
@@ -29,13 +29,20 @@ interface FooterProps {
 export default function Footer({ data }: FooterProps) {
     const currentYear = new Date().getFullYear()
     const { site, navigation, social } = data || {}
+    const [mounted, setMounted] = useState(false)
     const [showBackToTop, setShowBackToTop] = useState(false)
     const { scrollY } = useScroll()
     const { theme } = useTheme()
 
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
     useMotionValueEvent(scrollY, "change", (latest) => {
         setShowBackToTop(latest > 200)
     })
+
+    if (!mounted) return null
 
     const scrollToTop = () => {
         window.scrollTo({
